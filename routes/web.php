@@ -37,7 +37,7 @@ Route::prefix('admin')
     Route::resource('apartments', ApartmentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('contacts', ContactController::class);
-    Route::resource('sponsors', SponsorController::class);
+    Route::resource('sponsors', SponsorController::class)->only('index');
 
 
 });
