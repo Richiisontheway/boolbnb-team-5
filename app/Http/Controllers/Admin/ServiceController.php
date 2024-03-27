@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Service;
 
+use App\Http\Requests\StoreRequest;
+use App\Http\Requests\UpdateRequest;
+
 class ServiceController extends Controller
 {
     
