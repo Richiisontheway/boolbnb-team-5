@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Models\Service;
-
+//controller
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRequest;
 use App\Http\Requests\UpdateRequest;
 
