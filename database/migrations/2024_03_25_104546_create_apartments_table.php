@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('n_beds')->default(1);
             $table->unsignedTinyInteger('n_baths')->default(1);
             $table->unsignedSmallinteger('mq');
-            $table->float('price')->unsigned();
+            $table->decimal('price', 5, 2)->unsigned();
             $table->string('address');
             $table->string('city');
             $table->string('zip_code');
