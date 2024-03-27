@@ -35,9 +35,13 @@ class ViewSeeder extends Seeder
         foreach ($viewsData as $singleView) {
 
             $view = New View();
+<<<<<<< HEAD
             $apartmentData = Apartment::inRandomOrder()->first();
+=======
+            $apartment = Apartment::inRandomOrder()->first();
+>>>>>>> origin/HEAD
 
-            $view->apartment_id = $apartmentData->id;
+            $view->apartment_id = $apartment->id;
             $view->user_ip = $singleView['user_ip'];
             $view->date = $singleView['date'];
 
