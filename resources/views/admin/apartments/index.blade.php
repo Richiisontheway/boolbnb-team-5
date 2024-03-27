@@ -1,31 +1,37 @@
-<h1>
-    ciao sono l'index
-</h1>
-@foreach ($apartment as $item)
-    <tr>
-        <th scope="row">{{$item->id}}</th>
-        <br>
-        <td>{{$item->title}}</td>
-        <br>
-        <td>{{$item->date}}</td>
-        <br>
+@extends('layouts.app')
 
-        <td>
-            <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
-                Show
-            </a>
-        <br>
+@section('page-title', 'Tutti gli appartamenti')
 
-            <a href="{{route('admin.apartments.edit' , ['apartment' => $item->slug  ])}}" class="btn btn-warning">
-                Edit
-            </a>
-        <br>
+@section('main-content')
+    <h1>
+        ciao sono l'index
+    </h1>
+    @foreach ($apartment as $item)
+        <tr>
+            <th scope="row">{{$item->id}}</th>
+            <br>
+            <td>{{$item->title}}</td>
+            <br>
+            <td>{{$item->date}}</td>
+            <br>
 
-            <a href="" class="btn btn-danger">
-                Delete
-            </a>
-        <br>
+            <td>
+                <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
+                    Show
+                </a>
+            <br>
 
-        </td>
-    </tr>
-@endforeach
+                <a href="{{route('admin.apartments.edit' , ['apartment' => $item->slug  ])}}" class="btn btn-warning">
+                    Edit
+                </a>
+            <br>
+
+                <a href="" class="btn btn-danger">
+                    Delete
+                </a>
+            <br>
+
+            </td>
+        </tr>
+    @endforeach
+@endsection
