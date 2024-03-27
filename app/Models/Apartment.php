@@ -23,8 +23,15 @@ class Apartment extends Model
     public function sponsors() {
         return $this->belongsToMany(Sponsor::class);
     }
+
     public function views()
     {
          return $this->hasMany(View::class);
     }
+
+    public function contacts()
+    {
+         return $this->hasMany(Contact::class);
+    }
+
 }
