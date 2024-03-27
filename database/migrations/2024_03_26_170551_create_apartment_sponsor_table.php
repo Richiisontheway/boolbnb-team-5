@@ -20,7 +20,8 @@ return new class extends Migration
             $table->timestamp('date_end')->nullable();
 
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
-            $table->foreign('sponsorship_id')->references('id')->on('sponsorhips')->onDelete('cascade');
+            $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete('cascade');
+
         });
     }
 
