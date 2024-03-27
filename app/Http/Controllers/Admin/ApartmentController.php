@@ -11,6 +11,11 @@ use App\Models\Apartment;
 
 //request
 use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
+use App\Http\Requests\Apartment\UpdateRequest as ApartmentUpdateRequest;
+
+//helper
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -35,12 +40,33 @@ class ApartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ApartmentStoreRequest $request)
     {
-        //per prendere i dati dalla richiesta
-        // $data = $request;
-        // $apartment = new Apartment();
+        //per vedere se i dati sono valitati dalla request
+        $apartment_data = $request->validated();
+        //per generare l'url con lo slug
+        $slug = Str::slug($apartment_data['title']);
 
+        $coverImgPath = null;
+        if (isset($postData['cover_img'])) {
+            $coverImgPath = Storage::disk('public')->put('images', $postData['cover_img']);
+        }
+        $apartment = Apartment::create([
+            'title' => $apartment_data['title'],
+            'slug' => $slug,
+            'n_rooms' => $apartment_data['n_rooms'],
+            'n_beds' => $apartment_data['n_beds'],
+            'n_baths' => $apartment_data['n_baths'],
+            'mq' => $apartment_data['mq'],
+            'price' => $apartment_data['price'],
+            'address' => $apartment_data['address'],
+            'city' => $apartment_data['city'],
+            'zip_code' => $apartment_data['zip_code'],
+            'cover_img' => $apartment_data['cover_img'],
+            'visible' => $apartment_data['visible']
+        ]);
+
+        return redirect()->route('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -66,9 +92,33 @@ class ApartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Apartment $apartment)
+    public function update(ApartmentUpdateRequest $request, Apartment $apartment)
     {
-        //
+         //per vedere se i dati sono valitati dalla request
+        $apartment_data = $request->validated();
+        //per generare l'url con lo slug
+        $slug = Str::slug($apartment_data['title']);
+
+        $coverImgPath = null;
+        if (isset($postData['cover_img'])) {
+            $coverImgPath = Storage::disk('public')->put('images', $postData['cover_img']);
+        }
+        $apartment = Apartment::create([
+            'title' => $apartment_data['title'],
+            'slug' => $slug,
+            'n_rooms' => $apartment_data['n_rooms'],
+            'n_beds' => $apartment_data['n_beds'],
+            'n_baths' => $apartment_data['n_baths'],
+            'mq' => $apartment_data['mq'],
+            'price' => $apartment_data['price'],
+            'address' => $apartment_data['address'],
+            'city' => $apartment_data['city'],
+            'zip_code' => $apartment_data['zip_code'],
+            'cover_img' => $apartment_data['cover_img'],
+            'visible' => $apartment_data['visible']
+        ]);
+
+        return redirect()->route('admin.apartments.show', compact('apartment'));
     }
 
     /**
