@@ -26,7 +26,7 @@ class ViewSeeder extends Seeder
         });
 
         // Estraggo gli appartamenti dal file in Config
-        $viewsData = config('apartments');
+        $viewsData = config('viewsData');
 
         // Estraggo i servizi
         $apartment = Apartment::all();
@@ -35,9 +35,9 @@ class ViewSeeder extends Seeder
         foreach ($viewsData as $singleView) {
 
             $view = New View();
-            $apartmentData = $apartment::inRandomOrder()->first();
+            $apartment = Apartment::inRandomOrder()->first();
 
-            $view->apartment_id = $apartmentData->id;
+            $view->apartment_id = $apartment->id;
             $view->user_ip = $singleView['user_ip'];
             $view->date = $singleView['date'];
 
