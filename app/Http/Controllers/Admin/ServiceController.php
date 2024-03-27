@@ -47,11 +47,10 @@ class ServiceController extends Controller
         }
     
         
-        public function show(String $id)
+        public function show(Service $service)
         {
 
-            // Recupera il servizio corrispondente all'ID fornito
-            $service = Service::where('id',$id)->findOrFail();
+            // Recupera il servizio corrispondente all'ID fornito            
 
             // Passa il servizio alla vista per la visualizzazione
             return view('admin.services.show', compact('service'));

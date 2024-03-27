@@ -36,7 +36,7 @@ class StoreRequest extends FormRequest
             'zip_code' => 'required|numeric|digit:5',
             'cover_img' => 'required|image',
             'visible' => 'required|Boolean:true'
-        ];
+        ]; 
     }
     
     //funzione per la generazione degli errori

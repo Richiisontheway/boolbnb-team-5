@@ -7,31 +7,37 @@
         ciao sono l'index
     </h1>
     @foreach ($apartment as $item)
-        <tr>
-            <th scope="row">{{$item->id}}</th>
-            <br>
-            <td>{{$item->title}}</td>
-            <br>
-            <td>{{$item->date}}</td>
-            <br>
+        
+            <div>
+                {{$item->id}}
+            </div>
+            <span>
+                {{$item->title}}
+            </span>
+            <div>
+                {{$item->date}}
+            </div>  
 
-            <td>
+            <div style="color: white">
+                @forelse ($item->services as $singleservice)
+                    <a href="{{route('admin.services.show', ['service' => $singleservice->id])}}">
+                        {{$singleservice->title}} -      
+                    </a>   
+                @empty    
+                    -
+                @endforelse
+            </div>
+            <div>
                 <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
                     Show
                 </a>
-            <br>
-
                 <a href="{{route('admin.apartments.edit' , ['apartment' => $item->slug  ])}}" class="btn btn-warning">
                     Edit
                 </a>
-            <br>
-
                 <a href="" class="btn btn-danger">
                     Delete
-                </a>
-            <br>
-
-            </td>
-        </tr>
+                </a>       
+            </div>      
+        
     @endforeach
 @endsection

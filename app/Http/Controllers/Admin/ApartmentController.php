@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 //controller
 use App\Http\Controllers\Controller;
 
 //model
 use App\Models\Apartment;
+use App\Models\Service;
 
 //request
+use Illuminate\Http\Request;
 use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
 use App\Http\Requests\Apartment\UpdateRequest as ApartmentUpdateRequest;
 
@@ -24,9 +25,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //per restituirmi tutti i valori della tabella associati al model
+        //per restituirmi tutti i valori della tabella associati ai model
         $apartment = Apartment::all();
-        return view('admin.apartments.index', compact('apartment'));
+        $service = Service::all();
+        return view('admin.apartments.index', compact('apartment', 'service'));
     }
 
     /**
@@ -48,8 +50,8 @@ class ApartmentController extends Controller
         $slug = Str::slug($apartment_data['title']);
 
         $coverImgPath = null;
-        if (isset($postData['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $postData['cover_img']);
+        if (isset($apartment_data['cover_img'])) {
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
         $apartment = Apartment::create([
             'title' => $apartment_data['title'],
@@ -62,7 +64,7 @@ class ApartmentController extends Controller
             'address' => $apartment_data['address'],
             'city' => $apartment_data['city'],
             'zip_code' => $apartment_data['zip_code'],
-            'cover_img' => $apartment_data['cover_img'],
+            'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
 
