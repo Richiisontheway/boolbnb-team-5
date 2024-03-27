@@ -58,10 +58,8 @@ class ServiceController extends Controller
 
     
        
-        public function edit(string $id)
+        public function edit(Service $service)
         {
-           
-            $Service = Service::where('id',$id)->firstOrFail();
             return view('admin.services.edit', compact('service'));
         }
     

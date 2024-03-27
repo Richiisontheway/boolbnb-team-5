@@ -20,6 +20,7 @@
 
             <div style="color: white">
                 @forelse ($item->services as $singleservice)
+                    <i class="{{$singleservice->icon}}"></i>
                     <a href="{{route('admin.services.show', ['service' => $singleservice->id])}}">
                         {{$singleservice->title}} -      
                     </a>   
