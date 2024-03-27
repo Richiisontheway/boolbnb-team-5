@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 //model
-use App\Models\Apartment;
+use App\Models\Sponsor;
 
-
+// http://127.0.0.1:8000/admin/sponsors
 //helper
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -22,8 +22,8 @@ class SponsorController extends Controller
     public function index()
     {
         //per restituirmi tutti i valori della tabella associati al model
-        $apartment = Apartment::all();
-        return view('admin.apartments.index', compact('apartment'));
+        $sponsors = Sponsor::all();
+        return view('admin.sponsors.index', compact('sponsors'));
     }
 
     /**
@@ -69,11 +69,11 @@ class SponsorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(string $id)
     {
-        //serve per far funzionare lo uri con lo slug anziché che con l'id
-        $apartment = Apartment::where('slug',$slug)->firstOrFail();
-        return view('admin.apartments.show', compact('apartment'));
+        //serve per far funzionare lo uri con lo id anziché che con l'id
+        $sponsor = Sponsor::where('id',$id)->firstOrFail();
+        return view('admin.sponsors.show', compact('sponsor'));
     }
 
     /**
