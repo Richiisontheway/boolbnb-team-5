@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id');
-            $table->unsignedBigInteger('sponsorship_id');
+            $table->unsignedBigInteger('sponsor_id');
             $table->timestamps();
             $table->timestamp('date_start')->nullable();
             $table->timestamp('date_end')->nullable();
 
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
-            $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete('cascade');
+            $table->foreign('sponsor_id')->references('id')->on('sponsors')->onDelete('cascade');
 
         });
     }
