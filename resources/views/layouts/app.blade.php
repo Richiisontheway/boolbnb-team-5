@@ -24,10 +24,16 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.apartments.index')}}">Index</a>
+                                <a class="nav-link" href="{{route('admin.apartments.index')}}">Appartamenti</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link 3</a>
+                                <a class="nav-link" href="{{ route('admin.services.index') }}">Servizi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.contacts.index') }}">Messaggi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">

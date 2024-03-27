@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
-@section('page-title', 'Tutti gli appartamenti')
+@section('page-title', 'Tutti i servizi')
 
 @section('main-content')
     <h1>
         ciao sono l'index
     </h1>
-    @foreach ($apartment as $item)
+    @foreach ($services as $singleService)
         <tr>
-            <th scope="row">{{$item->id}}</th>
+            <th scope="row">{{$singleService->id}}</th>
             <br>
-            <td>{{$item->title}}</td>
-            <br>
-            <td>{{$item->date}}</td>
-            <br>
+            <td>{{$singleService->title}}</td>
+            <span>
+                <i class="{{ $singleService->icon }}"></i>
+            </span>
 
-            <td>
+            {{-- <td>
                 <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
                     Show
                 </a>
@@ -29,7 +29,7 @@
                 <a href="" class="btn btn-danger">
                     Delete
                 </a>
-            <br>
+            <br> --}}
 
             </td>
         </tr>
