@@ -11,7 +11,7 @@ class CreateResourceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,8 @@ class CreateResourceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' =>'required|string|Max:128',
-            'icon' =>'required|string|Max:255'
+            'title' =>'required|string|max:128',
+            'icon' =>'required|string|max:255'
         ];
     }
 }
