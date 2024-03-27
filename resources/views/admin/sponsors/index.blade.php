@@ -1,37 +1,38 @@
 @extends('layouts.app')
 
-@section('page-title', 'Tutti gli appartamenti')
+@section('page-title', 'Sponsorizzazioni disponibili')
 
 @section('main-content')
     <h1>
-        ciao sono l'index
+        Index degli sponsors
     </h1>
-    @foreach ($apartment as $item)
-        <tr>
-            <th scope="row">{{$item->id}}</th>
-            <br>
-            <td>{{$item->title}}</td>
-            <br>
-            <td>{{$item->date}}</td>
-            <br>
 
-            <td>
-                <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
-                    Show
-                </a>
-            <br>
+      <div class="container">
+        <div class="row">
+            @foreach ($sponsors as $sponsor)
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        
+                        {{-- <img src="..." class="card-img-top" alt="..."> --}}
+                        <div class="card-body">
+                            <h3>    
+                                {{ $sponsor->title }}
+                            </h3>
+                            <div class="card-text">
+                                <ul>
+                                    <li>
+                                        Durata: {{ $sponsor->time }} h
+                                    </li>
+                                    <li>
+                                        Prezzo: {{ $sponsor->price }} €
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+      </div>
 
-                <a href="{{route('admin.apartments.edit' , ['apartment' => $item->slug  ])}}" class="btn btn-warning">
-                    Edit
-                </a>
-            <br>
-
-                <a href="" class="btn btn-danger">
-                    Delete
-                </a>
-            <br>
-
-            </td>
-        </tr>
-    @endforeach
 @endsection
