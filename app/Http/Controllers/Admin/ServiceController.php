@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateResourceRequest;
+
 
 use App\Models\Service;
+use App\Models\Resource;
 //controller
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRequest;
@@ -30,31 +33,36 @@ class ServiceController extends Controller
         
         public function store(Request $request)
         {
-              // Crea una nuova istanza dell'oggetto Item utilizzando i dati dalla richiesta
-            //$item = new Item();
-           // $item->title = $request->input('title');
-            //$item->icon = $request->input('icon');
-            // Salva l'oggetto Item nel database
-            //$item->save();
+                // Validare i dati inviati dalla richiesta
+                $validatedData = $request->validated();
 
-    // Ritorna una risposta di successo
-            return response()->json(['message' => 'Item salvato con successo'], 201);
-    
+                // Creare la risorsa utilizzando i dati validati
+               // $resource = new Resource();
+               // $resource->title = $validatedData['title'];
+              //  $resource->icon = $validatedData['icon'];
+              //  $resource->save();
+
+                 // Ritornare una risposta di successo o reindirizzare l'utente a una pagina di conferma, ecc.
+
         }
     
         
-        public function show(string $slug)
+        public function show(String $id)
         {
-            
-            $Service = Service::where('slug',$slug)->firstOrFail();
+
+            // Recupera il servizio corrispondente all'ID fornito
+            $service = Service::where('id',$id)->findOrFail();
+
+            // Passa il servizio alla vista per la visualizzazione
             return view('admin.services.show', compact('service'));
         }
+
     
        
-        public function edit(string $slug)
+        public function edit(string $id)
         {
            
-            $Service = Service::where('slug',$slug)->firstOrFail();
+            $Service = Service::where('id',$id)->firstOrFail();
             return view('admin.services.edit', compact('service'));
         }
     
