@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('apartment_id');
             $table->unsignedBigInteger('sponsorship_id');
             $table->timestamps();
-            $table->timestamp('date_start');
-            $table->timestamp('date_end');
+            $table->timestamps('date_start');
+            $table->timestamps('date_end');
 
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->foreign('sponsorship_id')->references('id')->on('sponsorhips')->onDelete('cascade');
