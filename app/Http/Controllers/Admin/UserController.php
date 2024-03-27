@@ -9,15 +9,13 @@ use App\Http\Controllers\Controller;
 //model
 use App\Models\Apartment;
 
-//request
-use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
-use App\Http\Requests\Apartment\UpdateRequest as ApartmentUpdateRequest;
+
 
 //helper
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class ApartmentController extends Controller
+class UserController extends Controller
 {
     /**
      * lista delle risorse in pagina
