@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
+            $table->foreignId('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->string('name', 64);
             $table->string('email');
             $table->string('message', 2048);
