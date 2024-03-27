@@ -9,7 +9,8 @@ use App\Http\Controllers\Controller;
 //model
 use App\Models\Apartment;
 
-
+//request
+use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
 
 class ApartmentController extends Controller
 {
