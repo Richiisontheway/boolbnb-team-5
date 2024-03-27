@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
+           
             $table->foreignId('apartment_id')->references('id')->on('apartments')->onDelete('cascade')->onUpdate('cascade');
             $table->string('user_ip', 64);
             $table->date('date');
