@@ -29,7 +29,15 @@ class ServiceController extends Controller
         
         public function store(Request $request)
         {
-            
+              // Crea una nuova istanza dell'oggetto Item utilizzando i dati dalla richiesta
+            //$item = new Item();
+           // $item->title = $request->input('title');
+            //$item->icon = $request->input('icon');
+            // Salva l'oggetto Item nel database
+            //$item->save();
+
+    // Ritorna una risposta di successo
+            return response()->json(['message' => 'Item salvato con successo'], 201);
     
         }
     
