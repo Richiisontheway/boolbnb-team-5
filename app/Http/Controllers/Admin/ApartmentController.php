@@ -77,11 +77,13 @@ class ApartmentController extends Controller
             'zip_code' => $apartment_data['zip_code'],
             'lat' => $apartment_data['lat'],
             'lon' => $apartment_data['lon'],
-            'services' => $apartment_data['services'],
+            //'services' => $apartment_data['services'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
-
+        foreach($apartment_data['services'] as $service){
+            $apartment->services()->attach($service);
+        }
 
         return redirect()->route('admin.apartments.show', ['apartment' => $apartment->slug]);
     }

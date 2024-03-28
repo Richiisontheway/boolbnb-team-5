@@ -73,7 +73,20 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Servizi dell'appartamento:</label>
-                
+                @foreach ($services as $service)
+                    <div class="form-check form-check-inline">
+                        <input 
+                        {{ old('services') !== null && in_array($service->id, ) ? 'checked' : ''}}
+                        type="checkbox" class="form-check-input"
+                        id="service-{{$service->id}}"
+                        name="services[]"
+                        value="{{$service->id}}"
+                        >
+                        <label class="form-check-label" for="service-{{$service->id}}">
+                            {{ $service->title }}
+                        </label>
+                    </div>
+                @endforeach
             </div>
             <div class="mb-3">
                 <label for="visible" class="form-label">Visibilità<span class="text-danger">*</span></label>
