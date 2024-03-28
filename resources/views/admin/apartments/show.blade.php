@@ -12,7 +12,7 @@
         <div class="row g-0">
             <div class="col">
                 <div class="my-card-show">
-                    <img src="https://vmts.ch/wp-content/uploads/2020/08/modern-apartment-exterior-design-1-scaled.jpg" alt="{{$apartment->title}}">
+                    <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     <div class="my-card-show-body">
 
                         <div class="mt-3">
