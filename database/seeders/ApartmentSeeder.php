@@ -62,7 +62,7 @@ class ApartmentSeeder extends Seeder
             // Associa le servizi al progetto
             $apartment->services()->attach($randomServices->pluck('id')->toArray());
 
-           
+        
         }
     }
 
