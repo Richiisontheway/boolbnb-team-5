@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\User;
+
 //request
 use Illuminate\Http\Request;
 use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
@@ -39,7 +40,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        $services = Service::all();
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -47,9 +49,9 @@ class ApartmentController extends Controller
      */
     public function store(ApartmentStoreRequest $request)
     {
-        //per vedere se i dati sono valitati dalla request
         $user = auth()->user(); // Utilizza il metodo user() per ottenere l'utente autenticato
         $user_id = $user->id;
+        //per vedere se i dati sono valitati dalla request
         $apartment_data = $request->validated();
         //per generare l'url con lo slug
         $slug = Str::slug($apartment_data['title']);
@@ -75,6 +77,7 @@ class ApartmentController extends Controller
             'zip_code' => $apartment_data['zip_code'],
             'lat' => $apartment_data['lat'],
             'lon' => $apartment_data['lon'],
+            'services' => $apartment_data['services'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);

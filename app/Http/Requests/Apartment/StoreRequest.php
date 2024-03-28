@@ -37,6 +37,7 @@ class StoreRequest extends FormRequest
             'lat' => 'required',
             'lon' => 'required',
             'cover_img' => 'required',
+            'services' => 'nullable|array|exists:services,id',
             'visible' => 'required|Boolean:true'
         ]; 
     }

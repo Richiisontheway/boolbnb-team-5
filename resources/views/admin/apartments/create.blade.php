@@ -72,6 +72,10 @@
                 <input type="file" value="{{old('cover_img')}}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*" required>
             </div>
             <div class="mb-3">
+                <label class="form-label">Servizi dell'appartamento:</label>
+                
+            </div>
+            <div class="mb-3">
                 <label for="visible" class="form-label">Visibilità<span class="text-danger">*</span></label>
                 <select name="visible" id="visible" value="{{old('visible')}}">
                     <option value="1">true</option>
