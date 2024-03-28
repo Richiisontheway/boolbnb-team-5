@@ -28,7 +28,8 @@ class ApartmentController extends Controller
         $user = auth()->user();
 
         //per restituirmi tutti i valori della tabella associati ai model
-        $apartment = Apartment::all();
+        // $apartment = Apartment::all();
+        $apartment = Apartment::where('user_id', $user->id)->get();
         $service = Service::all();
         return view('admin.apartments.index', compact('apartment', 'service', 'user'));
     }
