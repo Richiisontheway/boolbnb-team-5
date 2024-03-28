@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use Illuminate\Http\Request;
-use App\Http\Requests\CreateResourceRequest;
-
 //controller
 use App\Http\Controllers\Controller;
-
-
 // Models
 use App\Models\Service;
+//Request
+
+//helper
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -30,29 +30,26 @@ class ServiceController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($request)
     {
-            // Validare i dati inviati dalla richiesta
-            $validatedData = $request->validated();
-
-            // Creare la risorsa utilizzando i dati validati
-            // $resource = new Resource();
-            // $resource->title = $validatedData['title'];
-            //  $resource->icon = $validatedData['icon'];
-            //  $resource->save();
-
-                // Ritornare una risposta di successo o reindirizzare l'utente a una pagina di conferma, ecc.
-
+        $service_data = $request->validated();
+        $service = Service::create([
+            'title' => $service_data['title'],
+            'icon' => $service_data['icon'],
+        ]);
+        return redirect()->route('admin.services.show', compact('service'));
     }
 
 
-    public function show(Service $service)
+    public function show(string $id)
     {
 
         // Recupera il servizio corrispondente all'ID fornito            
+        $service = Service::findOrFail($id);
 
+        $apartments = $service->apartments()->get();
         // Passa il servizio alla vista per la visualizzazione
-        return view('admin.services.show', compact('service'));
+        return view('admin.services.show', compact('service','apartments'));
     }
 
 
@@ -64,7 +61,12 @@ class ServiceController extends Controller
 
     public function update(Request $request, Service $service)
     {
-        
+        $service_data = $request->validated();
+        $service = Service::create([
+            'title' => $service_data['title'],
+            'icon' => $service_data['icon'],
+        ]);
+        return redirect()->route('admin.services.show', compact('service'));
     }
 
     public function destroy(Service $service)

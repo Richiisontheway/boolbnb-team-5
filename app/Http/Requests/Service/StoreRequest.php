@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateResourceRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,4 +26,14 @@ class CreateResourceRequest extends FormRequest
             'icon' =>'required|string|max:255'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'il campo è obbligatorio',
+           
+        ];
+    }
 }
+
+
