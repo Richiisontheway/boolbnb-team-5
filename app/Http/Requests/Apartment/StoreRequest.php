@@ -36,7 +36,7 @@ class StoreRequest extends FormRequest
             'zip_code' => 'required|numeric|digits:5',
             //'lat' => 'required',
             //'lon' => 'required',
-            'cover_img' => 'required',
+            'cover_img' => 'required|image',
             'services' => 'nullable|array|exists:services,id',
             'visible' => 'required|Boolean:true'
         ]; 

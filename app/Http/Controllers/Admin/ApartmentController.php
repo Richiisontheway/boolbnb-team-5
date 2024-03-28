@@ -58,9 +58,12 @@ class ApartmentController extends Controller
 
         $coverImgPath = null;
         if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+            $coverImgPath = Storage::disk('public')->put('img', $apartment_data['cover_img']);
         }
+        // dd($coverImgPath);
 
+
+        
         $apartment_data['cover_img'] = $coverImgPath;
 
         $apartment = Apartment::create([
