@@ -9,6 +9,8 @@ export default defineConfig({
             input: [
                 'resources/scss/app.scss',
                 'resources/scss/sponsors/sponsors.scss',
+                'resources/scss/apartments/apartments.scss',
+                'resources/scss/apartments/show.scss',
                 'resources/js/app.js',
             ],
             refresh: true,

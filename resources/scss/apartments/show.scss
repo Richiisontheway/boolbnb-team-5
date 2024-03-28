@@ -1,0 +1,31 @@
+#apartments-show {
+    .my-card-show {
+        width: 100%;
+
+        img {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            color: #b6b6b6;
+        }
+
+        #services {
+            width: 450px;
+
+            a {
+                width: 100px;
+                height: 50px;
+                font-size: 12px;
+                text-decoration: none;
+
+                i {
+                    font-size: 24px;
+                }
+            }
+
+        }
+
+    }
+}
