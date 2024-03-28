@@ -58,7 +58,7 @@ class ApartmentController extends Controller
 
         $coverImgPath = null;
         if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);            //$coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
 
         $apartment_data['cover_img'] = $coverImgPath;
@@ -119,8 +119,8 @@ class ApartmentController extends Controller
         $slug = Str::slug($apartment_data['title']);
 
         $coverImgPath = null;
-        if (isset($postData['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $postData['cover_img']);
+        if (isset($apartment_data['cover_img'])) {
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
         $apartment = Apartment::create([
             'title' => $apartment_data['title'],
