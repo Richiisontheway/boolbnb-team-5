@@ -6,7 +6,7 @@
     <h1>{{ $service->title }}</h1>
     {{-- <p>{{ $service->description }}</p> --}}
 
-    <h2>Appartamenti che offrono questo servizio:</h2>
+    <h2>I tuoi appartamenti che offrono questo servizio:</h2>
     <ul>
         @foreach($apartments as $apartment)
             <li>{{ $apartment->title }}</li>

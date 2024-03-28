@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 // Models
 use App\Models\Service;
+use App\Models\Apartment;
 //Request
 
 //helper
@@ -43,11 +44,14 @@ class ServiceController extends Controller
 
     public function show(string $id)
     {
+        $user = auth()->user();
+        $apartments = Apartment::where('user_id', $user->id)->get();
+        $apartmentsQuery = Apartment::whereIn('id', $apartments->pluck('id')->toArray());
 
         // Recupera il servizio corrispondente all'ID fornito            
         $service = Service::findOrFail($id);
 
-        $apartments = $service->apartments()->get();
+        $apartments = $apartmentsQuery->get();
         // Passa il servizio alla vista per la visualizzazione
         return view('admin.services.show', compact('service','apartments'));
     }
