@@ -2,7 +2,7 @@
 
 return [
     [
-        'title' => 'Appartamento via Roma',
+        'title' => 'Appartamento Aurora',
         'n_rooms' => 4,
         'n_beds' => 4,
         'n_baths' => 2,
@@ -13,11 +13,11 @@ return [
         'cover_img' => "images/roma-apt-1.webp",
         'visible' => true,
         'city' => 'Roma',
-        'address' => 'Via Roma, 91',
+        'address' => 'Via del Corso, 123',
         'zip_code' => '00184' // CAP di Roma
     ],
     [
-        'title' => 'Appartamento in centro Milano',
+        'title' => 'Casa Duomo',
         'n_rooms' => 3,
         'n_beds' => 3,
         'n_baths' => 1,
@@ -28,11 +28,11 @@ return [
         'cover_img' => "2",
         'visible' => true,
         'city' => 'Milano',
-        'address' => 'Via Milano, 501',
-        'zip_code' => '20121' // CAP di Milano
+        'address' => 'Via Torino, 501',
+        'zip_code' => ' 20123' // CAP di Milano
     ],
     [
-        'title' => 'Appartamento panoramico Firenze',
+        'title' => 'Florentia Palace',
         'n_rooms' => 2,
         'n_beds' => 2,
         'n_baths' => 1,
@@ -43,11 +43,11 @@ return [
         'cover_img' => "3",
         'visible' => true,
         'city' => 'Firenze',
-        'address' => 'Via Firenze, 96',
+        'address' => 'Piazza della Signoria, 96',
         'zip_code' => '50123' // CAP di Firenze
     ],
     [
-        'title' => 'Appartamento sul mare Napoli',
+        'title' => 'Vesuvio View',
         'n_rooms' => 3,
         'n_beds' => 3,
         'n_baths' => 2,
@@ -58,26 +58,26 @@ return [
         'cover_img' => "4",
         'visible' => true,
         'city' => 'Napoli',
-        'address' => 'Via Napoli, 23',
+        'address' => 'Via Toledo, 23',
         'zip_code' => '80100' // CAP di Napoli
     ],
     [
-        'title' => 'Appartamento in zona turistica Venezia',
+        'title' => 'Venetian Dream',
         'n_rooms' => 1,
         'n_beds' => 1,
         'n_baths' => 1,
         'mq' => 40,
         'price' => 45.00,
-        'lat' => 45.4408, // Latitudine di Venezia
-        'lon' => 12.3155, // Longitudine di Venezia
+        'lat' => 45.4345, // Latitudine di Venezia
+        'lon' => 12.3386, // Longitudine di Venezia
         'cover_img' => "5",
         'visible' => true,
         'city' => 'Venezia',
-        'address' => 'Via Venezia, 68',
-        'zip_code' => '30100' // CAP di Venezia
+        'address' => 'Piazza San Marco, 68',
+        'zip_code' => '30124' // CAP di Venezia
     ],
     [
-        'title' => 'Appartamento in collina Bologna',
+        'title' => 'Gli Asinelli',
         'n_rooms' => 2,
         'n_beds' => 2,
         'n_baths' => 1,
@@ -88,11 +88,11 @@ return [
         'cover_img' => "6",
         'visible' => true,
         'city' => 'Bologna',
-        'address' => 'Via Bologna, 122',
+        'address' => 'Piazza Maggiore, 122',
         'zip_code' => '40100' // CAP di Bologna
     ],
     [
-        'title' => 'Appartamento moderno Torino',
+        'title' => 'Turin Charm',
         'n_rooms' => 3,
         'n_beds' => 3,
         'n_baths' => 2,
@@ -103,11 +103,11 @@ return [
         'cover_img' => "7",
         'visible' => true,
         'city' => 'Torino',
-        'address' => 'Via Torino, 63',
+        'address' => 'Via Po, 39',
         'zip_code' => '10100' // CAP di Torino
     ],
     [
-        'title' => 'Appartamento storico Palermo',
+        'title' => 'Palermo Paradise',
         'n_rooms' => 2,
         'n_beds' => 2,
         'n_baths' => 1,
@@ -118,37 +118,37 @@ return [
         'cover_img' => "8",
         'visible' => true,
         'city' => 'Palermo',
-        'address' => 'Via Palermo, 1',
-        'zip_code' => '90100' // CAP di Palermo
+        'address' => 'Via Maqueda, 1',
+        'zip_code' => '90133' // CAP di Palermo
     ],
     [
-        'title' => 'Appartamento in montagna Trento',
+        'title' => "Romeo's Retreat",
         'n_rooms' => 3,
         'n_beds' => 3,
         'n_baths' => 2,
         'mq' => 85,
         'price' => 48.00,
-        'lat' => 46.0664, // Latitudine di Trento
-        'lon' => 11.1217, // Longitudine di Trento
+        'lat' => 45.4384, // Latitudine di Trento
+        'lon' => 10.9916, // Longitudine di Trento
         'cover_img' => "9",
         'visible' => true,
         'city' => 'Trento',
-        'address' => 'Via Trento, 22',
-        'zip_code' => '38100' // CAP di Trento
+        'address' => 'Via Mazzini, 22',
+        'zip_code' => '37121' // CAP di Trento
     ],
     [
-        'title' => 'Appartamento rurale Catania',
+        'title' => 'Genoa Gem',
         'n_rooms' => 2,
         'n_beds' => 2,
         'n_baths' => 1,
         'mq' => 60,
         'price' => 37.00,
-        'lat' => 37.5027, // Latitudine di Catania
-        'lon' => 15.0873, // Longitudine di Catania
+        'lat' =>  44.4074, // Latitudine di Catania
+        'lon' => 8.9339, // Longitudine di Catania
         'cover_img' => "10", // Immagine di copertina 
         'visible' => true,
-        'city' => 'Catania',
-        'address' => 'Via Catania, 12',
-        'zip_code' => '95100' // CAP di Catania
+        'city' => 'Genova',
+        'address' => 'Piazza De Ferrari, 12',
+        'zip_code' => '16121' // CAP di Catania
     ]
 ];
