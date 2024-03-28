@@ -54,7 +54,8 @@ class ApartmentController extends Controller
 
         $coverImgPath = null;
         if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+            $coverImgPath = $apartment_data->file('cover_img')->store('images','public');
+            //$coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
         $apartment = Apartment::create([
             'title' => $apartment_data['title'],
@@ -70,6 +71,7 @@ class ApartmentController extends Controller
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
+
 
         return redirect()->route('admin.apartments.show', compact('apartment'));
     }

@@ -9,7 +9,7 @@ class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     */
+    */
     public function authorize(): bool
     {
         //serve per capire se l'utente è autorizzato(loggato) a fare delle request
@@ -33,8 +33,8 @@ class StoreRequest extends FormRequest
             'price' => 'required|numeric|decimal:0,2|Min:1|Max:999.99',
             'address' => 'required|string|Min:1|Max:64',
             'city' => 'required|string|Min:2|Max:64',
-            'zip_code' => 'required|numeric|digit:5',
-            'cover_img' => 'required|image',
+            'zip_code' => 'required|numeric|digits:5',
+            'cover_img' => 'required',
             'visible' => 'required|Boolean:true'
         ]; 
     }
