@@ -10,7 +10,7 @@ return [
         'price' => 30.50,
         'lat' => 41.9028, // Latitudine di Roma
         'lon' => 12.4964, // Longitudine di Roma
-        'cover_img' => "1",
+        'cover_img' => "images/roma-apt-1.webp",
         'visible' => true,
         'city' => 'Roma',
         'address' => 'Via Roma, 91',
