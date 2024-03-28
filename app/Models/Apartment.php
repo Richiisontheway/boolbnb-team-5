@@ -12,6 +12,17 @@ class Apartment extends Model
     protected $guarded = [
 ];
 
+    //full_cover_img
+    public function getFullCoverImgAttribute() {
+        // Se c'è una cover_img
+        if ($this->cover_img) {
+            // Allora mi restituisci il percorso completo
+            return asset('storage/'.$this->cover_img);
+        } else {
+            return null;
+        }
+    } 
+
     public function user() {
         return $this->belongsTo(User::class);
     }

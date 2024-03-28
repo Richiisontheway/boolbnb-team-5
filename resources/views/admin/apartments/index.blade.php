@@ -23,7 +23,9 @@
 
                 @foreach ($apartments as $singleApartment)
                     <div class="my-card">
-                        <img src="https://vmts.ch/wp-content/uploads/2020/08/modern-apartment-exterior-design-1-scaled.jpg" alt="{{$singleApartment->title}}">
+                        @if ($singleApartment->cover_img != null)
+                            <img src="{{ $singleApartment->full_cover_img }}" alt="{{$singleApartment->title}}">
+                        @endif
                         <h3>
                             {{$singleApartment->title}}
                         </h3>

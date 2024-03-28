@@ -56,9 +56,11 @@ class ApartmentController extends Controller
 
         $coverImgPath = null;
         if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = $request->file('cover_img')->store('images','public');
-            //$coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);            //$coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
+
+        $apartment_data['cover_img'] = $coverImgPath;
+
         $apartment = Apartment::create([
             'user_id' =>$user_id,
             'title' => $apartment_data['title'],
