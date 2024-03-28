@@ -1,6 +1,27 @@
 #apartments {
     background-color: #FFFFFF; 
 
+    #add {
+        margin-bottom: 50px;
+        text-align: end;
+    
+            .add-button {
+                background-color: #046A4E;
+                color: white;
+                text-decoration: none;
+                font-size: 1.1rem;
+                font-weight: bolder;
+                padding: 10px 16px;
+                text-transform: uppercase;
+                border-radius: 5px;
+            }
+    
+            .add-button:hover {
+                background-color: #5AD055;
+                transition: background-color 0.5s ;
+            }
+       } 
+
     .my-card {
         width: calc((100% / 4) - 40px);
         margin: 10px 20px;
