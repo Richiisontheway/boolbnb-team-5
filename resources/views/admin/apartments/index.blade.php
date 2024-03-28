@@ -6,6 +6,13 @@
 
     <section id="apartments">
 
+        <div id="add">
+            <a href="{{ route('admin.apartments.create') }}" class="add-button mb-5">
+                <span>Aggiungi</span>
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+
         <div class="container">
 
             <h1>
