@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
-                        Sei loggato!
+                        Ciao {{ $user->name }}, sei loggato!
                     </h1>
                     <br>
                     La dashboard è una pagina privata (protetta dal middleware)
