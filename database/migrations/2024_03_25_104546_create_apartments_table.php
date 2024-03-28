@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('zip_code');
-            $table->mediumText('lat')->decimal();
-            $table->mediumText('lon')->decimal();
+            $table->decimal('lat',10,7)->default(44.8795);
+            $table->decimal('lon', 10,7)->default(21.8795);
             $table->string('cover_img', 1024);
             $table->boolean('visible')->default(true);
             $table->timestamps();

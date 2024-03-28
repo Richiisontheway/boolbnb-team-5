@@ -75,14 +75,17 @@ class ApartmentController extends Controller
             'address' => $apartment_data['address'],
             'city' => $apartment_data['city'],
             'zip_code' => $apartment_data['zip_code'],
-            'lat' => $apartment_data['lat'],
-            'lon' => $apartment_data['lon'],
+            //'lat' => $apartment_data['lat'],
+            //'lon' => $apartment_data['lon'],
             //'services' => $apartment_data['services'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
-        foreach($apartment_data['services'] as $service){
-            $apartment->services()->attach($service);
+        //lo faccio funzionare solo se pieno
+        if (!empty($apartment_data['services'])) {
+            foreach($apartment_data['services'] as $service) {
+                $apartment->services()->attach($service);
+            }
         }
 
         return redirect()->route('admin.apartments.show', ['apartment' => $apartment->slug]);

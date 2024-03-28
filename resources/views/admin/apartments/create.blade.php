@@ -59,14 +59,14 @@
                 <label for="zip_code" class="form-label">Codice Postale(CAP)<span class="text-danger">*</span></label>
                 <input type="number" value="{{old('zip_code')}}" class="form-control" id="zip_code" name="zip_code" placeholder="inserisci l'indirizzo"  required>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="lat" class="form-label">Latitudine<span class="text-danger">*</span></label>
                 <input type="number" value="{{old('lat')}}" class="form-control" id="lat" name="lat" placeholder="inserisci latitudine" step="0.0001" required>
             </div>
             <div class="mb-3">
                 <label for="lon" class="form-label">Longitudine<span class="text-danger">*</span></label>
                 <input type="number" value="{{old('lon')}}" class="form-control" id="lon" name="lon" placeholder="inserisci longitudine" step="0.0001" required>
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="cover_img" class="form-label">cover_img<span class="text-danger">*</span></label>
                 <input type="file" value="{{old('cover_img')}}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*" required>
@@ -76,7 +76,7 @@
                 @foreach ($services as $service)
                     <div class="form-check form-check-inline">
                         <input 
-                        {{ old('services') !== null && in_array($service->id, ) ? 'checked' : ''}}
+                        {{ old('services') !== null && in_array($service->id, old('services')) ? 'checked' : ''}}
                         type="checkbox" class="form-check-input"
                         id="service-{{$service->id}}"
                         name="services[]"
