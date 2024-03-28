@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 //model
 use App\Models\Apartment;
 use App\Models\Service;
-
+use App\Models\User;
 //request
 use Illuminate\Http\Request;
 use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
@@ -48,16 +48,19 @@ class ApartmentController extends Controller
     public function store(ApartmentStoreRequest $request)
     {
         //per vedere se i dati sono valitati dalla request
+        $user = auth()->user(); // Utilizza il metodo user() per ottenere l'utente autenticato
+        $user_id = $user->id;
         $apartment_data = $request->validated();
         //per generare l'url con lo slug
         $slug = Str::slug($apartment_data['title']);
 
         $coverImgPath = null;
         if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = $apartment_data->file('cover_img')->store('images','public');
+            $coverImgPath = $request->file('cover_img')->store('images','public');
             //$coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         }
         $apartment = Apartment::create([
+            'user_id' =>$user_id,
             'title' => $apartment_data['title'],
             'slug' => $slug,
             'n_rooms' => $apartment_data['n_rooms'],
@@ -68,12 +71,14 @@ class ApartmentController extends Controller
             'address' => $apartment_data['address'],
             'city' => $apartment_data['city'],
             'zip_code' => $apartment_data['zip_code'],
+            'lat' => $apartment_data['lat'],
+            'lon' => $apartment_data['lon'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
 
 
-        return redirect()->route('admin.apartments.show', compact('apartment'));
+        return redirect()->route('admin.apartments.show', ['apartment' => $apartment->slug]);
     }
 
     /**

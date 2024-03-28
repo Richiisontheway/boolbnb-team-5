@@ -34,6 +34,8 @@ class StoreRequest extends FormRequest
             'address' => 'required|string|Min:1|Max:64',
             'city' => 'required|string|Min:2|Max:64',
             'zip_code' => 'required|numeric|digits:5',
+            'lat' => 'required',
+            'lon' => 'required',
             'cover_img' => 'required',
             'visible' => 'required|Boolean:true'
         ]; 

@@ -18,7 +18,7 @@
     @endif
     <div class="row">
         {{-- method POST perché la crud create lo richiede --}}
-        <form action="{{route('admin.apartments.store')}}" method="POST">
+        <form action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data">
         
             @csrf
             <div class="col-8">
@@ -61,11 +61,11 @@
             </div>
             <div class="mb-3">
                 <label for="lat" class="form-label">Latitudine<span class="text-danger">*</span></label>
-                <input type="number" value="{{old('lat')}}" class="form-control" id="lat" name="lat" placeholder="inserisci latitudine"  required>
+                <input type="number" value="{{old('lat')}}" class="form-control" id="lat" name="lat" placeholder="inserisci latitudine" step="0.0001" required>
             </div>
             <div class="mb-3">
                 <label for="lon" class="form-label">Longitudine<span class="text-danger">*</span></label>
-                <input type="number" value="{{old('lon')}}" class="form-control" id="lon" name="lon" placeholder="inserisci longitudine"  required>
+                <input type="number" value="{{old('lon')}}" class="form-control" id="lon" name="lon" placeholder="inserisci longitudine" step="0.0001" required>
             </div>
             <div class="mb-3">
                 <label for="cover_img" class="form-label">cover_img<span class="text-danger">*</span></label>
