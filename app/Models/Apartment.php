@@ -10,7 +10,8 @@ class Apartment extends Model
     use HasFactory;
 
     protected $guarded = [
-];
+        '_token',
+    ];
 
     //full_cover_img
     public function getFullCoverImgAttribute() {

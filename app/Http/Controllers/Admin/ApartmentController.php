@@ -111,39 +111,54 @@ class ApartmentController extends Controller
     {
         //serve per far funzionare lo uri con lo slug anziché che con l'id
         $apartment = Apartment::where('slug',$slug)->firstOrFail();
-        return view('admin.apartments.edit', compact('apartment'));
+        $services = Service::all();
+        return view('admin.apartments.edit', compact('apartment','services'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ApartmentUpdateRequest $request, Apartment $apartment)
+    public function update(ApartmentUpdateRequest $request, string $slug)
     {
-         //per vedere se i dati sono valitati dalla request
+        //per vedere se i dati sono valitati dalla request
         $apartment_data = $request->validated();
         //per generare l'url con lo slug
+        $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $slug = Str::slug($apartment_data['title']);
-
-        $coverImgPath = null;
-        if (isset($apartment_data['cover_img'])) {
-            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+        $apartment_data['slug'] = $slug;
+        // Verifica se l'utente autenticato è il proprietario dell'appartamento
+       if ($request->user()->id !== $apartment->user_id) {
+           // Ritorna una risposta di errore o reindirizza a una pagina di errore
+           abort(403, 'Non sei autorizzato ad aggiornare questo appartamento.');
+       }
+        $apartment->updateOrFail($apartment_data);
+        if (isset($apartment_data['services'])) {
+            $apartment->services->sync($apartment_data['services']);
         }
-        $apartment = Apartment::create([
-            'title' => $apartment_data['title'],
-            'slug' => $slug,
-            'n_rooms' => $apartment_data['n_rooms'],
-            'n_beds' => $apartment_data['n_beds'],
-            'n_baths' => $apartment_data['n_baths'],
-            'mq' => $apartment_data['mq'],
-            'price' => $apartment_data['price'],
-            'address' => $apartment_data['address'],
-            'city' => $apartment_data['city'],
-            'zip_code' => $apartment_data['zip_code'],
-            'cover_img' => $apartment_data['cover_img'],
-            'visible' => $apartment_data['visible']
-        ]);
+        else{
+            $apartment->services->detach();
+        }
+        // $coverImgPath = null;
+        // if (isset($apartment_data['cover_img'])) {
+        //     $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+        // }
+        // $apartment = Apartment::create([
+        //     'title' => $apartment_data['title'],
+        //     'slug' => $slug,
+        //     'n_rooms' => $apartment_data['n_rooms'],
+        //     'n_beds' => $apartment_data['n_beds'],
+        //     'n_baths' => $apartment_data['n_baths'],
+        //     'mq' => $apartment_data['mq'],
+        //     'price' => $apartment_data['price'],
+        //     'address' => $apartment_data['address'],
+        //     'city' => $apartment_data['city'],
+        //     'zip_code' => $apartment_data['zip_code'],
+        //     'cover_img' => $apartment_data['cover_img'],
+        //     'visible' => $apartment_data['visible']
+        // ]);
 
-        return redirect()->route('admin.apartments.show', compact('apartment'));
+        return redirect()->route('admin.apartments.show' , ['apartment' => $apartment->slug]);
+
     }
 
     /**
