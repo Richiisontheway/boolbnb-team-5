@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('page-title', 'Tutti i messaggi')
+@section('page-title', 'Messaggi ricevuti')
 
 @section('main-content')
     <h1>
-        Tutti i messaggi
+        Messaggi ricevuti
     </h1>
 
     <div class="row g-0">
