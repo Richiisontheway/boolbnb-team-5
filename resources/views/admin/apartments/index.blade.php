@@ -4,7 +4,7 @@
 
 @section('main-content')
     <h1>
-        ciao sono l'index
+        Gli appartamenti di {{ $user->name }}
     </h1>
     @foreach ($apartment as $item)
         

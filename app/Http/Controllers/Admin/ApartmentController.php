@@ -25,10 +25,12 @@ class ApartmentController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
+
         //per restituirmi tutti i valori della tabella associati ai model
         $apartment = Apartment::all();
         $service = Service::all();
-        return view('admin.apartments.index', compact('apartment', 'service'));
+        return view('admin.apartments.index', compact('apartment', 'service', 'user'));
     }
 
     /**
