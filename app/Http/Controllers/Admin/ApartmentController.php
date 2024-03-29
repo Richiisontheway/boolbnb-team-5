@@ -58,7 +58,9 @@ class ApartmentController extends Controller
         $apartment_data = $request->validated();
 
         // Effettuo una richiesta GET alla nostra API inserendo gli input dell'utenti estrapolati dalla Request (codificandoli in formato json)
-        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '+' . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
+            'verify' => false, // Disabilita la verifica del certificato SSL
+        ]);
 
         // Decodifico il corpo della risposta JSON
         $responseData = json_decode($response->getBody()->getContents(), true);
