@@ -10,17 +10,39 @@ use App\Models\Apartment;
 
 class ApartmentController extends Controller
 {
-     //Dobbiamo recuperare i dati del DB ed esporli pubblicamente
-     public function index() {
+    //Dobbiamo recuperare i dati del DB ed esporli pubblicamente
+    public function index() {
 
 
         // Recupero tutti i project
-        $apartments = Apartment::with('services', 'sponsors') // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
-                    ->paginate(5);                        // Imposto la paginazione per mostrare 15 risultati in ogni pagina
+        $apartments = Apartment::with('services', 'sponsors')   // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
+                    ->paginate(5);                              // Imposto la paginazione per mostrare 15 risultati in ogni pagina
 
         return response()->json([  
             'success' => true,
             'results' => $apartments
         ]);
+    }
+
+    public function show(string $slug) {
+
+        $apartment = Apartment::with('services', 'sponsors')
+                    ->where('slug', $slug)
+                    ->first();
+
+        if ($apartment != null) {
+
+            return response()->json([  
+                'success' => true,
+                'results' => $apartment
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'results' => null
+            ]);
+        }
+
     }
 }

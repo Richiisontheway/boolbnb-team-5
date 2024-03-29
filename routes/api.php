@@ -25,6 +25,7 @@ Route::name('api.')->group(function() {
 
     Route::resource('apartments', ApartmentController::class)->only([
         'index',
+        'show'
     ]);
 });
 
