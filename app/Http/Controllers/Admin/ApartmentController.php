@@ -19,6 +19,9 @@ use App\Http\Requests\Apartment\UpdateRequest as ApartmentUpdateRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
+// Guzzle
+use GuzzleHttp\Client;
+
 class ApartmentController extends Controller
 {
     /**
@@ -49,6 +52,12 @@ class ApartmentController extends Controller
      */
     public function store(ApartmentStoreRequest $request)
     {
+        $client = new Client();
+
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/De%20Ruijterkade%20154%2C%201011%20AC%2C%20Amsterdam.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+
+        dd($response);
+
         $user = auth()->user(); // Utilizza il metodo user() per ottenere l'utente autenticato
         $user_id = $user->id;
         //per vedere se i dati sono valitati dalla request

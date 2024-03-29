@@ -10,12 +10,12 @@
         <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
-    <body class="overflow-hidden ">
-        <div class="d-flex overflow-hidden">
-            <header >
+    <body class="">
+        <div class="d-flex">
+            <header>
                 
                 <nav class="d-flex flex-column">
-                    <ul class="flex-grow-1 ">
+                    <ul class="flex-grow-1">
                         <li>
                             <a class="nav-link" href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin.dashboard') ? 'active' : '' }}" >Dashboard</a>
                         </li>
