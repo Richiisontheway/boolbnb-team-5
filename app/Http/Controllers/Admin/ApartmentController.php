@@ -120,42 +120,34 @@ class ApartmentController extends Controller
      */
     public function update(ApartmentUpdateRequest $request, string $slug)
     {
-        //per vedere se i dati sono valitati dalla request
         $apartment_data = $request->validated();
-        //per generare l'url con lo slug
+
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
-        $slug = Str::slug($apartment_data['title']);
-        $apartment_data['slug'] = $slug;
-        // Verifica se l'utente autenticato è il proprietario dell'appartamento
-       if ($request->user()->id !== $apartment->user_id) {
-           // Ritorna una risposta di errore o reindirizza a una pagina di errore
-           abort(403, 'Non sei autorizzato ad aggiornare questo appartamento.');
-       }
-        $apartment->updateOrFail($apartment_data);
+
+        // Assegno ad una variabile il valore della colonna cover_img dentro il singolo apartment
+        $coverImgPath = $apartment->cover_img;
+
+        // Se passiamo un valore all'input per la cover_img
+        if (isset($apartment_data['cover_img'])) {
+            // Se il valore della colonna cover_img dentro il singolo project è diverso da null
+            if ($apartment->cover_img != null) {
+                // Lo elimino
+                Storage::disk('public')->delete($apartment->cover_img);
+            }
+            // E gli assegno il nuovo valore passato
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+        } 
+
+        $apartment_data['slug'] = Str::slug($apartment_data['title']);
+        $apartment_data['cover_img'] = $coverImgPath;
+
         if (isset($apartment_data['services'])) {
-            $apartment->services->sync($apartment_data['services']);
+            $apartment->services()->sync($apartment_data['services']);
+        } else {
+            $apartment->services()->detach();
         }
-        else{
-            $apartment->services->detach();
-        }
-        // $coverImgPath = null;
-        // if (isset($apartment_data['cover_img'])) {
-        //     $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
-        // }
-        // $apartment = Apartment::create([
-        //     'title' => $apartment_data['title'],
-        //     'slug' => $slug,
-        //     'n_rooms' => $apartment_data['n_rooms'],
-        //     'n_beds' => $apartment_data['n_beds'],
-        //     'n_baths' => $apartment_data['n_baths'],
-        //     'mq' => $apartment_data['mq'],
-        //     'price' => $apartment_data['price'],
-        //     'address' => $apartment_data['address'],
-        //     'city' => $apartment_data['city'],
-        //     'zip_code' => $apartment_data['zip_code'],
-        //     'cover_img' => $apartment_data['cover_img'],
-        //     'visible' => $apartment_data['visible']
-        // ]);
+
+        $apartment->update($apartment_data);
 
         return redirect()->route('admin.apartments.show' , ['apartment' => $apartment->slug]);
 

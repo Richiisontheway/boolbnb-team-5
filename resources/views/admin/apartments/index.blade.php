@@ -49,10 +49,10 @@
                             <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}">
                                 Info
                             </a>
-                            {{-- <a href="{{route('admin.apartments.edit' , ['apartment' => $singleApartment->slug  ])}}" class="btn btn-warning">
+                            <a href="{{route('admin.apartments.edit' , ['apartment' => $singleApartment->slug  ])}}" class="btn btn-warning">
                                 Edit
                             </a>
-                            <a href="" class="btn btn-danger">
+                            {{-- <a href="" class="btn btn-danger">
                                 Delete
                             </a>        --}}
                         </div>      

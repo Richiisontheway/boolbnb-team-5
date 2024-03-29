@@ -4,6 +4,9 @@ namespace App\Http\Requests\Apartment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Helpers
+use Illuminate\Support\Facades\Auth;
+
 class UpdateRequest extends FormRequest
 {
     /**
@@ -11,7 +14,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -31,9 +34,10 @@ class UpdateRequest extends FormRequest
             'price' => 'required|numeric|decimal:0,2|Min:1|Max:999.99',
             'address' => 'required|string|Min:1|Max:64',
             'city' => 'required|string|Min:2|Max:64',
-            'zip_code' => 'required|numeric|digit:5',
+            'zip_code' => 'required|numeric|digits:5',
+            'services' => 'nullable|array|exists:services,id',
             'cover_img' => 'required|image',
-            'visible' => 'required|Boolean:true'
+            'visible' => 'required|Boolean'
         ];
     }
     
