@@ -45,16 +45,23 @@
                             @endforelse
                         </div> --}}
 
-                        <div>
+                        <div class="d-flex">
                             <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}">
                                 Info
                             </a>
                             <a href="{{route('admin.apartments.edit' , ['apartment' => $singleApartment->slug  ])}}" class="btn btn-warning">
                                 Edit
                             </a>
-                            {{-- <a href="" class="btn btn-danger">
-                                Delete
-                            </a>        --}}
+                            <form 
+                            onsubmit="return confirm('Sei sicuro di voler eliminare questo appartamento?')"
+                            action="{{route('admin.apartments.destroy', ['apartment' => $singleApartment])}}" 
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+                                <button class="btn btn-danger" type="submit">
+                                    Elimina
+                                </button>
+                            </form>
                         </div>      
                     </div>
                 @endforeach
