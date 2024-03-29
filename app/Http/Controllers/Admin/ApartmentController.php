@@ -52,23 +52,29 @@ class ApartmentController extends Controller
      */
     public function store(ApartmentStoreRequest $request)
     {
+        // Istanzio un nuovo oggetto Guzzle per effettuare la chiamat API di TomTom
         $client = new Client();
 
         $apartment_data = $request->validated();
 
-        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+        // Effettuo una richiesta GET alla nostra API inserendo gli input dell'utenti estrapolati dalla Request (codificandoli in formato json)
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '+' . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
+            'verify' => false, // Disabilita la verifica del certificato SSL
+        ]);
 
-        // Decodifica il corpo della risposta JSON
+        // Decodifico il corpo della risposta JSON
         $responseData = json_decode($response->getBody()->getContents(), true);
 
         // Estrai la posizione (latitudine e longitudine) dalla risposta
         $position = $responseData['results'][0]['position'];
 
+        // Assegno i campi di latitudine e longitudine a delle variabili
         $lat = $position['lat'];
         $lon = $position['lon'];
 
         $user = auth()->user(); // Utilizza il metodo user() per ottenere l'utente autenticato
         $user_id = $user->id;
+        
         //per vedere se i dati sono valitati dalla request
         //per generare l'url con lo slug
         $slug = Str::slug($apartment_data['title']);
@@ -137,7 +143,25 @@ class ApartmentController extends Controller
      */
     public function update(ApartmentUpdateRequest $request, string $slug)
     {
+        // Istanzio un nuovo oggetto Guzzle per effettuare la chiamat API di TomTom
+        $client = new Client();
+
         $apartment_data = $request->validated();
+
+        // Effettuo una richiesta GET alla nostra API inserendo gli input dell'utenti estrapolati dalla Request (codificandoli in formato json)
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '+' . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
+            'verify' => false, // Disabilita la verifica del certificato SSL
+        ]);
+
+        // Decodifico il corpo della risposta JSON
+        $responseData = json_decode($response->getBody()->getContents(), true);
+
+        // Estrai la posizione (latitudine e longitudine) dalla risposta
+        $position = $responseData['results'][0]['position'];
+
+        // Assegno i campi di latitudine e longitudine a delle variabili
+        $lat = $position['lat'];
+        $lon = $position['lon'];
 
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
 
@@ -157,6 +181,8 @@ class ApartmentController extends Controller
 
         $apartment_data['slug'] = Str::slug($apartment_data['title']);
         $apartment_data['cover_img'] = $coverImgPath;
+        $apartment_data['lat'] = $lat;
+        $apartment_data['lon'] = $lon;
 
         if (isset($apartment_data['services'])) {
             $apartment->services()->sync($apartment_data['services']);
