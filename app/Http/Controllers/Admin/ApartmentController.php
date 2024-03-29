@@ -56,13 +56,15 @@ class ApartmentController extends Controller
 
         $apartment_data = $request->validated();
 
-        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
 
         // Decodifica il corpo della risposta JSON
         $responseData = json_decode($response->getBody()->getContents(), true);
 
         // Estrai la posizione (latitudine e longitudine) dalla risposta
         $position = $responseData['results'][0]['position'];
+
+        // dd($position);
 
         $lat = $position['lat'];
         $lon = $position['lon'];
