@@ -15,7 +15,7 @@
             <nav class="d-flex flex-column">
                 <ul class="flex-grow-1 ">
                     <li>
-                        <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}" >Dashboard</a>
                     </li>
                     <li>
                         <a class="nav-link" href="{{route('admin.apartments.index')}}">Appartamenti</a>
