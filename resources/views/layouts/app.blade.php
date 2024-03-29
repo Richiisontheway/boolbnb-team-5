@@ -13,10 +13,11 @@
     <body class="overflow-hidden ">
         <div class="d-flex overflow-hidden">
             <header >
+                
                 <nav class="d-flex flex-column">
                     <ul class="flex-grow-1 ">
                         <li>
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}" >Dashboard</a>
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin.dashboard') ? 'active' : '' }}" >Dashboard</a>
                         </li>
                         <li>
                             <a class="nav-link" href="{{route('admin.apartments.index')}}">Appartamenti</a>
@@ -28,7 +29,7 @@
                             <a class="nav-link" href="{{ route('admin.contacts.index') }}">Messaggi</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
+                            <a class="nav-link" href="{{ route('admin.sponsors.index') }} ">Sponsor</a>
                         </li>
                     </ul>
                     <form method="POST" action="{{ route('logout') }}" class="text-center">
