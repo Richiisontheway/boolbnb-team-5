@@ -54,14 +54,22 @@ class ApartmentController extends Controller
     {
         $client = new Client();
 
-        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/De%20Ruijterkade%20154%2C%201011%20AC%2C%20Amsterdam.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+        $apartment_data = $request->validated();
 
-        dd($response);
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq');
+
+        // Decodifica il corpo della risposta JSON
+        $responseData = json_decode($response->getBody()->getContents(), true);
+
+        // Estrai la posizione (latitudine e longitudine) dalla risposta
+        $position = $responseData['results'][0]['position'];
+
+        $lat = $position['lat'];
+        $lon = $position['lon'];
 
         $user = auth()->user(); // Utilizza il metodo user() per ottenere l'utente autenticato
         $user_id = $user->id;
         //per vedere se i dati sono valitati dalla request
-        $apartment_data = $request->validated();
         //per generare l'url con lo slug
         $slug = Str::slug($apartment_data['title']);
 
@@ -87,9 +95,9 @@ class ApartmentController extends Controller
             'address' => $apartment_data['address'],
             'city' => $apartment_data['city'],
             'zip_code' => $apartment_data['zip_code'],
-            //'lat' => $apartment_data['lat'],
-            //'lon' => $apartment_data['lon'],
-            //'services' => $apartment_data['services'],
+            'lat' => $lat,
+            'lon' => $lon,
+            'services' => $apartment_data['services'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);
