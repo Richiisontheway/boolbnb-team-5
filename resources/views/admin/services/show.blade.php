@@ -9,7 +9,11 @@
     <h2>I tuoi appartamenti che offrono questo servizio:</h2>
     <ul>
         @foreach($apartments as $apartment)
-            <li>{{ $apartment->title }}</li>
+            <li>   
+                <a href="{{ route('admin.apartments.show' , ['apartment' => $apartment->slug]) }}" class="text-decoration-none">
+                    {{ $apartment->title }}
+                </a>
+            </li>
         @endforeach
     </ul>
 
