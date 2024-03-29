@@ -45,11 +45,11 @@
                             @endforelse
                         </div> --}}
 
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-around">
                             <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}">
                                 Info
                             </a>
-                            <a href="{{route('admin.apartments.edit' , ['apartment' => $singleApartment->slug  ])}}" class="btn btn-warning">
+                            <a href="{{route('admin.apartments.edit' , ['apartment' => $singleApartment->slug  ])}}">
                                 Edit
                             </a>
                             <form 
@@ -58,7 +58,7 @@
                             method="POST">
                             @csrf
                             @method('DELETE')
-                                <button class="btn btn-danger" type="submit">
+                                <button type="submit">
                                     Elimina
                                 </button>
                             </form>
