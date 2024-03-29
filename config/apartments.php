@@ -10,7 +10,7 @@ return [
         'price' => 30.50,
         'lat' => 41.9028, // Latitudine di Roma
         'lon' => 12.4964, // Longitudine di Roma
-        'cover_img' => "1",
+        'cover_img' => "img/apt-01.avif",
         'visible' => true,
         'city' => 'Roma',
         'address' => 'Via del Corso, 123',
@@ -25,7 +25,7 @@ return [
         'price' => 40.00,
         'lat' => 45.4642, // Latitudine di Milano
         'lon' => 9.1900, // Longitudine di Milano
-        'cover_img' => "2",
+        'cover_img' => "img/apt-02.avif",
         'visible' => true,
         'city' => 'Milano',
         'address' => 'Via Torino, 501',
@@ -40,7 +40,7 @@ return [
         'price' => 35.00,
         'lat' => 43.7696, // Latitudine di Firenze
         'lon' => 11.2558, // Longitudine di Firenze
-        'cover_img' => "3",
+        'cover_img' => "img/apt-03.avif",
         'visible' => true,
         'city' => 'Firenze',
         'address' => 'Piazza della Signoria, 96',
@@ -55,7 +55,7 @@ return [
         'price' => 50.00,
         'lat' => 40.8518, // Latitudine di Napoli
         'lon' => 14.2681, // Longitudine di Napoli
-        'cover_img' => "4",
+        'cover_img' => "img/apt-04.avif",
         'visible' => true,
         'city' => 'Napoli',
         'address' => 'Via Toledo, 23',
@@ -70,7 +70,7 @@ return [
         'price' => 45.00,
         'lat' => 45.4345, // Latitudine di Venezia
         'lon' => 12.3386, // Longitudine di Venezia
-        'cover_img' => "5",
+        'cover_img' => "img/apt-05.avif",
         'visible' => true,
         'city' => 'Venezia',
         'address' => 'Piazza San Marco, 68',
@@ -85,7 +85,7 @@ return [
         'price' => 38.00,
         'lat' => 44.4949, // Latitudine di Bologna
         'lon' => 11.3426, // Longitudine di Bologna
-        'cover_img' => "6",
+        'cover_img' => "img/apt-06.avif",
         'visible' => true,
         'city' => 'Bologna',
         'address' => 'Piazza Maggiore, 122',
@@ -100,7 +100,7 @@ return [
         'price' => 42.00,
         'lat' => 45.0703, // Latitudine di Torino
         'lon' => 7.6869, // Longitudine di Torino
-        'cover_img' => "7",
+        'cover_img' => "img/apt-07.avif",
         'visible' => true,
         'city' => 'Torino',
         'address' => 'Via Po, 39',
@@ -115,7 +115,7 @@ return [
         'price' => 33.00,
         'lat' => 38.1157, // Latitudine di Palermo
         'lon' => 13.3615, // Longitudine di Palermo
-        'cover_img' => "8",
+        'cover_img' => "img/apt-08.avif",
         'visible' => true,
         'city' => 'Palermo',
         'address' => 'Via Maqueda, 1',
@@ -130,7 +130,7 @@ return [
         'price' => 48.00,
         'lat' => 45.4384, // Latitudine di Trento
         'lon' => 10.9916, // Longitudine di Trento
-        'cover_img' => "9",
+        'cover_img' => "img/apt-09.avif",
         'visible' => true,
         'city' => 'Trento',
         'address' => 'Via Mazzini, 22',
@@ -145,7 +145,7 @@ return [
         'price' => 37.00,
         'lat' =>  44.4074, // Latitudine di Catania
         'lon' => 8.9339, // Longitudine di Catania
-        'cover_img' => "10", // Immagine di copertina 
+        'cover_img' => "img/apt-10.avif", // Immagine di copertina 
         'visible' => true,
         'city' => 'Genova',
         'address' => 'Piazza De Ferrari, 12',
@@ -160,7 +160,7 @@ return [
         'price' => 30.50,
         'lat' => 40.744272, // Contrada Difesa S. Salvatore, Ostuni
         'lon' => 17.565830, // Contrada Difesa S. Salvatore, Ostuni
-        'cover_img' => "1",
+        'cover_img' => "img/apt-11.avif",
         'visible' => true,
         'city' => 'Ostuni',
         'address' => 'Contrada Difesa S. Salvatore, 123',
@@ -175,7 +175,7 @@ return [
         'price' => 30.50,
         'lat' => 43.484691, // Via pieve dei pitti Terricciola, Toscana, Italia
         'lon' => 10.692128, // Via pieve dei pitti Terricciola, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-12.avif",
         'visible' => true,
         'city' => 'Terricciola',
         'address' => 'Via pieve dei pitti, 123',
@@ -190,7 +190,7 @@ return [
         'price' => 30.50,
         'lat' => 43.461457, // Località baida Poggibonsi, Toscana, Italia
         'lon' => 11.126516, // Località baida Poggibonsi, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-13.avif",
         'visible' => true,
         'city' => 'Poggibonsi',
         'address' => 'Località baida Poggibonsi, 123',
@@ -205,7 +205,7 @@ return [
         'price' => 30.50,
         'lat' => 39.903252, // via nuoro Loceri, Sardegna, Italia
         'lon' => 9.549583, // via nuoro Loceri, Sardegna, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-14.avif",
         'visible' => true,
         'city' => 'Loceri',
         'address' => 'via nuoro , 123',
@@ -220,7 +220,7 @@ return [
         'price' => 30.50,
         'lat' => 40.621447, // Strada provinciale 47 Latiano, Puglia, Italia
         'lon' => 17.727526, // Strada provinciale 47 Latiano, Puglia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-15.avif",
         'visible' => true,
         'city' => 'Latiano',
         'address' => 'Strada provinciale 47 Latiano, 123',
@@ -235,7 +235,7 @@ return [
         'price' => 30.50,
         'lat' => 46.499118, // Via palù dell'agnello Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'lon' => 11.344525, // Via palù dell'agnello Bolzano, Trentino-Alto Adige/Südtirol, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-16.avif",
         'visible' => true,
         'city' => 'Bolzano',
         'address' => "Via palù dell'agnello , 123",
@@ -250,7 +250,7 @@ return [
         'price' => 30.50,
         'lat' => 46.498972, // Via agruzzo grutzenweg Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'lon' => 11.337417, // Via agruzzo grutzenweg Bolzano, Trentino-Alto Adige/Südtirol, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-17.avif",
         'visible' => true,
         'city' => 'Bolzano',
         'address' => 'Via agruzzo grutzenweg, 123',
@@ -265,7 +265,7 @@ return [
         'price' => 30.50,
         'lat' => 45.739238, // frazione tur de villa Gressan, Aosta, Italia
         'lon' => 7.318330, // frazione tur de villa Gressan, Aosta, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-18.avif",
         'visible' => true,
         'city' => 'Gressan',
         'address' => 'frazione tur de villa, 123',
@@ -280,7 +280,7 @@ return [
         'price' => 30.50,
         'lat' => 43.570920, // via colle rucci Montaione, Toscana, Italia
         'lon' => 10.906160, // via colle rucci Montaione, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-19.avif",
         'visible' => true,
         'city' => 'Montaione',
         'address' => 'via colle rucci Montaione, 123',
@@ -295,7 +295,7 @@ return [
         'price' => 30.50,
         'lat' => 43.710150, // via marmoreccia Cerreto Guidi, Toscana, Italia
         'lon' => 10.892710, // via marmoreccia Cerreto Guidi, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-20.avif",
         'visible' => true,
         'city' => 'Cerreto Guidi',
         'address' => 'via marmoreccia , 123',
@@ -310,7 +310,7 @@ return [
         'price' => 30.50,
         'lat' => 44.671759, // Strada provinciale 160 Voltaggio, Piemonte, Italia
         'lon' => 8.899394, // Strada provinciale 160 Voltaggio, Piemonte, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-21.avif",
         'visible' => true,
         'city' => ' Voltaggio',
         'address' => 'Strada provinciale 160 , 123',
@@ -325,7 +325,7 @@ return [
         'price' => 30.50,
         'lat' => 40.265890, // via silvio maurano Castellabate, Campania, Italia
         'lon' => 14.995586, // via silvio maurano Castellabate, Campania, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-22.avif",
         'visible' => true,
         'city' => 'Castellabate',
         'address' => 'via silvio maurano , 123',
@@ -340,7 +340,7 @@ return [
         'price' => 30.50,
         'lat' => 40.744366, // strada provinciale 13 Cisternino, Puglia, Italia
         'lon' => 17.422960, // strada provinciale 13 Cisternino, Puglia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-23.avif",
         'visible' => true,
         'city' => 'Cisternino',
         'address' => 'strada provinciale 13 , 123',
@@ -355,7 +355,7 @@ return [
         'price' => 30.50,
         'lat' => 40.046837, // via amico b. Gallipoli, Puglia, Italy, Italia
         'lon' => 17.994430, // via amico b. Gallipoli, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-24.avif",
         'visible' => true,
         'city' => 'Gallipoli',
         'address' => 'via amico b., 123',
@@ -370,7 +370,7 @@ return [
         'price' => 30.50,
         'lat' => 45.067445, // corso s. maurizzio Torino, Piemonte, Italia
         'lon' => 7.683736, // corso s. maurizzio Torino, Piemonte, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-25.avif",
         'visible' => true,
         'city' => 'Torino',
         'address' => 'corso s. maurizzio , 123',
@@ -385,7 +385,7 @@ return [
         'price' => 30.50,
         'lat' => 40.728088, // Contrada difesa s. salvatore Ostuni, Brindisi, Italia
         'lon' => 17.536644, // Contrada difesa s. salvatore Ostuni, Brindisi, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-26.avif",
         'visible' => true,
         'city' => 'Ostuni',
         'address' => 'Contrada difesa s. salvatore, 123',
@@ -400,7 +400,7 @@ return [
         'price' => 30.50,
         'lat' => 40.996905, // strada comunale marinesca Polignano a Mare, Puglia, Italy, Italia
         'lon' => 17.205880, // strada comunale marinesca Polignano a Mare, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-27.avif",
         'visible' => true,
         'city' => 'Polignano a Mare',
         'address' => 'strada comunale marinesca, 123',
@@ -415,7 +415,7 @@ return [
         'price' => 30.50,
         'lat' => 40.038947, // via san paolo Palinuro, Campania, Italia
         'lon' => 15.300364, // via san paolo Palinuro, Campania, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-28.avif",
         'visible' => true,
         'city' => 'Palinuro',
         'address' => 'via san paolo Palinuro, 123',
@@ -430,7 +430,7 @@ return [
         'price' => 30.50,
         'lat' => 40.666599, // strada provinciale 28 Ceglie Messapica, Puglia, Italy, Italia
         'lon' => 17.457778, // strada provinciale 28 Ceglie Messapica, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-29.avif",
         'visible' => true,
         'city' => 'Ceglie Messapica',
         'address' => 'strada provinciale 28 , 123',
@@ -445,7 +445,7 @@ return [
         'price' => 30.50,
         'lat' => 40.861918, // via vecchia di laureto Fasano, Puglia, Italy, Italia
         'lon' => 17.391830, // via vecchia di laureto Fasano, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-30.avif",
         'visible' => true,
         'city' => 'Fasano',
         'address' => 'via vecchia di laureto , 123',
@@ -460,7 +460,7 @@ return [
         'price' => 30.50,
         'lat' =>  43.726862, // VIA ANDREA DI MINO Pisa, Toscana, Italia
         'lon' => 10.401628, // VIA ANDREA DI MINO Pisa, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-31.avif",
         'visible' => true,
         'city' => 'Pisa',
         'address' => 'VIA ANDREA DI MINO Pisa, 123',
@@ -475,7 +475,7 @@ return [
         'price' => 30.50,
         'lat' => 40.051741, // via roma Santa Cesarea Terme, Puglia, Italy, Italia
         'lon' => 18.425752, // via roma Santa Cesarea Terme, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-32.avif",
         'visible' => true,
         'city' => 'Santa Cesarea Terme',
         'address' => 'via roma , 123',
@@ -490,7 +490,7 @@ return [
         'price' => 30.50,
         'lat' => 42.415295, // str. consortile delle poppe Tuscania, Lazio, Italia
         'lon' => 11.862656, // str. consortile delle poppe Tuscania, Lazio, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-33.avif",
         'visible' => true,
         'city' => 'Tuscania',
         'address' => 'str. consortile delle poppe , 123',
@@ -505,7 +505,7 @@ return [
         'price' => 30.50,
         'lat' => 45.582956, // via premuda Monza, Lombardia, Italia
         'lon' => 9.279672, // via premuda Monza, Lombardia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-34.avif",
         'visible' => true,
         'city' => 'Monza',
         'address' => 'via premuda , 123',
@@ -520,7 +520,7 @@ return [
         'price' => 30.50,
         'lat' => 41.278128, // consorzio tirreno Terracina, Lazio, Italia
         'lon' => 13.254048, // consorzio tirreno Terracina, Lazio, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-35.avif",
         'visible' => true,
         'city' => 'Terracina',
         'address' => 'consorzio tirreno , 123',
@@ -535,7 +535,7 @@ return [
         'price' => 30.50,
         'lat' => 44.058513, // via s.paolo Rimini, RN, Italia
         'lon' => 12.568466, // via s.paolo Rimini, RN, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-36.avif",
         'visible' => true,
         'city' => 'Rimini',
         'address' => 'via s.paolo , 123',
@@ -550,7 +550,7 @@ return [
         'price' => 30.50,
         'lat' => 43.468070, // via capassi San Gimignano, Toscana, Italia
         'lon' => 11.044723, // via capassi San Gimignano, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-37.avif",
         'visible' => true,
         'city' => 'San Gimignano',
         'address' => 'via capassi , 123',
@@ -565,7 +565,7 @@ return [
         'price' => 30.50,
         'lat' => 45.820440, // via aldo moro Ranzanico Lago, Lombardia, Italia
         'lon' => 9.944800, // via aldo moro Ranzanico Lago, Lombardia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-38.avif",
         'visible' => true,
         'city' => 'Ranzanico Lago',
         'address' => 'via aldo moro , 123',
@@ -580,7 +580,7 @@ return [
         'price' => 30.50,
         'lat' => 41.212978, // via dei canali  Gaeta, Lazio, Italia
         'lon' => 13.580664, // via dei canali  Gaeta, Lazio, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-39.avif",
         'visible' => true,
         'city' => 'Gaeta',
         'address' => 'via dei canali , 123',
@@ -595,7 +595,7 @@ return [
         'price' => 30.50,
         'lat' => 42.425345, // via guelfo civinini Porto Santo Stefano, Toscana, Italia
         'lon' => 11.124964, // via guelfo civinini Porto Santo Stefano, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-40.avif",
         'visible' => true,
         'city' => 'Porto Santo Stefano',
         'address' => 'via guelfo civinini, 123',
@@ -610,7 +610,7 @@ return [
         'price' => 30.50,
         'lat' => 46.209088, // via bugliaga Trasquera, Piemonte, Italia
         'lon' => 8.151991, // via bugliaga Trasquera, Piemonte, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-41.avif",
         'visible' => true,
         'city' => 'Trasquera',
         'address' => 'via bugliaga , 123',
@@ -625,7 +625,7 @@ return [
         'price' => 30.50,
         'lat' => 38.080837, // strada provinciale 168bis Marina di Caronia, Sicilia, Italia
         'lon' => 14.442736, // strada provinciale 168bis Marina di Caronia, Sicilia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-42.avif",
         'visible' => true,
         'city' => 'Marina di Caronia',
         'address' => 'strada provinciale 168bis, 123',
@@ -640,7 +640,7 @@ return [
         'price' => 30.50,
         'lat' => 42.582175, // contrada camerino Pineto, Abruzzo, Italia
         'lon' => 14.069850, // contrada camerino Pineto, Abruzzo, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-43.avif",
         'visible' => true,
         'city' => 'Pineto',
         'address' => 'contrada camerino Pineto, 123',
@@ -655,7 +655,7 @@ return [
         'price' => 30.50,
         'lat' => 40.773177, // contrada nardelli Locorotondo, Puglia, Italy, Italia
         'lon' => 17.322764, // contrada nardelli Locorotondo, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-44.avif",
         'visible' => true,
         'city' => 'Locorotondo',
         'address' => 'contrada nardelli, 123',
@@ -670,7 +670,7 @@ return [
         'price' => 30.50,
         'lat' => 42.935829, // contrada montebove est Ripatransone, Marche, Italia
         'lon' =>  13.841095, // contrada montebove est Ripatransone, Marche, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-45.avif",
         'visible' => true,
         'city' => 'Ripatransone',
         'address' => 'contrada montebove est, 123',
@@ -685,7 +685,7 @@ return [
         'price' => 30.50,
         'lat' => 40.743614, // strada provinciale 16 Cisternino, Italia
         'lon' => 17.414755, // strada provinciale 16 Cisternino, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-46.avif",
         'visible' => true,
         'city' => 'Cisternino',
         'address' => 'strada provinciale 16 , 123',
@@ -700,7 +700,7 @@ return [
         'price' => 30.50,
         'lat' => 45.057009, // strada oliva  Moncalvo, Piemonte, Italia
         'lon' => 8.347833, // strada oliva  Moncalvo, Piemonte, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-47.avif",
         'visible' => true,
         'city' => 'Moncalvo',
         'address' => 'strada oliva, 123',
@@ -715,7 +715,7 @@ return [
         'price' => 30.50,
         'lat' => 42.456643, // strada provinciale litoranea Chiarone Scalo, Capalbio, Grosseto, Toscana, Italia
         'lon' => 11.400714, // strada provinciale litoranea Chiarone Scalo, Capalbio, Grosseto, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-48.avif",
         'visible' => true,
         'city' => 'Chiarone Scalo',
         'address' => 'strada provinciale litoranea Chiarone Scalo, 123',
@@ -730,7 +730,7 @@ return [
         'price' => 30.50,
         'lat' => 40.634958, // via duca mastalo II Amalfi, Campania, Italia
         'lon' => 14.602710, // via duca mastalo II Amalfi, Campania, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-49.avif",
         'visible' => true,
         'city' => 'Amalfi',
         'address' => 'via duca mastalo II Amalfi, 123',
@@ -745,7 +745,7 @@ return [
         'price' => 30.50,
         'lat' => 45.178373, //via chiesa Bionde, Veneto, Italia
         'lon' => 11.245959, // via chiesa Bionde, Veneto, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-50.avif",
         'visible' => true,
         'city' => 'Bionde',
         'address' => 'via chiesa Bionde, 123',
@@ -760,7 +760,7 @@ return [
         'price' => 30.50,
         'lat' => 42.672253, // procenese Proceno, Lazio, Italia
         'lon' => 11.731937, // procenese Proceno, Lazio, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-51.avif",
         'visible' => true,
         'city' => ' Proceno',
         'address' => 'procenese, 123',
@@ -775,7 +775,7 @@ return [
         'price' => 30.50,
         'lat' => 39.923028, // via porto frailis Arbatax, Sardegna, Italia
         'lon' => 9.698210, // via porto frailis Arbatax, Sardegna, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-52.avif",
         'visible' => true,
         'city' => 'Arbatax',
         'address' => 'via porto frailis , 123',
@@ -790,7 +790,7 @@ return [
         'price' => 30.50,
         'lat' => 42.843974, // strada provinciale 206 Montelovesco, Umbria, Italia
         'lon' => 12.663372, // strada provinciale 206 Montelovesco, Umbria, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-53.avif",
         'visible' => true,
         'city' => 'Montelovesco',
         'address' => 'strada provinciale 206, 123',
@@ -805,7 +805,7 @@ return [
         'price' => 30.50,
         'lat' => 44.839569, // via bologna Ferrara, Emilia-Romagna, Italia
         'lon' => 11.626221, // via bologna Ferrara, Emilia-Romagna, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-54.avif",
         'visible' => true,
         'city' => 'Ferrara',
         'address' => 'via bologna , 123',
@@ -820,7 +820,7 @@ return [
         'price' => 30.50,
         'lat' => 46.421036, // borgo vico Forni di Sotto, Friuli-Venezia Giulia, Italia
         'lon' => 12.643162, // borgo vico Forni di Sotto, Friuli-Venezia Giulia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-55.avif",
         'visible' => true,
         'city' => 'Forni di Sotto',
         'address' => 'borgo vico Forni di Sotto, 123',
@@ -835,7 +835,7 @@ return [
         'price' => 30.50,
         'lat' => 43.446365, // strada provinciale 101 di montemaggio, Toscana, Italia
         'lon' => 11.213024, // strada provinciale 101 di montemaggio, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-56.avif",
         'visible' => true,
         'city' => 'Lucca',
         'address' => 'strada provinciale 101 di montemaggio, 123',
@@ -850,7 +850,7 @@ return [
         'price' => 30.50,
         'lat' => 40.800444, // via posillipo Napoli, Campania, Italia
         'lon' => 14.213292, // via posillipo Napoli, Campania, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-57.avif",
         'visible' => true,
         'city' => 'Napoli',
         'address' => 'via posillipo , 123',
@@ -865,7 +865,7 @@ return [
         'price' => 30.50,
         'lat' => 37.738845, // via pedara sant'agata Mascali, Sicilia, Italia
         'lon' => 15.214859, // via pedara sant'agata Mascali, Sicilia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-58.avif",
         'visible' => true,
         'city' => 'Mascali',
         'address' => " via pedara sant'agata , 123",
@@ -880,7 +880,7 @@ return [
         'price' => 30.50,
         'lat' => 37.602595, // via spiaggia Acireale, Sicilia, Italia
         'lon' => 15.164582, // via spiaggia Acireale, Sicilia, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-59.avif",
         'visible' => true,
         'city' => 'Acireale',
         'address' => 'via spiaggia , 123',
@@ -895,7 +895,7 @@ return [
         'price' => 30.50,
         'lat' => 40.343265, // via 29 Marina di Lizzano, Puglia, Italy, Italia
         'lon' => 17.433283, // via 29 Marina di Lizzano, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-60.avif",
         'visible' => true,
         'city' => 'Lizzano',
         'address' => 'via 29 Marina di Lizzano, 123',
@@ -910,7 +910,7 @@ return [
         'price' => 30.50,
         'lat' => 36.823382, // via lago  Pantelleria, Trapani, Italia
         'lon' => 11.951682, // via lago  Pantelleria, Trapani, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-61.avif",
         'visible' => true,
         'city' => 'Pantelleria',
         'address' => 'via lago  , 123',
@@ -925,7 +925,7 @@ return [
         'price' => 30.50,
         'lat' => 40.650369, // via san michele Pomarico, Basilicata, Italia
         'lon' => 16.562587, // via san michele Pomarico, Basilicata, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-62.avif",
         'visible' => true,
         'city' => ' Pomarico',
         'address' => 'via san michele , 123',
@@ -940,7 +940,7 @@ return [
         'price' => 30.50,
         'lat' => 40.705018, // strada provinciale 70 Martina Franca, Puglia, Italy, Italia
         'lon' => 17.336548, // strada provinciale 70 Martina Franca, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-63.avif",
         'visible' => true,
         'city' => ' Martina Franca',
         'address' => 'strada provinciale 70 , 123',
@@ -955,7 +955,7 @@ return [
         'price' => 30.50,
         'lat' => 45.330601, // via croce Albettone, Veneto, Italia
         'lon' => 11.350206, // via croce Albettone, Veneto, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-64.avif",
         'visible' => true,
         'city' => 'Albettone',
         'address' => ' via croce, 123',
@@ -970,7 +970,7 @@ return [
         'price' => 30.50,
         'lat' => 44.9725, // borgata sagna logna Cesana torinese, Piemonte, Italia
         'lon' => 6.7794, // borgata sagna logna Cesana torinese, Piemonte, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-65.avif",
         'visible' => true,
         'city' => 'Cesana torinese',
         'address' => 'borgata sagna logna , Piemonte, Italia, 123',
@@ -985,7 +985,7 @@ return [
         'price' => 30.50,
         'lat' => 41.8864 , // via dei fratelli laurana Roma, Lazio, Italia
         'lon' => 12.5034, // via dei fratelli laurana Roma, Lazio, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-66.avif",
         'visible' => true,
         'city' => 'Roma',
         'address' => 'via dei fratelli laurana Roma, 123',
@@ -1000,7 +1000,7 @@ return [
         'price' => 30.50,
         'lat' => 40.651018, // strada provinciale 26 Ceglie Messapica, Puglia, Italy, Italia
         'lon' => 17.526486, // strada provinciale 26 Ceglie Messapica, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-67.avif",
         'visible' => true,
         'city' => 'Messapica',
         'address' => 'strada provinciale 26, 123',
@@ -1015,7 +1015,7 @@ return [
         'price' => 30.50,
         'lat' => 43.4644, // via fortezza medicea Poggibonsi, Toscana, Italia
         'lon' => 11.1519 , // via fortezza medicea Poggibonsi, Toscana, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-68.avif",
         'visible' => true,
         'city' => 'Poggibonsi',
         'address' => 'via fortezza medicea , 123',
@@ -1030,7 +1030,7 @@ return [
         'price' => 30.50,
         'lat' => 39.5865, // via marco polo Cittadella del Capo, Calabria, Italia
         'lon' => 15.8457, // via marco polo Cittadella del Capo, Calabria, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-69.avif",
         'visible' => true,
         'city' => 'Cittadella del Capo',
         'address' => 'via marco polo, 123',
@@ -1045,7 +1045,7 @@ return [
         'price' => 30.50,
         'lat' => 41.9976, // via macchiavelli Campomarino, Puglia, Italy, Italia
         'lon' => 14.9435 , // via macchiavelli Campomarino, Puglia, Italy, Italia
-        'cover_img' => "1",
+        'cover_img' => "img/apt-70.avif",
         'visible' => true,
         'city' => 'Campomarino',
         'address' => 'via macchiavelli Campomarino, 123',
