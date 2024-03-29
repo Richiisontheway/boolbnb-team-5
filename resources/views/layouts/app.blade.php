@@ -10,14 +10,13 @@
         <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
-    <body class="">
+    <body>
         <div class="d-flex">
-            <header>
-                
+            <aside>    
                 <nav class="d-flex flex-column">
                     <ul class="flex-grow-1">
                         <li>
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin.dashboard') ? 'active' : '' }}" >Dashboard</a>
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                         </li>
                         <li>
                             <a class="nav-link" href="{{route('admin.apartments.index')}}">Appartamenti</a>
@@ -29,20 +28,18 @@
                             <a class="nav-link" href="{{ route('admin.contacts.index') }}">Messaggi</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('admin.sponsors.index') }} ">Sponsor</a>
+                            <a class="nav-link" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
                         </li>
                     </ul>
                     <form method="POST" action="{{ route('logout') }}" class="text-center">
                         @csrf
-
-                        <button type="submit">
-                            Log Out
-                        </button>
+                            <button type="submit">
+                                Log Out
+                            </button>
                     </form>
                 </nav>
-                
-            </header>
-            <main class="py-4">
+            </aside>
+            <main class="py-4 overflow-y-scroll">
                 <div class="container">
                     @yield('main-content')
                 </div>

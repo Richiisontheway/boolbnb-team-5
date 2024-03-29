@@ -5,9 +5,6 @@
 @section('main-content')
     <div class="row">
         <div class="col">
-            <div>
-                ciao
-            </div>
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
