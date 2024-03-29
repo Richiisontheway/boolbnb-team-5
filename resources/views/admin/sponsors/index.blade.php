@@ -4,7 +4,7 @@
 
 @section('main-content')
     <h1>
-        Index degli sponsors
+       Le nostre sponsorizzazioni
     </h1>
 
       <div class="container">

@@ -3,35 +3,25 @@
 @section('page-title', 'Tutti i servizi')
 
 @section('main-content')
-    <h1>
-        ciao sono l'index
-    </h1>
-    @foreach ($services as $singleService)
-        <tr>
-            <th scope="row">{{$singleService->id}}</th>
-            <br>
-            <td>{{$singleService->title}}</td>
-            <span>
-                <i class="{{ $singleService->icon }}"></i>
-            </span>
+    <section id="services-index" >
 
-            {{-- <td>
-                <a href="{{ route('admin.apartments.show' , ['apartment' => $item->slug]) }}" class="btn btn-primary">
-                    Show
-                </a>
-            <br>
+        <div class="mb-3">
+            <h1>
+                I servizi disponibili
+            </h1>
+        </div>
 
-                <a href="{{route('admin.apartments.edit' , ['apartment' => $item->slug  ])}}" class="btn btn-warning">
-                    Edit
-                </a>
-            <br>
+        <div class="d-flex flex-wrap justify-content-center">
 
-                <a href="" class="btn btn-danger">
-                    Delete
-                </a>
-            <br> --}}
+            @foreach ($services as $singleService)
+                <div class="single-service-card d-flex align-items-center justify-content-center">
+                    <a href="{{ route('admin.services.show' , ['service' => $singleService->id]) }}" class="text-decoration-none">
+                        <i class="{{$singleService->icon}} pe-2"></i> {{$singleService->title}}
+                    </a>
+                </div>
+            @endforeach
 
-            </td>
-        </tr>
-    @endforeach
+        </div>
+
+    </section>
 @endsection
