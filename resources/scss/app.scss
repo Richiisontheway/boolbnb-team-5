@@ -1,79 +1,114 @@
 @import "~bootstrap/scss/bootstrap";
+@import "variables";
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
-    position: sticky;
-    top: 0;
-    z-index: 1;
+// header{
+//     position: sticky;
+//     top: 0;
+//     z-index: 1;
     
-    background-color: #000000;
+//     background-color: #000000;
 
-    .container{
+//     .container{
 
-        nav{
+//         nav{
             
-            display: flex;
-            align-items: center;
+//             display: flex;
+//             align-items: center;
             
-            ul{
+//             ul{
     
-                display: flex;
-                justify-content: space-around;
-                list-style: none;
-                height: 100%;
-                width: 100%;
-                align-items: center;
-                margin: 0;
-                padding: 10px 0;
+//                 display: flex;
+//                 justify-content: space-around;
+//                 list-style: none;
+//                 height: 100%;
+//                 width: 100%;
+//                 align-items: center;
+//                 margin: 0;
+//                 padding: 10px 0;
 
-                li{
-                    a{
+//                 li{
+//                     a{
                         
-                        font-size: 1.1rem;
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        color: #fff;
-                        padding: 10px;
-                        margin: 0 8px;
-                        transition: all .4s ease-in-out;
-                        &:hover{
-                            color: #FEA3C7;
-                        }
-                    }
-                }
-            }
+//                         font-size: 1.1rem;
+//                         text-decoration: none;
+//                         text-transform: uppercase;
+//                         font-weight: bold;
+//                         color: #fff;
+//                         padding: 10px;
+//                         margin: 0 8px;
+//                         transition: all .4s ease-in-out;
+//                         &:hover{
+//                             color: #FEA3C7;
+//                         }
+//                     }
+//                 }
+//             }
             
             
-            button{
-                width: 120px;
-                height: 40px;
-                font-size: 16px;
-                padding: 8px 12px;
-                background-color: transparent;
-                color: white;
-                border: 2px solid white;
-                border-radius: 8px;
-                text-transform: uppercase;
-                font-weight: bold;
-                transition: all .4s ease-in-out;
-                cursor: pointer;
+//             button{
+//                 width: 120px;
+//                 height: 40px;
+//                 font-size: 16px;
+//                 padding: 8px 12px;
+//                 background-color: transparent;
+//                 color: white;
+//                 border: 2px solid white;
+//                 border-radius: 8px;
+//                 text-transform: uppercase;
+//                 font-weight: bold;
+//                 transition: all .4s ease-in-out;
+//                 cursor: pointer;
 
-                &:hover{
-                    color: #b61909;
-                    border-color: #b61909;
-                }
-            }
+//                 &:hover{
+//                     color: #b61909;
+//                     border-color: #b61909;
+//                 }
+//             }
             
             
         
+//         }
+//     }
+// }
+header{
+    height: 100vh;
+    width: 15%;
+    background-color: $primary_background_color;
+    nav{
+        height: 100vh;
+        ul{
+            padding-left:10;
+            list-style: none;
+            color: $primary_text_color;
+
+                li{
+                    margin: 15px 0;
+                }
+        }
+        button{
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
+            padding: 8px 12px;
+            margin: 40px 0;
+            background-color: transparent;
+            color: $primary_text_color;
+            border: 2px solid $primary_text_color;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all .4s ease-in-out;
+            cursor: pointer;
+            &:hover{
+                color: #b61909;
+                border-color: #b61909;
+            }
         }
     }
 }
-
 main {
-    // background-color: lightcoral;
     height: 100vh;
 }

@@ -1,6 +1,7 @@
 import './bootstrap';
 
 import '~resources/scss/app.scss';
+import '~resources/scss/variables.scss';
 import '~resources/scss/sponsors/sponsors.scss';
 import '~resources/scss/apartments/apartments.scss';
 import '~resources/scss/apartments/show.scss';

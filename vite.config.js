@@ -8,6 +8,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/scss/app.scss',
+                'resources/scss/variables.scss',
                 'resources/scss/sponsors/sponsors.scss',
                 'resources/scss/apartments/apartments.scss',
                 'resources/scss/apartments/show.scss',
