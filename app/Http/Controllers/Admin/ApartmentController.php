@@ -64,8 +64,6 @@ class ApartmentController extends Controller
         // Estrai la posizione (latitudine e longitudine) dalla risposta
         $position = $responseData['results'][0]['position'];
 
-        // dd($position);
-
         $lat = $position['lat'];
         $lon = $position['lon'];
 
