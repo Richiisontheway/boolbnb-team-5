@@ -165,19 +165,33 @@ class ApartmentController extends Controller
 
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
 
-        // Assegno ad una variabile il valore della colonna cover_img dentro il singolo apartment
-        $coverImgPath = $apartment->cover_img;
-
-        // Se passiamo un valore all'input per la cover_img
-        if (isset($apartment_data['cover_img'])) {
-            // Se il valore della colonna cover_img dentro il singolo project è diverso da null
-            if ($apartment->cover_img != null) {
-                // Lo elimino
+        // Controlla se è stata selezionata un'immagine per la copertina
+        if ($request->hasFile('cover_img')) {
+            // Carica la nuova immagine di copertina e ottieni il percorso
+            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
+            
+            // Elimina l'immagine di copertina attuale se presente
+            if ($apartment->cover_img) {
                 Storage::disk('public')->delete($apartment->cover_img);
             }
-            // E gli assegno il nuovo valore passato
-            $coverImgPath = Storage::disk('public')->put('images', $apartment_data['cover_img']);
         } 
+        // Altrimenti, controlla se è stata attivata l'opzione per eliminare l'immagine esistente
+        elseif ($request->has('delete_cover_img')) {
+            // Elimina l'immagine di copertina attuale
+            if ($apartment->cover_img) {
+                Storage::disk('public')->delete($apartment->cover_img);
+            }
+            
+            // Imposta il percorso dell'immagine di copertina dell'appartamento su una stringa vuota per indicare l'assenza di un'immagine
+            $coverImgPath = 'img/apt-missing.png';
+            
+            // Rimuovi 'cover_img' dall'array di dati dell'appartamento in modo che non venga sovrascritto
+            unset($apartment_data['cover_img']);
+        } 
+        // Se non è stata effettuata alcuna modifica all'immagine di copertina, mantieni il percorso attuale
+        else {
+            $coverImgPath = $apartment->cover_img;
+        }
 
         $apartment_data['slug'] = Str::slug($apartment_data['title']);
         $apartment_data['cover_img'] = $coverImgPath;

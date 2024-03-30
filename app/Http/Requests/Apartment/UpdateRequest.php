@@ -36,9 +36,15 @@ class UpdateRequest extends FormRequest
             'city' => 'required|string|Min:2|Max:64',
             'zip_code' => 'required|numeric|digits:5',
             'services' => 'nullable|array|exists:services,id',
-            'cover_img' => 'required|image',
-            'visible' => 'required|Boolean'
+            'visible' => 'required|Boolean',
+            'delete_cover_img' => 'nullable|boolean'
         ];
+
+        // Aggiungi la regola required_if per 'cover_img' se 'delete_cover_img' non è selezionato
+        if (!$this->input('delete_cover_img')) {
+            $rules['cover_img'] = 'required|image';
+        }
+
     }
     
     public function messages()

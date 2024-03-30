@@ -6,16 +6,7 @@
     <h1>
         Modifica l'appartamento {{$apartment->title}}
     </h1>
-    {{-- gestione degli errori in base alla validazione delle formrequest --}}
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
+   
     <div class="mb-4">
         <a href="{{route('admin.apartments.index')}}" class="btn btn-primary">
             Torna alla lista dei tuoi appartamenti
@@ -116,26 +107,21 @@
                         </div>
                     @enderror
                 </div>
-                {{-- <div class="mb-3">
-                    <label for="lat" class="form-label">Latitudine<span class="text-danger">*</span></label>
-                    <input type="number" value="{{old('lat')}}" class="form-control" id="lat" name="lat" placeholder="inserisci latitudine" step="0.0001" required>
-                </div>
-                <div class="mb-3">
-                    <label for="lon" class="form-label">Longitudine<span class="text-danger">*</span></label>
-                    <input type="number" value="{{old('lon')}}" class="form-control" id="lon" name="lon" placeholder="inserisci longitudine" step="0.0001" required>
-                </div> --}}
                 <div class="col-12 d-flex justify-content-between">
                     <div class="mb-3">
+                        <h4>
+                            Cover attuale:
+                        </h4>
                         <img style="width:100px" src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cover_img" class="form-label">Inserisci un'immagine dell'appartamento<span class="text-danger">*</span></label>
+                        {{-- Creo una checkbox per chiedere se voglio eliminare la cover --}}
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="1" id="delete_cover_img" name="delete_cover_img">
+                            <label class="form-check-label" for="delete_cover_img">
+                                Rimuovi immagine
+                            </label>
+                        </div>
+                        <label for="cover_img" class="form-label">Inserisci una nuova immagine dell'appartamento</label>
                         <input type="file" value="{{ $apartment->cover_img, old('cover_img') }}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*">
-                        @error('cover_img')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                 </div>
                 <div class="mb-3">
