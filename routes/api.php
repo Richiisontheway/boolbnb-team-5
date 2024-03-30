@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // Controllers
 use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\Api\ContactController;
 
 
 /*
@@ -27,5 +28,7 @@ Route::name('api.')->group(function() {
         'index',
         'show'
     ]);
+
+    Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 });
 

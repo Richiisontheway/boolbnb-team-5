@@ -12,7 +12,8 @@ class Contact extends Model
     protected $fillable = [
         'name',
         'email',
-        'message'
+        'message',
+        'apartment_id'
     ];
     
     public function apartment() {

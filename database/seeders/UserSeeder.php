@@ -35,7 +35,7 @@ class UserSeeder extends Seeder {
                         'name' => 'Nicola',
                         'lastname' => 'Ceccagnoli',
                         'birthday' => '1994-11-02',
-                        'email' => 'nicolaceccagnoli@gmail.com',
+                        'email' => 'nicola.ceccagnoli.94@gmail.com',
                         'password' => 'password',
                     ],
                     [

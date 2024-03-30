@@ -34,7 +34,7 @@ class ContactSeeder extends Seeder
             $contact->name = $singleContact['name'];
             $contact->email = $singleContact['email'];
             $contact->message = $singleContact['message'];
-
+            $contact->apartment_id = $singleContact['apartment_id'];
             $contact->save();
         }
 
