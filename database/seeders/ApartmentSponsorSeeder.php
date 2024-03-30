@@ -24,7 +24,7 @@ class ApartmentSponsorSeeder extends Seeder
         $date_start = now();
         $date_end=null;
         foreach ($apartments as $singleApartment) {
-            if ($count < 5) {
+            if ($count < 30) {
                 $sponsorship_id = Sponsor::inRandomOrder()->value('id'); // Seleziona casualmente una chiave (id)
                 $sponsorship_time = $sponsorships->get($sponsorship_id); // Ottieni il valore 'time' corrispondente all'id
                 
