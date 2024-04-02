@@ -103,7 +103,7 @@ class ApartmentController extends Controller
             'zip_code' => $apartment_data['zip_code'],
             'lat' => $lat,
             'lon' => $lon,
-            'services' => $apartment_data['services'],
+            //'services' => $apartment_data['services'],
             'cover_img' => $coverImgPath,
             'visible' => $apartment_data['visible']
         ]);

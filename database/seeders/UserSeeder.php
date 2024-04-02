@@ -49,7 +49,7 @@ class UserSeeder extends Seeder {
                         'name' => 'Riccardo',
                         'lastname' => 'Minei',
                         'birthday' => '2004-06-11',
-                        'email' => 'riccardominei@gmail.com',
+                        'email' => 'mineiriccardo@gmail.com',
                         'password' => 'password',
                     ],
                     [

@@ -16,19 +16,19 @@
                 <nav class="d-flex flex-column">
                     <ul class="flex-grow-1">
                         <li>
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                            <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{route('admin.apartments.index')}}">Appartamenti</a>
+                            <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">Appartamenti</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('admin.services.index') }}">Servizi</a>
+                            <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">Servizi</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('admin.contacts.index') }}">Messaggi</a>
+                            <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">Messaggi</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
+                            <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
                         </li>
                     </ul>
                     <form method="POST" action="{{ route('logout') }}" class="text-center">
