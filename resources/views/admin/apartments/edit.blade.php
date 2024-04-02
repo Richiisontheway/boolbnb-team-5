@@ -3,6 +3,7 @@
 @section('page-title', 'Aggiungi un appartamento')
 
 @section('main-content')
+
     <h1>
         Modifica l'appartamento {{$apartment->title}}
     </h1>

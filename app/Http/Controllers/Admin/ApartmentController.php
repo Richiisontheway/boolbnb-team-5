@@ -129,8 +129,18 @@ class ApartmentController extends Controller
      */
     public function show(string $slug)
     {
+
+        $user = auth()->user();
+
         //serve per far funzionare lo uri con lo slug anziché che con l'id
         $apartment = Apartment::where('slug',$slug)->firstOrFail();
+
+        // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
+        if ($user->id !== $apartment->user_id) {
+            // Se l'utente non è il proprietario, restituisci un errore o effettua altre azioni a tua scelta
+            return back()->withError('Appartamento non trovato');
+        }
+
         // Recupera le informazioni sulla
         $sponsorship = $apartment->sponsors()->first();
         return view('admin.apartments.show', compact('apartment','sponsorship'));
@@ -141,8 +151,16 @@ class ApartmentController extends Controller
      */
     public function edit(string $slug)
     {
+        $user = auth()->user();
         //serve per far funzionare lo uri con lo slug anziché che con l'id
         $apartment = Apartment::where('slug',$slug)->firstOrFail();
+
+        // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
+        if ($user->id !== $apartment->user_id) {
+            // Se l'utente non è il proprietario
+            return back();
+        }
+
         $services = Service::all();
         return view('admin.apartments.edit', compact('apartment','services'));
     }
@@ -152,6 +170,9 @@ class ApartmentController extends Controller
      */
     public function update(ApartmentUpdateRequest $request, string $slug)
     {
+
+        $apartment = Apartment::where('slug', $slug)->firstOrFail();
+
         // Istanzio un nuovo oggetto Guzzle per effettuare la chiamat API di TomTom
         $client = new Client();
 
@@ -172,7 +193,6 @@ class ApartmentController extends Controller
         $lat = $position['lat'];
         $lon = $position['lon'];
 
-        $apartment = Apartment::where('slug', $slug)->firstOrFail();
 
         // Controlla se è stata selezionata un'immagine per la copertina
         if ($request->hasFile('cover_img')) {
@@ -224,6 +244,14 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+
+        $user = auth()->user();
+
+        // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
+        if ($user->id !== $apartment->user_id) {
+            return back();
+        }
+
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }
