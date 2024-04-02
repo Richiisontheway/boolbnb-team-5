@@ -146,6 +146,41 @@ class ApartmentController extends Controller
         return view('admin.apartments.show', compact('apartment','sponsorship'));
     }
 
+    public function showSponsorizeForm($slug)
+    {
+        $apartment = Apartment::where('slug', $slug)->firstOrFail();
+        $sponsorships = Sponsor::all();
+        return view('admin.apartments.sponsorize', compact('apartment', 'sponsorships'));
+    }
+
+    public function sponsorize(Request $request, $slug)
+    {
+        $apartment = Apartment::where('slug', $slug)->firstOrFail();
+        $sponsor = Sponsor::findOrFail($request->sponsorship);
+        $sponsorships = Sponsor::pluck('time','id');
+        
+        $date_start = now();
+        $date_end=null;
+        $sponsorship_time = $sponsorships->get($sponsor->time); // Ottieni il valore 'time' corrispondente all'id
+                
+        // Calcola la data di fine sponsorizzazione in base al 'time'
+        $date_end = $date_start->copy(); // Copia la data di inizio per evitare di modificarla direttamente
+        if ($sponsorship_time == 24) {
+            $date_end->addHours(24); // Data di fine sponsorizzazione dopo 24 ore
+        } elseif ($sponsorship_time == 72) {
+            $date_end->addHours(72); // Data di fine sponsorizzazione dopo 72 ore
+        } elseif ($sponsorship_time == 144) {
+            $date_end->addHours(144); // Data di fine sponsorizzazione dopo 144 ore
+        }
+        
+                // Assicurati che l'appartamento non sia già sponsorizzato con lo stesso tipo di sponsorizzazione
+        if (!$apartment->sponsors()->where('sponsor_id', $sponsor->id)->exists()) {
+            $apartment->sponsors()->attach($sponsor);
+            return redirect()->route('admin.apartments.show', ['apartment' => $slug])->with('success', 'Appartamento sponsorizzato con successo.');
+        } else {
+            return redirect()->back()->with('error', 'L\'appartamento è già sponsorizzato con questo tipo.');
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */

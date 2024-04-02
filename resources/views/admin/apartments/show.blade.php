@@ -49,10 +49,7 @@
                                             Questo appartamento è già sponsorizzato. Tipo di sponsorizzazione: {{ $sponsorship->title }}
                                         </div>
                                     @else
-                                        <form action="{{ route('sponsors.sponsorize', $apartment->id) }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="btn btn-primary">Sponsorizza</button>
-                                        </form>
+                                        <a href="{{ route('admin.apartments.showSponsorizeForm', ['slug' => $apartment->slug]) }}" class="btn btn-primary">Sponsorizza</a>
                                     @endif
                                 </div>
                             </div>
