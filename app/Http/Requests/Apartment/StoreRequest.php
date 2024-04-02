@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
             'n_baths' => 'required|numeric|Min:1|Max:10',
             'mq' => 'required|numeric|Min:1|Max:1000',
             'price' => 'required|numeric|decimal:0,2|Min:1|Max:999.99',
-            'address' => 'required|string|Min:1|Max:64',
+            'address' => 'required|string|Min:1|Max:255',
             // 'city' => 'required|string|Min:2|Max:64',
             // 'zip_code' => 'required|numeric|digits:5',
             //'lat' => 'required',
@@ -48,11 +48,18 @@ class StoreRequest extends FormRequest
     {
         return [
             'required' => 'il campo è obbligatorio',
-            //questo errore scatta sia nel caso in cui il price non è numeric 
-            //sia nel caso in cui non rispetti i min e max
-            'price.numeric' => 'Il campo prezzo deve essere un valore numerico e compreso tra :min e :max.',
-            'zip_code' => "il cap dev'essere di 5 numeri",
-            'cover_img' => "l'immagine dev'essere un file"
+            'numeric' => "il campo dev'essere un numero",
+            'n_rooms.min' => "il campo dev'essere di almeno 1 e massimo 10",
+            'n_rooms.max' => "il campo dev'essere di almeno 1 e massimo 10",
+            'n_beds.min' => "il campo dev'essere di almeno 1 e massimo 10",
+            'n_beds.max' => "il campo dev'essere di almeno 1 e massimo 10",
+            'n_baths.min' => "il campo dev'essere di almeno 1 e massimo 10",
+            'n_baths.max' => "il campo dev'essere di almeno 1 e massimo 10",
+            'mq.min' => "i mq devono essere tra 1 e 1000",
+            'mq.max' => "i mq devono essere tra 1 e 1000",
+            'price.min' => 'Il prezzo a notte deve essere un valore numerico e compreso tra 1 e 999.99',
+            'price.max' => 'Il prezzo a notte deve essere un valore numerico e compreso tra 1 e 999.99',
+            'cover_img.image' => "l'immagine dev'essere un file"
         ];
     }
 }
