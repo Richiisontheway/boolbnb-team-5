@@ -89,7 +89,7 @@
                         </div>
                     @enderror
                     <!-- Lista dei suggerimenti -->
-                    <ul id="suggestion-list"></ul>
+                    <ul id="suggestion-list" class="list-group"></ul>
                 </div>
                 {{-- <div class="mb-3">
                     <label for="city" class="form-label">Città dell'appartamento<span class="text-danger">*</span></label>
@@ -184,6 +184,8 @@
                     data.results.forEach(result => {
                         const suggestion = document.createElement('li');
                         suggestion.textContent = result.address.freeformAddress;
+                        // Aggiungi la classe list-group-item
+                        suggestion.classList.add('list-group-item');
                         suggestionList.appendChild(suggestion);
                     });
                 })
@@ -210,4 +212,5 @@
             });
         });
     </script>
+    
 @endsection
