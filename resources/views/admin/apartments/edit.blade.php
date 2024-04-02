@@ -25,7 +25,7 @@
                     <label for="title" class="form-label">Nome dell'appartamento <span class="text-danger">*</span></label>
                     {{-- old('title funziona solo se il form è stato sottomesso ma sono spuntati errori o altro')
                         Se non c'è alcun valore precedentemente inserito, verrà utilizzato il valore di $apartment->title. --}}
-                    <input type="text" value="{{ $apartment->title, old('title') }}" class="form-control" id="title" name="title" placeholder="nome appartamento" required>
+                    <input type="text" value="{{ $apartment->title, old('title') }}" class="form-control" id="title" maxlength="255"  name="title" placeholder="nome appartamento" required>
                     @error('title')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -37,7 +37,7 @@
             <div class="col-8">
                 <div class="mb-3">
                     <label for="n_rooms" class="form-label">N° stanze <span class="text-danger">*</span></label>
-                    <input type="number" value="{{ $apartment->n_rooms, old('n_rooms') }}" class="form-control" id="n_rooms" name="n_rooms" placeholder="inserisci il numero di stanze"  required>
+                    <input type="number" value="{{ $apartment->n_rooms, old('n_rooms') }}" class="form-control" id="n_rooms" name="n_rooms" min="1" max="10" placeholder="inserisci il numero di stanze"  required>
                     @error('n_rooms')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -47,7 +47,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="n_beds" class="form-label">N° letti <span class="text-danger">*</span></label>
-                    <input type="number" value="{{ $apartment->n_beds, old('n_beds') }}" class="form-control" id="n_beds" name="n_beds" placeholder="inserisci il numero di letti"  required>
+                    <input type="number" value="{{ $apartment->n_beds, old('n_beds') }}" class="form-control" id="n_beds" name="n_beds" min="1" max="10" placeholder="inserisci il numero di letti"  required>
                     @error('n_beds')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -56,7 +56,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="n_baths" class="form-label">N° bagni <span class="text-danger">*</span></label>
-                    <input type="number" value="{{ $apartment->n_baths, old('n_baths') }}" class="form-control" id="n_baths" name="n_baths" placeholder="inserisci il numero di bagni"  required>
+                    <input type="number" value="{{ $apartment->n_baths, old('n_baths') }}" class="form-control" id="n_baths" name="n_baths" min="1" max="10" placeholder="inserisci il numero di bagni"  required>
                     @error('n_baths')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -65,7 +65,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="mq" class="form-label">Metri Quadri <span class="text-danger">*</span></label>
-                    <input type="number" value="{{ $apartment->mq, old('mq') }}" class="form-control" id="mq" name="mq" placeholder="inserisci i metri quadri dell'immobile"  required>
+                    <input type="number" value="{{ $apartment->mq, old('mq') }}" class="form-control" id="mq" name="mq" min="1" max="1000" placeholder="inserisci i metri quadri dell'immobile"  required>
                     @error('mq')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -74,7 +74,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Prezzo a notte <span class="text-danger">*</span></label>
-                    <input type="number" value="{{ $apartment->price, old('price') }}" class="form-control" id="price" name="price" placeholder="inserisci il prezzo" min="0" max="999.99" step="0.01" required>
+                    <input type="number" value="{{ $apartment->price, old('price') }}" class="form-control" id="price" name="price" placeholder="inserisci il prezzo" min="1" max="999.99" step="0.01" required>
                     @error('price')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -82,8 +82,8 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="address" class="form-label">Indirizzo dell'appartamento<span class="text-danger">*</span></label>
-                    <input type="text" value="{{ $apartment->address, old('address') }}" class="form-control" id="address" name="address" placeholder="inserisci l'indirizzo"  required>
+                    <label for="address" class="form-label">Indirizzo dell'immobile<span class="text-danger">*</span></label>
+                    <input type="text" value="{{ $apartment->address, old('address') }}" class="form-control" id="address" name="address" maxlength="255" placeholder="inserisci l'indirizzo"  required>
                     @error('address')
                         <div class="alert alert-danger">
                             {{ $message }}
