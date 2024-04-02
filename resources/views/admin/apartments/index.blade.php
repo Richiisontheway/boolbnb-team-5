@@ -63,13 +63,13 @@
                                             Sei sicuto di voler eliminare: <b> {{ $singleApartment->title }} </b> ?
                                         </div>
                                         <div class="modal-footer">
-
+ 
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                                             {{-- Creiamo il form per l'eliminazione che con l'action reindirizza alla rotta destroy del controller, 
                                             come argomento passo lo slug del singolo appartamento--}}
                                             <form 
-                                            action="{{ route('admin.apartments.destroy', ['apartment' => $singleApartment->slug]) }}" 
+                                            action="{{ route('admin.apartments.destroy', ['apartment' => $singleApartment]) }}" 
                                             method="POST">
                                             {{-- 
                                                 Cross
