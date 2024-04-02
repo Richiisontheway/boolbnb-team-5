@@ -6,6 +6,11 @@
 
     <section id="apartments">
 
+        <div class="m-3 col-7">
+            {{-- input per il filtraggio dei dati --}}
+            <label for="filter" class="form-label">Cerca</label>
+            <input type="text" name="filter" id="filter" class="form-control">
+        </div>
         <div id="add" class="container-fluid">
             <a href="{{ route('admin.apartments.create') }}" class="add-button mb-5">
                 <span>Aggiungi</span>
@@ -99,7 +104,30 @@
             </div>
 
         </div>
-        
     </section>
+    <script>
+        //assegno una variabile all elemento con id filter
+        let input_filter = document.getElementById('filter');
+        //evento che si scatena ad ogni input nel tag
+        input_filter.addEventListener('input',function(){
+            //faccio diventare tutta la value dell'input in minuscolo
+            const filter = input_filter.value.toLowerCase();
+            //prendo tutti gli elementi della classe my-cards
+            let cards = document.querySelectorAll('.my-card');
+            //ciclo nella variabile cards che ha restituito una NodeList
+            cards.forEach(function(card){
+                //il contenuto degli h3 li prendo in minuscolo
+                let title = card.querySelector('h3').textContent.toLowerCase();
+                //se la codizione viene rispettata aggiungo una classe se no ne aggiungo un altra
+                if (title.includes(filter)) {
+                    card.style.display = 'block';
+                }
+                else{
+                    card.style.display = 'none';
+                }
+            });
+        })
+
+    </script>
 
 @endsection
