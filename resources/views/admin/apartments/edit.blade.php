@@ -88,8 +88,10 @@
                             {{ $message }}
                         </div>
                     @enderror
+                    <!-- Lista dei suggerimenti -->
+                    <ul id="suggestion-list"></ul>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="city" class="form-label">Città dell'appartamento<span class="text-danger">*</span></label>
                     <input type="text" value="{{ $apartment->city, old('city') }}" class="form-control" id="city" name="city" placeholder="inserisci la città"  required>
                     @error('city')
@@ -106,7 +108,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                </div>
+                </div> --}}
                 <div class="col-12 d-flex justify-content-between">
                     <div class="mb-3">
                         <h4>
@@ -162,4 +164,50 @@
             </div>
         </form>
     </div>
+
+
+    {{-- script --}}
+    <script>
+        // Aggiungi gestione evento input per l'autocompletamento
+        document.getElementById('address').addEventListener('input', function() {
+            const input = this.value;
+            const suggestionList = document.getElementById('suggestion-list');
+    
+            // Effettua una richiesta all'API di TomTom per ottenere i suggerimenti di completamento
+            fetch(`https://api.tomtom.com/search/2/search/${input}.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq`)
+                .then(response => response.json())
+                .then(data => {
+                    // Pulisci la lista dei suggerimenti
+                    suggestionList.innerHTML = '';
+    
+                    // Aggiungi i suggerimenti alla lista
+                    data.results.forEach(result => {
+                        const suggestion = document.createElement('li');
+                        suggestion.textContent = result.address.freeformAddress;
+                        suggestionList.appendChild(suggestion);
+                    });
+                })
+                .catch(error => console.error('Si è verificato un errore:', error));
+        });
+    
+        // Aggiungi gestione evento click per selezionare un suggerimento
+        document.addEventListener('DOMContentLoaded', function() {
+            const suggestionList = document.getElementById('suggestion-list');
+            
+            // Aggiungi gestione evento click per ogni suggerimento
+            suggestionList.addEventListener('click', function(event) {
+                // Verifica se l'elemento cliccato è un suggerimento
+                if (event.target.tagName === 'LI') {
+                    // Ottieni il testo del suggerimento cliccato
+                    const selectedSuggestion = event.target.textContent;
+                    
+                    // Compila l'input dell'indirizzo con il suggerimento selezionato
+                    document.getElementById('address').value = selectedSuggestion;
+    
+                    // Pulisci la lista dei suggerimenti
+                    suggestionList.innerHTML = '';
+                }
+            });
+        });
+    </script>
 @endsection
