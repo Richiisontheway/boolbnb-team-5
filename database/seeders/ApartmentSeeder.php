@@ -46,8 +46,8 @@ class ApartmentSeeder extends Seeder
             $apartment->mq = $singleApartment['mq'];
             $apartment->price = $singleApartment['price'];
             $apartment->address = $singleApartment['address'];
-            $apartment->city = $singleApartment['city'];
-            $apartment->zip_code = $singleApartment['zip_code'];
+            // $apartment->city = $singleApartment['city'];
+            // $apartment->zip_code = $singleApartment['zip_code'];
             $apartment->lat = $singleApartment['lat'];
             $apartment->lon = $singleApartment['lon'];
             $apartment->cover_img = $singleApartment['cover_img'];

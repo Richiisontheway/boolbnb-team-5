@@ -22,8 +22,8 @@ return new class extends Migration
             $table->unsignedSmallinteger('mq');
             $table->decimal('price', 5, 2)->unsigned();
             $table->string('address');
-            $table->string('city');
-            $table->string('zip_code');
+            // $table->string('city');
+            // $table->string('zip_code');
             $table->decimal('lat',10,7)->default(44.8795);
             $table->decimal('lon', 10,7)->default(21.8795);
             $table->string('cover_img', 1024);

@@ -58,7 +58,13 @@ class ApartmentController extends Controller
         $apartment_data = $request->validated();
 
         // Effettuo una richiesta GET alla nostra API inserendo gli input dell'utenti estrapolati dalla Request (codificandoli in formato json)
-        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '+' . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
+       //vecchio con città
+        // $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '+' . urlencode($apartment_data['city']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
+        //     'verify' => false, // Disabilita la verifica del certificato SSL
+        // ]);
+
+        //nuovo solo con unico campo
+        $response = $client->request('GET', 'https://api.tomtom.com/search/2/geocode/' . urlencode($apartment_data['address']) . '.json?key=x5vTIPGVXKGawffLrAoysmnVC9V0S8cq', [
             'verify' => false, // Disabilita la verifica del certificato SSL
         ]);
 
@@ -99,8 +105,8 @@ class ApartmentController extends Controller
             'mq' => $apartment_data['mq'],
             'price' => $apartment_data['price'],
             'address' => $apartment_data['address'],
-            'city' => $apartment_data['city'],
-            'zip_code' => $apartment_data['zip_code'],
+            // 'city' => $apartment_data['city'],
+            // 'zip_code' => $apartment_data['zip_code'],
             'lat' => $lat,
             'lon' => $lon,
             //'services' => $apartment_data['services'],

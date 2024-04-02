@@ -33,8 +33,8 @@ class UpdateRequest extends FormRequest
             'mq' => 'required|numeric|Min:1|Max:1000',
             'price' => 'required|numeric|decimal:0,2|Min:1|Max:999.99',
             'address' => 'required|string|Min:1|Max:64',
-            'city' => 'required|string|Min:2|Max:64',
-            'zip_code' => 'required|numeric|digits:5',
+            // 'city' => 'required|string|Min:2|Max:64',
+            // 'zip_code' => 'required|numeric|digits:5',
             'services' => 'nullable|array|exists:services,id',
             'visible' => 'required|Boolean',
             'delete_cover_img' => 'nullable|boolean'

@@ -86,7 +86,7 @@
                     </div>
                 @enderror
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="city" class="form-label">Città dell'immobile<span class="text-danger">*</span></label>
                 <input type="text" value="{{old('city')}}" class="form-control" id="city" name="city" placeholder="inserisci la città"  required>
                 @error('city')
@@ -103,7 +103,7 @@
                         {{ $message }}
                     </div>
                 @enderror
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="cover_img" class="form-label">cover_img<span class="text-danger">*</span></label>
                 <input type="file" value="{{old('cover_img')}}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*" required>
