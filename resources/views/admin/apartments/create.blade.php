@@ -79,7 +79,7 @@
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo dell'immobile<span class="text-danger">*</span></label>
-                <input type="text" value="{{old('address')}}" class="form-control" id="address" name="address" placeholder="inserisci l'indirizzo"  required>
+                <input type="text" value="{{old('address')}}" class="form-control" id="address" name="address" placeholder="inserisci l'indirizzo"  required autocomplete="off">
                 @error('address')
                     <div class="alert alert-danger">
                         {{ $message }}
