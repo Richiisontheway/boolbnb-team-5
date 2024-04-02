@@ -38,7 +38,8 @@ Route::prefix('admin')
     Route::resource('services', ServiceController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('sponsors', SponsorController::class)->only('index');
-
+    Route::post('sponsors/sponsorize/{id}', [SponsorController::class, 'sponsorizeApartment'])->name('sponsors.sponsorize');
+    // Route::post('sponsors/remove-sponsorship/{id}', [SponsorController::class, 'removeSponsorship'])->name('sponsors.remove-sponsorship');
 
 });
 

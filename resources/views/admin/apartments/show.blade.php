@@ -49,7 +49,7 @@
                                             Questo appartamento è già sponsorizzato. Tipo di sponsorizzazione: {{ $sponsorship->title }}
                                         </div>
                                     @else
-                                        <form action="{{ route('sponsors', $apartment->id) }}" method="post">
+                                        <form action="{{ route('sponsors.sponsorize', $apartment->id) }}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-primary">Sponsorizza</button>
                                         </form>
