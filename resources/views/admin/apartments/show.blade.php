@@ -23,18 +23,41 @@
                                 {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }} Letti · {{ $apartment->n_baths }} Bagni · {{ $apartment->mq }} m2
                             </p>
                         </div>
-                        <div id="services" class="d-flex flex-wrap">
-                            @forelse ($apartment->services as $service)
-                                <a href="{{ route('admin.services.show' , ['service' => $service->id]) }}" class="d-flex align-items-center">
-                                    <i class="{{$service->icon}} pe-2"></i> {{$service->title}}
-                                </a>
-                            @empty
-                                <h5>
-                                    Nessun servizio incluso
-                                </h5>
-                            @endforelse
+                        <div class="row">
+                            <div class="col-6">
+                                <div id="services" class="d-flex flex-wrap">
+                                    @forelse ($apartment->services as $service)
+                                        <a href="{{ route('admin.services.show' , ['service' => $service->id]) }}" class="d-flex align-items-center">
+                                            <i class="{{$service->icon}} pe-2"></i> {{$service->title}}
+                                        </a>
+                                    @empty
+                                        <h5>
+                                            Nessun servizio incluso
+                                        </h5>
+                                    @endforelse
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <a class="btn btn-light " href="{{route('admin.apartments.edit' , ['apartment' => $apartment->slug  ])}}">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    @if($sponsorship)
+                                        <div class="alert alert-info">
+                                            Questo appartamento è già sponsorizzato. Tipo di sponsorizzazione: {{ $sponsorship->title }}
+                                        </div>
+                                    @else
+                                        <form action="{{ route('sponsors', $apartment->id) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Sponsorizza</button>
+                                        </form>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
-    
+
                     </div>
                 </div>
             </div>

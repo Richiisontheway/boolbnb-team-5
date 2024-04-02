@@ -22,6 +22,4 @@ class SponsorController extends Controller
         $sponsors = Sponsor::all();
         return view('admin.sponsors.index', compact('sponsors'));
     }
-
-
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\Sponsor;
 
 //request
 use Illuminate\Http\Request;
@@ -130,7 +131,9 @@ class ApartmentController extends Controller
     {
         //serve per far funzionare lo uri con lo slug anziché che con l'id
         $apartment = Apartment::where('slug',$slug)->firstOrFail();
-        return view('admin.apartments.show', compact('apartment'));
+        // Recupera le informazioni sulla
+        $sponsorship = $apartment->sponsors()->first();
+        return view('admin.apartments.show', compact('apartment','sponsorship'));
     }
 
     /**
