@@ -150,6 +150,15 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $sponsorships = Sponsor::all();
+
+        $user = auth()->user();
+
+        // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
+        if ($user->id !== $apartment->user_id) {
+            // Se l'utente non è il proprietario, torna indietro
+            return back();
+        }
+
         return view('admin.apartments.sponsorize', compact('apartment', 'sponsorships'));
     }
 
@@ -157,7 +166,7 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $sponsor = Sponsor::findOrFail($request->sponsorship);
-
+        
         // Assicurati che l'appartamento non sia già sponsorizzato con lo stesso tipo di sponsorizzazione
         if (!$apartment->sponsors()->where('sponsor_id', $sponsor->id)->exists()) {
             // Calcola la data di inizio sponsorizzazione (data corrente)
