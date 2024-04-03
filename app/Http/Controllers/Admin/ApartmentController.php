@@ -296,4 +296,11 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }
+
+    public function statistics($slug)
+    {
+        $apartment = Apartment::where('slug', $slug)->firstOrFail();
+        $views = $apartment->views;
+        return view('admin.apartments.statistics', compact('apartment', 'views'));
+    }
 }

@@ -4,11 +4,7 @@
 
 @section('main-content')
     <section id="apartments-show">
-        {{-- @if ($apartment->cover_img != null)
-            <div class="my-3">
-                <img src="{{ asset('storage/'.$apartment->cover_img) }}" style="max-width: 400px;">
-            </div>
-        @endif --}}
+      
         <div class="row g-0">
             <div class="col">
                 <div class="my-card-show">
@@ -38,11 +34,13 @@
                                 </div>
                             </div>
                             <div class="col-6">
+                                {{-- tasto modifica --}}
                                 <div>
                                     <a class="btn btn-light " href="{{route('admin.apartments.edit' , ['apartment' => $apartment->slug  ])}}">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                 </div>
+                                {{-- Sezione sponsorizzazione  --}}
                                 <div>
                                     @if($sponsorship)
                                         <div class="alert alert-info">
@@ -52,6 +50,7 @@
                                         <a href="{{ route('admin.apartments.showSponsorizeForm', ['slug' => $apartment->slug]) }}" class="btn btn-primary">Sponsorizza</a>
                                     @endif
                                 </div>
+                                {{-- tasto delete --}}
                                 <div>
                                     <button class="erase-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $apartment->slug }}">
                                         <i class="fa-solid fa-eraser"></i>
@@ -84,11 +83,14 @@
                                                             Elimina
                                                         </button>
                                                     </form>
-        
                                                 </div>
                                             </div>
                                         </div>
                                     </div>      
+                                </div>
+                                {{-- link view statistiche --}}
+                                <div>
+                                    <a href="{{ route('admin.apartments.statistics', $apartment->slug) }}">Visualizza statistiche appartamento</a>
                                 </div>
                             </div>
                         </div>
