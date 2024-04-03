@@ -11,6 +11,9 @@ use App\Models\Service;
 use App\Models\User;
 use App\Models\Sponsor;
 
+// Braintree
+use Braintree\Transaction;
+
 //request
 use Illuminate\Http\Request;
 use  App\Http\Requests\Apartment\StoreRequest as ApartmentStoreRequest;
