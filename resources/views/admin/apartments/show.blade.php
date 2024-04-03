@@ -94,7 +94,7 @@
                                 </div>
                                 <div>
                                     Tasto prova
-                                    <a href="{{ route('admin.sponsors.show', $apartment->id) }}">Sponsorize this apartment</a>
+                                    <a href="{{ route('admin.sponsor.show', $apartment->id) }}">Sponsorize this apartment</a>
                                 </div>
                             </div>
                         </div>
