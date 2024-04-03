@@ -14,7 +14,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Models\Apartment;
 use App\Models\Service;
-
+use App\Http\Controllers\Admin\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +43,11 @@ Route::prefix('admin')
     Route::post('/apartments/{slug}/sponsorize', [ApartmentController::class, 'sponsorize'])->name('apartments.sponsorize');
     // view statistiche -- ApartmentController@statistics -> chiamo la funzione statistics dentro apartmentcontroller :)
     Route::get('/apartments/{slug}/statistics', [ApartmentController::class, 'statistics'])->name('apartments.statistics');
+    
+    //rotte pagamento
+    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
+    Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process-payment');
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
 
 });
 
