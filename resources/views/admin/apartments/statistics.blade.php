@@ -18,5 +18,20 @@
                     Data visualizzazione: {{ $view->created_at }}
                 </li>
         </ul>
+        <hr>
     @endforeach
+    <hr>
+     <!-- Elenco dei messaggi -->
+    <h2>Messaggi</h2>
+    <ul>
+        @foreach($messages as $message)
+            <li>
+                <strong>Nome:</strong> {{ $message->name }} <br>
+                <strong>Email:</strong> {{ $message->email }} <br>
+                <strong>Messaggio:</strong> {{ $message->message }}
+            </li>
+            <hr>
+        @endforeach
+    </ul>
+
 @endsection

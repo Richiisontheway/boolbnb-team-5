@@ -10,9 +10,8 @@ use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\Sponsor;
+use App\Models\Contact;
 
-// Braintree
-use Braintree\Transaction;
 
 //request
 use Illuminate\Http\Request;
@@ -304,6 +303,7 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $views = $apartment->views;
-        return view('admin.apartments.statistics', compact('apartment', 'views'));
+        $messages = Contact::where('apartment_id', $apartment->id)->get();
+        return view('admin.apartments.statistics', compact('apartment', 'views','messages'));
     }
 }
