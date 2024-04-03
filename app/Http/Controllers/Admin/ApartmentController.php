@@ -142,7 +142,7 @@ class ApartmentController extends Controller
             // Se l'utente non è il proprietario, restituisci un errore o effettua altre azioni a tua scelta
             return back()->withError('Appartamento non trovato');
         }
-
+        
         // Recupera le informazioni sulla
         $sponsorship = $apartment->sponsors()->first();
         return view('admin.apartments.show', compact('apartment','sponsorship'));

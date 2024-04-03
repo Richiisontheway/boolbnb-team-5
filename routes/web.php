@@ -44,10 +44,9 @@ Route::prefix('admin')
     // view statistiche -- ApartmentController@statistics -> chiamo la funzione statistics dentro apartmentcontroller :)
     Route::get('/apartments/{slug}/statistics', [ApartmentController::class, 'statistics'])->name('apartments.statistics');
     
-    //rotte pagamento
-    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
-    Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process-payment');
-    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('/apartments/{apartment_id}/sponsor', [SponsorController::class, 'show'])->name('sponsor.show');
+    Route::post('/apartments/{apartment_id}/sponsor/pay', [SponsorController::class, 'pay'])->name('sponsor.pay');
+
 
 });
 

@@ -92,6 +92,10 @@
                                 <div>
                                     <a href="{{ route('admin.apartments.statistics', $apartment->slug) }}">Visualizza statistiche appartamento</a>
                                 </div>
+                                <div>
+                                    Tasto prova
+                                    <a href="{{ route('admin.sponsors.show', $apartment->id) }}">Sponsorize this apartment</a>
+                                </div>
                             </div>
                         </div>
 
