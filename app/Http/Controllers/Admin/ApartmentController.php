@@ -297,7 +297,7 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index');
     }
 
-    public function statistics($slug)
+    public function statistics(string $slug)
     {
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $views = $apartment->views;

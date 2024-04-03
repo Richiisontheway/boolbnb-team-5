@@ -42,7 +42,8 @@ Route::prefix('admin')
     Route::get('/apartments/{slug}/sponsorize', [ApartmentController::class, 'showSponsorizeForm'])->name('apartments.showSponsorizeForm');
     Route::post('/apartments/{slug}/sponsorize', [ApartmentController::class, 'sponsorize'])->name('apartments.sponsorize');
     // view statistiche -- ApartmentController@statistics -> chiamo la funzione statistics dentro apartmentcontroller :)
-    Route::get('/apartments/{slug}/statistics', [ApartmentController::class, 'sponsorize'])->name('apartments.statistics');
+    Route::get('/apartments/{slug}/statistics', [ApartmentController::class, 'statistics'])->name('apartments.statistics');
+
 });
 
 require __DIR__.'/auth.php';
