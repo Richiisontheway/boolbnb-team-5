@@ -47,7 +47,7 @@
                                             Questo appartamento è già sponsorizzato. Tipo di sponsorizzazione: {{ $sponsorship->title }}
                                         </div>
                                     @else
-                                        <a href="{{ route('admin.apartments.showSponsorizeForm', ['slug' => $apartment->slug]) }}" class="btn btn-primary">Sponsorizza</a>
+                                        <a href="{{ route('admin.sponsor.show', $apartment->id) }}">Sponsorize this apartment</a>
                                     @endif
                                 </div>
                                 {{-- tasto delete --}}
@@ -92,10 +92,7 @@
                                 <div>
                                     <a href="{{ route('admin.apartments.statistics', $apartment->slug) }}">Visualizza statistiche appartamento</a>
                                 </div>
-                                <div>
-                                    Tasto prova
-                                    <a href="{{ route('admin.sponsor.show', $apartment->id) }}">Sponsorize this apartment</a>
-                                </div>
+                                
                             </div>
                         </div>
 

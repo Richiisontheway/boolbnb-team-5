@@ -29,34 +29,6 @@ class SponsorController extends Controller
         return view('admin.sponsors.index', compact('sponsors'));
     }
 
-    public function sponsorizeApartment(Request $request, $id)
-    {
-        $apartment = Apartment::findOrFail($id);
-        $sponsor = Sponsor::findOrFail($request->sponsor_id);
-
-        // Assicurati che l'appartamento non sia già sponsorizzato con lo stesso tipo di sponsorizzazione
-        if (!$apartment->sponsors()->where('sponsor_id', $sponsor->id)->exists()) {
-            $apartment->sponsors()->attach($sponsor);
-            return redirect()->back()->with('success', 'Appartamento sponsorizzato con successo.');
-        } else {
-            return redirect()->back()->with('error', 'L\'appartamento è già sponsorizzato con questo tipo.');
-        }
-    }
-
-    public function removeSponsorship(Request $request, $id)
-    {
-        $apartment = Apartment::findOrFail($id);
-        $sponsor = Sponsor::findOrFail($request->sponsor_id);
-
-        // Verifica se l'appartamento è sponsorizzato con il tipo specificato
-        if ($apartment->sponsors()->where('sponsor_id', $sponsor->id)->exists()) {
-            $apartment->sponsors()->detach($sponsor);
-            return redirect()->back()->with('success', 'Sponsorizzazione rimossa con successo.');
-        } else {
-            return redirect()->back()->with('error', 'L\'appartamento non è sponsorizzato con questo tipo.');
-        }
-    }
-
     public function show($apartment_id)
     {   
         // Configura Braintree con le chiavi di accesso da .env

@@ -148,46 +148,6 @@ class ApartmentController extends Controller
         return view('admin.apartments.show', compact('apartment','sponsorship'));
     }
 
-    public function showSponsorizeForm($slug)
-    {
-        $apartment = Apartment::where('slug', $slug)->firstOrFail();
-        $sponsorships = Sponsor::all();
-
-        $user = auth()->user();
-
-        // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
-        if ($user->id !== $apartment->user_id) {
-            // Se l'utente non è il proprietario, torna indietro
-            return back();
-        }
-
-        return view('admin.apartments.sponsorize', compact('apartment', 'sponsorships'));
-    }
-
-    public function sponsorize(Request $request, $slug)
-    {
-        $apartment = Apartment::where('slug', $slug)->firstOrFail();
-        $sponsor = Sponsor::findOrFail($request->sponsorship);
-        
-        // Assicurati che l'appartamento non sia già sponsorizzato con lo stesso tipo di sponsorizzazione
-        if (!$apartment->sponsors()->where('sponsor_id', $sponsor->id)->exists()) {
-            // Calcola la data di inizio sponsorizzazione (data corrente)
-            $date_start = now();
-
-            // Calcola la data di fine sponsorizzazione aggiungendo il tempo della sponsorizzazione
-            $date_end = $date_start->copy()->addHours($sponsor->time);
-
-            // Associa il piano di sponsorizzazione all'appartamento con le date di inizio e fine
-            $apartment->sponsors()->attach($sponsor, [
-                'date_start' => $date_start,
-                'date_end' => $date_end,
-            ]);
-
-            return redirect()->route('admin.apartments.show', ['apartment' => $slug])->with('success', 'Appartamento sponsorizzato con successo.');
-        } else {
-            return redirect()->back()->with('error', 'L\'appartamento è già sponsorizzato con questo tipo.');
-        }
-    }
 
     /**
      * Show the form for editing the specified resource.
