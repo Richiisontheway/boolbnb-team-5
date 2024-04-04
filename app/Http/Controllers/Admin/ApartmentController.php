@@ -275,7 +275,7 @@ class ApartmentController extends Controller
         return view('admin.apartments.statistics', compact('apartment', 'views','messages'));
     }
     public function trash(Apartment $apartment) {
-        $apartment = Apartment::all();
+        $apartment = Apartment::all(); 
         return view('admin.apartment.trash', compact('apartment'));
     }
 }
