@@ -19,7 +19,7 @@
         </div>
        
         @foreach ($contacts as $contact)
-           
+
                 <div class="card m-1 col-3 flex-wrap ">
                     <div class="card-body d-flex flex-column justify-content-between h-100">
                         <h3 class="text-center">

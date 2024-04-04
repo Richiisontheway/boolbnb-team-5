@@ -13,6 +13,8 @@ use Braintree\Gateway;
 use App\Models\Sponsor;
 use App\Models\Apartment;
 
+//Facades
+use Illuminate\Support\Facades\Auth;
 
 // http://127.0.0.1:8000/admin/sponsors
 //helper
@@ -26,7 +28,13 @@ class SponsorController extends Controller
     public function index()
     {
         $sponsors = Sponsor::all();
-        return view('admin.sponsors.index', compact('sponsors'));
+        $user = Auth::user();
+        $sponsoredApartmentIds = Apartment::where('user_id', $user->id)
+            ->whereHas('sponsors')
+            ->pluck('id');
+    
+        $sponsoredApartments = Apartment::whereIn('id', $sponsoredApartmentIds)->get();
+        return view('admin.sponsors.index', compact('sponsors', 'sponsoredApartments'));
     }
 
     public function show($apartment_id)
