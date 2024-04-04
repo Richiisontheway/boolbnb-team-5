@@ -23,8 +23,11 @@
                 <div class="card m-1 col-3 flex-wrap ">
                     <div class="card-body d-flex flex-column justify-content-between h-100">
                         <h3 class="text-center">
-                            {{ $contact->name }}
+                            {{ $contact->apartment->title }}
                         </h3>
+                        <h4 >
+                            {{ $contact->name }}
+                        </h4>
 
                         <h5>
                             {{ $contact->email }}
