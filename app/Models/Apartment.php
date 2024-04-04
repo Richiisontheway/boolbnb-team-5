@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+//trait
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Apartment extends Model
 {
     use HasFactory;
+    //importo il metodo del soft delete
+    use SoftDeletes;
 
     protected $guarded = [
         '_token',

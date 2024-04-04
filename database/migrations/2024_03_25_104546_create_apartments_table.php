@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Carbon;
 
 return new class extends Migration
 {
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->decimal('lon', 10,7)->default(21.8795);
             $table->string('cover_img', 1024);
             $table->boolean('visible')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

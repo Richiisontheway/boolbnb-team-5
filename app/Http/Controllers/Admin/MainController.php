@@ -13,5 +13,6 @@ class MainController extends Controller
         $user = auth()->user();
         return view('admin.dashboard', compact('user'));
     }
+    
 
 }

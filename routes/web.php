@@ -43,6 +43,9 @@ Route::prefix('admin')
     // view per la sponsorizzazione
     Route::get('/apartments/{apartment_id}/sponsor', [SponsorController::class, 'show'])->name('sponsor.show');
     Route::post('/apartments/{apartment_id}/sponsor/pay', [SponsorController::class, 'pay'])->name('sponsor.pay');
+    //route cestino
+    Route::get('/apartments/trash', [ApartmentController::class,'trash'])->name('apartments.trash');
+
 
 
 });

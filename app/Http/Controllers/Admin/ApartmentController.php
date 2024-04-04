@@ -38,6 +38,8 @@ class ApartmentController extends Controller
         // $apartment = Apartment::all();
         $apartments = Apartment::where('user_id', $user->id)->get();
         $services = Service::all();
+        // $flights = Apartment::onlyTrashed();
+        //          dd($flights);
         return view('admin.apartments.index', compact('apartments', 'services', 'user'));
     }
 
@@ -247,16 +249,22 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-
         $user = auth()->user();
-
         // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
         if ($user->id !== $apartment->user_id) {
             return back();
         }
-
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
+    }
+
+    public function restore(Apartment $apartment)
+    {
+        $user = auth()->user();
+        if ($user->id !== $apartment->user_id) {
+            return back();
+        }
+        $apartment->restore();
     }
 
     public function statistics(string $slug)
@@ -265,5 +273,9 @@ class ApartmentController extends Controller
         $views = $apartment->views;
         $messages = Contact::where('apartment_id', $apartment->id)->get();
         return view('admin.apartments.statistics', compact('apartment', 'views','messages'));
+    }
+    public function trash(Apartment $apartment) {
+        $apartment = Apartment::all();
+        return view('admin.apartment.trash', compact('apartment'));
     }
 }
