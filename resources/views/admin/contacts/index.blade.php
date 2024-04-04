@@ -19,8 +19,8 @@
         </div>
        
         @foreach ($contacts as $contact)
-            <div class="d-flex justify-content-center col-12 col-xs-6 col-sm-4 col-md-3 mb-3">
-                <div class="card m-1">
+           
+                <div class="card m-1 col-3 flex-wrap ">
                     <div class="card-body d-flex flex-column justify-content-between h-100">
                         <h3 class="text-center">
                             {{ $contact->name }}
@@ -39,9 +39,8 @@
                         </a>
                     </div>
                 </div>
-            </div>
+           
         @endforeach
-       
     </div>
 
 @endsection
