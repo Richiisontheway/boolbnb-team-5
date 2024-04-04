@@ -31,12 +31,6 @@
                             <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
                         </li>
                     </ul>
-                    <form method="POST" action="{{ route('logout') }}" class="text-center">
-                        @csrf
-                            <button type="submit">
-                                Log Out
-                            </button>
-                    </form>
                 </nav>
             </aside>
             <main class="py-4 overflow-y-scroll">

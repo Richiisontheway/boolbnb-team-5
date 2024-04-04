@@ -7,6 +7,7 @@ import '~resources/scss/apartments/apartments.scss';
 import '~resources/scss/apartments/show.scss';
 import '~resources/scss/services/index.scss';
 import '~resources/scss/contacts/messages.scss';
+import '~resources/scss/dashboard/dashboard.scss';
 
 
 import * as bootstrap from 'bootstrap';
