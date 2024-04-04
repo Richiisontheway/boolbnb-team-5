@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "variables";
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 aside{
@@ -11,37 +11,27 @@ aside{
     nav{
         height: 100vh;
         ul{
-            //padding-left:30;
             list-style: none;
             color: $primary_text_color;
+      
+            li{
+                margin: 15px 0;
+                .active {
+                    background-color: $secondary_text_color;  // Colore di sfondo per il link attivo
+                    color: #ffffff;              // Colore del testo per il link attivo
+                    font-weight: bold;           // Opzionale: rende il testo in grassetto
+                    padding: 4px;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    transition: background-color 0.5s ease 0s;
 
-                li{
-                    margin: 15px 0;
-
-                        .active {
-                            background-color: #b61909;  // Colore di sfondo per il link attivo
-                            color: #ffffff;              // Colore del testo per il link attivo
-                            font-weight: bold;           // Opzionale: rende il testo in grassetto
-                        }
+                    &:hover {
+                        background-color: #AAB2FF;
+                    }    
                 }
-        }
-        button{
-            width: 120px;
-            height: 40px;
-            font-size: 16px;
-            padding: 8px 12px;
-            margin: 40px 0;
-            background-color: transparent;
-            color: $primary_text_color;
-            border: 2px solid $primary_text_color;
-            border-radius: 8px;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: all .4s ease-in-out;
-            cursor: pointer;
-            &:hover{
-                color: #b61909;
-                border-color: #b61909;
+                &:hover {
+                    color: white;
+                }
             }
         }
     }

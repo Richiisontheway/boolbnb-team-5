@@ -1,7 +1,8 @@
 @php
     $userApartments = App\Models\Apartment::where('user_id', auth()->id())->get();
     $totalUserApartments = $userApartments->count();
-
+    $user = auth()->user();
+    $initials = strtoupper(substr($user->name, 0, 1) . substr($user->lastname, 0, 1));
 
     // Controllo quante volte sono state visualizzati in totale gli appartamenti
     $userViews = DB::table('views')
@@ -62,25 +63,26 @@
                         <!-- Inizio Bottone Dropdown -->
                         <div class="btn-group my-button" role="group">
                             <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ $user->name }} {{ $user->lastname }}                    
+                                {{$initials }}                    
                             </button>
                             <ul class="dropdown-menu">
                                 <li class="d-none d-lg-block">
-                                    <h6>
-                                        Email:
-                                    </h6>
-                                    {{ $user->email }}
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>
+                                        {{ $user->email }}
+                                    </span>
                                 </li>
                                 <li class="d-none d-lg-block">
-                                    <h6>
-                                        Data di nascita:
-                                    </h6>
-                                    {{$user->birthday}}                                
+                                    <i class="fa-solid fa-cake-candles"></i>
+                                    <span>
+                                        {{$user->birthday}}                                
+                                    </span>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}" class="text-center">
                                         @csrf
                                         <button type="submit">
+                                            <span></span>
                                             Log Out
                                         </button>
                                     </form>

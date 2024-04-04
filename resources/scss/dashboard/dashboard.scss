@@ -7,13 +7,14 @@ header {
     .user {
 
         .my-button {
-            width: 150px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             background-color: $primary_background_color;
         }
 
         ul {
-            width: 250px;
+            overflow-x: auto;
             li {
                 padding: 8px;
         
