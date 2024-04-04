@@ -38,8 +38,6 @@ class ApartmentController extends Controller
         // $apartment = Apartment::all();
         $apartments = Apartment::where('user_id', $user->id)->get();
         $services = Service::all();
-        // $flights = Apartment::onlyTrashed();
-        //          dd($flights);
         return view('admin.apartments.index', compact('apartments', 'services', 'user'));
     }
 
@@ -266,6 +264,7 @@ class ApartmentController extends Controller
         }
         $apartment->restore();
     }
+    
 
     public function statistics(string $slug)
     {

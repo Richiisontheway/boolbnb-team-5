@@ -11,11 +11,11 @@
             <label for="filter" class="form-label">Cerca</label>
             <input type="text" name="filter" id="filter" class="form-control">
         </div>
-        <a href="{{ route('admin.trash') }}" class="add-button mb-5">
-            <span>Cestino</span>
-            <i class="fa-solid fa-trash"></i>
-        </a>
         <div id="trash" class="container-fluid">
+            <a href="{{ route('admin.trash') }}" class="add-button mb-5">
+                <span>Cestino</span>
+                <i class="fa-solid fa-trash"></i>
+            </a>
         </div>
         <div id="add" class="container-fluid">
             <a href="{{ route('admin.apartments.create') }}" class="add-button mb-5">

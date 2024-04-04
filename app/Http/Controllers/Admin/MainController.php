@@ -13,10 +13,10 @@ class MainController extends Controller
         $user = auth()->user();
         return view('admin.dashboard', compact('user'));
     }
-    public function trash(Apartment $apartment)
+    public function trash()
     {
-        $apartment = Apartment::all(); 
-        return view('admin.trash', compact('apartment'));
+        $apartments = Apartment::onlyTrashed()->get();
+        return view('admin.trash', compact('apartments'));
     }
     
 
