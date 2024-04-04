@@ -274,8 +274,9 @@ class ApartmentController extends Controller
         $messages = Contact::where('apartment_id', $apartment->id)->get();
         return view('admin.apartments.statistics', compact('apartment', 'views','messages'));
     }
-    public function trash(Apartment $apartment) {
+    public function trash(Apartment $apartment)
+    {
         $apartment = Apartment::all(); 
-        return view('admin.apartment.trash', compact('apartment'));
+        return view('admin.apartments.trash', compact('apartment'));
     }
 }
