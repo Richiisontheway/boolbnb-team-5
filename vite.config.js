@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/scss/apartments/apartments.scss',
                 'resources/scss/apartments/show.scss',
                 'resources/scss/services/index.scss',
+                'resources/scss/contacts/messages.scss',
                 'resources/js/app.js',
             ],
             refresh: true,
