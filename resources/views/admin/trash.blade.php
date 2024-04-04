@@ -4,7 +4,7 @@
 
 @section('main-content')
     <div>
-        <h1 class="title">
+        <h1>
             CIAO SONO UN trash
         </h1>
     </div>
