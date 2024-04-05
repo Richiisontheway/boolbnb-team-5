@@ -198,32 +198,49 @@
         });
     });
 
-    // Funzione per la validazione del modulo prima della sottomissione
-    document.getElementById('apt-form').addEventListener('submit', function(event) {
-        // Ottieni il valore dell'input dell'indirizzo
-        let addressInput = document.getElementById('address');
-        let addressValue = addressInput.value;
+    // Creo una flag per l'input dell'indirizzo
+    let suggestionSelected = false;
 
-        // Ottieni la lista dei suggerimenti
-        let suggestionList = document.getElementById('suggestion-list');
-        let suggestions = suggestionList.getElementsByTagName('li');
+    document.addEventListener('DOMContentLoaded', function() {
+        const suggestionList = document.getElementById('suggestion-list');
+        
+        // Quando l'utente clicca su uno qualsiasi dei suggerimenti
+        suggestionList.addEventListener('click', function(event) {
+            // Verifica che l'indirizzo cliccato sia un suggerimento
+            if (event.target.tagName === 'LI') {
+                // Assegno ad una variabile il testo dell'elemento selezionato
+                const selectedSuggestion = event.target.textContent;
+                
+                // Compilo l'input dell'indirizzo con il suggerimento selezionato
+                document.getElementById('address').value = selectedSuggestion;
 
-        let addressSelected = false;
+                // Imposta la flag a true
+                suggestionSelected = true;
 
-        // Verifica se l'indirizzo è stato selezionato dalla lista dei suggerimenti
-        for (let i = 0; i < suggestions.length; i++) {
-            if (suggestions[i].innerText === addressValue) {
-                addressSelected = true;
-                break;
+                // Pulisco la lista dei suggerimenti
+                suggestionList.innerHTML = '';
             }
-        }
+        });
+    });
 
-        // Se l'indirizzo non è stato selezionato, impedisce la sottomissione del modulo e mostra un messaggio di errore
-        if (!addressSelected) {
-            event.preventDefault(); 
-            alert('Seleziona un indirizzo dalla lista dei suggerimenti.');
+    // Quando l'utente sottomette il form
+    document.getElementById('apt-form').addEventListener('submit', function(event) {
+        // Se la flag è ancora false
+        if (!suggestionSelected) {
+            // Un alert lo avvisa che è costretto a scegliere dalla lista degli indirizzi suggeriti
+            event.preventDefault();
+            alert('Devi selezionare un indirizzo dalla lista di suggerimenti.');
         }
     });
+
+    // Se l'utente avesse scelto un indirizzo dalla lista dei suggerimenti e poi dovesse
+    // cliccare nuovamente sull'input per inserire nuovamente l'indirizzo 
+    document.getElementById('address').addEventListener('focus', function() {
+        // Allora la flag viene reimpostata a false ed è costretto nuovamente a scegliere
+        // un indirizzo dalla lista dei suggerimenti
+        suggestionSelected = false;
+    });
+
 
 </script>
 
