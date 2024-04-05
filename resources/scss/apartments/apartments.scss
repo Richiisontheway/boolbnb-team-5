@@ -9,30 +9,51 @@
         --bs-btn-hover-bg: #EA4C89;
         &:hover {color: white;}
     }
-    .address_container{
-        font-size: 0.8em;
-    }
 
-   .button_container{
-        a{
-            padding: 3px 5px;
-            border: none;
-            background-color: $button_color;
-            border-radius: 3px;
+    .card {
 
-            i{
-                color: white;
+        background-color: $main-background-color;
+        transition: all 0.5s;
+        overflow: hidden;
+
+
+        &:hover{
+            cursor: pointer;
+            background-color: white;
+            box-shadow: 0px 0px 10px 3px #252525;
+
+            img {
+                transition: transform 0.5s;
+                transform: scale(1.1);
             }
         }
-        button{
-            line-height: normal;
-            font-size: 1em;
-            background-color: none;
-            border: none;
-            color: #FFFFFF;
-            padding: 3px 5px;
-            background-color: $button_color;
-            border-radius: 3px;
+
+        .address_container{
+            font-size: 0.8em;
         }
-   }
+
+        .button_container{
+                a{
+                    padding: 3px 5px;
+                    border: none;
+                    background-color: $button_color;
+                    border-radius: 3px;
+
+                    i{
+                        color: white;
+                    }
+                }
+                button{
+                    line-height: normal;
+                    font-size: 1em;
+                    background-color: none;
+                    border: none;
+                    color: #FFFFFF;
+                    padding: 3px 5px;
+                    background-color: $button_color;
+                    border-radius: 3px;
+                }
+        }
+    }
+
 }
