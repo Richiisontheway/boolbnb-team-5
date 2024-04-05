@@ -68,13 +68,13 @@
                                 {{-- <i class="fa-regular fa-circle-user"></i>                  --}}
                             </button>
                             <ul class="dropdown-menu">
-                                <li class="d-none d-lg-block text-center">
+                                <li class="d-lg-block text-center">
                                     <i class="fa-solid fa-envelope"></i>
                                     <span>
                                         {{ $user->email }}
                                     </span>
                                 </li>
-                                <li class="d-none d-lg-block text-center">
+                                <li class="d-lg-block text-center">
                                     <i class="fa-solid fa-cake-candles"></i>
                                     <span>
                                         {{$user->birthday}}                                

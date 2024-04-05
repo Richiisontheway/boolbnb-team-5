@@ -34,16 +34,17 @@ header {
 
                 span {
                     font-weight: bold;
+                    display: none;
                 }
 
-                li:hover i, span {
+                &:hover i {
                     display: none;
                 }
         
-                i:hover ~ span {
+                &:hover span {
                     display: block;
                 }
-                
+                        
                 button {
 
                     background-color: transparent;
