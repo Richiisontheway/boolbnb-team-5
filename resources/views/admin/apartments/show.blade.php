@@ -7,24 +7,31 @@
       
         <div class="row g-0">
             
-                <div class="my_card_show col-12 d-lg-flex">
+                <div class="my_card_show col-12 ">
                     <div class="img_container col-lg-6 col-md-12">
+                         <h4>
+                                {{$apartment->title}} 
+                        </h4>
                         <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     </div>
+                    
                     <div class="my_card_show_body col-6 col-md-12">
 
                         <div class="mt-3">
                             <h4>
-                                {{$apartment->title}}, {{ $apartment->address }}. 
+                                 {{ $apartment->address }}
                             </h4>
                             <p>
                                 {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }} Letti · {{ $apartment->n_baths }} Bagni · {{ $apartment->mq }} m²
                             </p>
                         </div>
+                        <hr>
                         {{-- link view statistiche --}}
                         <div>
                             <div>
-                                <div id="services" class="d-flex flex-wrap ">
+                                <h5>Cosa Troverai</h5>
+                                <div id="services" class="d-flex flex-wrap  ">
+                                    
                                     @forelse ($apartment->services as $service)
                                         <a href="{{ route('admin.services.show' , ['service' => $service->id]) }}" class="d-flex align-items-center">
                                             <i class="{{$service->icon}} pe-2"></i> {{$service->title}}
@@ -36,6 +43,7 @@
                                     @endforelse
                                 </div>
                             </div>
+                            <hr>
                             <div>
                                 {{-- Sezione sponsorizzazione  --}}
                                 <div>
