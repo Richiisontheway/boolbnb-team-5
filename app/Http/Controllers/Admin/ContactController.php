@@ -51,7 +51,8 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        return view('admin.contacts.show', compact('contact'));    
+        $apartment = $contact->apartment;
+        return view('admin.contacts.show', compact('contact', 'apartment'));    
     }
     /**
      * Remove the specified resource from storage.

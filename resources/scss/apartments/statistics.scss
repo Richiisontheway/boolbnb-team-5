@@ -1,0 +1,19 @@
+.statistics{
+    .messages_container, .views_container{
+        border: 1px solid lightgray;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .link_message{
+        color: black;
+        text-decoration: none;
+    }
+
+    .messages_container .table td:nth-child(4) {
+        max-width: 100px; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
+    }
+}
