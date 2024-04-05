@@ -29,7 +29,7 @@
             @method('PUT')
             @csrf
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <div class="row">
                         <div class="col-12">
                             <label for="title" class="form-label">Nome dell'appartamento <span class="text-danger">*</span></label>
@@ -138,7 +138,7 @@
                         <label class="form-label">Seleziona i servizi per il tuo appartamento:</label>
                     </div>
                     @foreach ($services as $service)
-                        <div class="col-3 form-check form-check-inline">
+                        <div class="col-lg-3 col-md-4 col-6 form-check form-check-inline">
                             <input
                             @if ($errors->any())
                                 {{-- Faccio le verifiche sull'old --}}

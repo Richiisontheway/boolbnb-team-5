@@ -23,7 +23,7 @@
         
             @csrf
             <div class="row my-3">
-                <div class="col-6">
+                <div class="col-lg-6 col-12">
                     <div class="row">
                         <div class="col-12">
                             <label for="title" class="form-label">Nome dell'appartamento <span class="text-danger">*</span></label>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 my-3">
-                            <label for="n_rooms" class="form-label">Numero stanze da letto<span class="text-danger">*</span></label>
+                            <label for="n_rooms" class="form-label">Numero stanze<span class="text-danger">*</span></label>
                             <input type="number" value="{{old('n_rooms', 1)}}" class="form-control" id="n_rooms" name="n_rooms" min="1" max="10" placeholder="inserisci il numero di camere"  required>
                             @error('n_rooms')
                                 <div class="alert alert-danger">
@@ -116,7 +116,7 @@
                         <label class="form-label">Seleziona i servizi per il tuo appartamento:</label>
                     </div>
                     @foreach ($services as $service)
-                        <div class="col-3 form-check form-check-inline">
+                        <div class="col-lg-3 col-md-4 col-6 form-check form-check-inline">
                             <input 
                             @if ($errors->any())
                                 {{ old('services') !== null && in_array($service->id, old('services')) ? 'checked' : ''}}
