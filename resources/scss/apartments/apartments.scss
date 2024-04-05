@@ -1,56 +1,34 @@
+@import "../variables.scss";
+
+
 #apartments {
     background-color: #FFFFFF; 
 
-    #add {
-        margin-bottom: 50px;
-        text-align: end;
     
-            .add-button {
-                background-color: #046A4E;
-                color: white;
-                text-decoration: none;
-                font-size: 1.1rem;
-                font-weight: bolder;
-                padding: 10px 16px;
-                text-transform: uppercase;
-                border-radius: 5px;
-            }
-    
-            .add-button:hover {
-                background-color: #5AD055;
-                transition: background-color 0.5s ;
-            }
-       } 
-
-    .my-card {
-        width: calc((100% / 4) - 40px);
-        margin: 10px 20px;
-        border-radius: 5px;
-        padding: 24px;
-        background-color: #B77F98;
-
-        img {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        h3 {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        p {
-            font-size: 12px;
-            color: #f1f1f1;
-        }
-        
-        a, button {
-            padding: 8px 12px;
-            background-color: black;
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-            border-radius: 5px;
-        }
+    .address_container{
+        font-size: 0.8em;
     }
+
+   .button_container{
+        a{
+            padding: 3px 5px;
+            border: none;
+            background-color: $primary_text_color;
+            border-radius: 3px;
+
+            i{
+                color: white;
+            }
+        }
+        button{
+            line-height: normal;
+            font-size: 1em;
+            background-color: none;
+            border: none;
+            color: #FFFFFF;
+            padding: 3px 5px;
+            background-color: $primary_text_color;
+            border-radius: 3px;
+        }
+   }
 }
