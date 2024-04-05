@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/scss/variables.scss',
                 'resources/scss/sponsors/sponsors.scss',
                 'resources/scss/apartments/apartments.scss',
+                'resources/scss/apartments/statistics.scss',
                 'resources/scss/apartments/show.scss',
                 'resources/scss/services/index.scss',
                 'resources/scss/contacts/messages.scss',

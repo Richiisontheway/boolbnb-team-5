@@ -3,7 +3,10 @@
 @section('page-title', 'Sponsorizzazioni disponibili')
 
 @section('main-content')
-    <h1>Statistiche dell'appartamento: {{ $apartment->title }}</h1>
+    
+    <h1 class=" bg-light">
+        {{ $apartment->title }}
+    </h1>
 
     
     <p>Numero totale di visualizzazioni: {{ $views->count() }}</p>
