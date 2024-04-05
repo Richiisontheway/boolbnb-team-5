@@ -105,21 +105,28 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="col-6 d-flex justify-content-between">
-                        <div class="mb-3">
-                            <h4>
+                    <div class="row g-0 mb-3 justify-content-center">
+                        <div class="col-12">
+                            <h6>
                                 Immagine in evidenza attuale:
-                            </h4>
-                            <img style="width:100px" src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
-                            {{-- Creo una checkbox per chiedere se voglio eliminare la cover --}}
-                            <div class="form-check">
+                            </h6>
+                            <img id="actualImage" src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
+                            <div class="mt-2">
                                 <input type="checkbox" class="form-check-input" value="1" id="delete_cover_img" name="delete_cover_img">
                                 <label class="form-check-label" for="delete_cover_img">
                                     Rimuovi immagine
                                 </label>
                             </div>
+                        </div>
+                        {{-- Creo una checkbox per chiedere se voglio eliminare la cover --}}
+                        <div class="col-12 ps-0 form-check" id="newImageInput">
                             <label for="cover_img" class="form-label">Inserisci una nuova immagine in evidenza</label>
                             <input type="file" value="{{ $apartment->cover_img, old('cover_img') }}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*">
+                            @error('cover_img')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -263,7 +270,24 @@
         suggestionSelected = false;
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Collego ad una variabile la checkbox per cancellare l'immagine
+        const deleteCheckbox = document.getElementById('delete_cover_img');
+        // Collego ad una variabile l'input per caricare l'immagine dell'appartamento
+        const coverImgInput = document.getElementById('newImageInput');
 
-</script>
+        // Assegno la classe display:none all'input
+        coverImgInput.style.display = 'none';
+
+        deleteCheckbox.addEventListener('change', function() {
+            // Se seleziono la checkbox allora mostro l'input
+            if (this.checked) {
+                coverImgInput.style.display = 'block';
+            } else {
+                // Altrimenti lo nascondo
+                coverImgInput.style.display = 'none';
+            }
+        });
+    });</script>
     
 @endsection
