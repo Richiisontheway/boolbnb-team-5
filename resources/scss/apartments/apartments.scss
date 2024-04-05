@@ -4,7 +4,11 @@
 #apartments {
     background-color: #FFFFFF; 
 
-    
+    .add_button{
+        color: $button_color;
+        --bs-btn-hover-bg: $button_color;
+        &:hover {color: white;}
+    }
     .address_container{
         font-size: 0.8em;
     }
@@ -13,7 +17,7 @@
         a{
             padding: 3px 5px;
             border: none;
-            background-color: $primary_text_color;
+            background-color: $button_color;
             border-radius: 3px;
 
             i{
@@ -27,7 +31,7 @@
             border: none;
             color: #FFFFFF;
             padding: 3px 5px;
-            background-color: $primary_text_color;
+            background-color: $button_color;
             border-radius: 3px;
         }
    }

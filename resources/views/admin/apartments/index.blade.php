@@ -16,16 +16,16 @@
             
             <div class="row mt-3">
                 
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <div class="">
                     
                         <input type="text" name="filter" id="filter" class="form-control" placeholder="cerca tra i tuoi appartamenti...">
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-12 col-lg-6 mt-lg-0  mt-2 ">
                     <div class="d-grid gap-2 col mx-auto">
-                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary w-100">Aggiungi un nuovo appartamento</a>
+                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary w-100 add_button">Aggiungi un nuovo appartamento</a>
                     </div>
                 </div>
                 
@@ -34,7 +34,7 @@
             <hr>
                 <div class="row">
                     @foreach ($apartments as $singleApartment)
-                        <div class="col-6 col-lg-3 p-2">
+                        <div class="col-12 col-md-6 col-lg-3 p-2">
                             <div class="card h-100">
                                 @if ($singleApartment->cover_img != null)
                                     <div class="img_container">
@@ -110,9 +110,6 @@
                         </div>
                     @endforeach
                 </div>
-            
-            <hr>
-           
 
         </div>
     </section>
