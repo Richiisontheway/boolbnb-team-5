@@ -76,7 +76,7 @@
                                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">
                                                                 Eliminazione Appartamento
                                                             </h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             Sei sicuto di voler eliminare: <b> {{ $singleApartment->title }} </b> ?
