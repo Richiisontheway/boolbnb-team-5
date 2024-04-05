@@ -6,7 +6,7 @@
 
     .add_button{
         color: $button_color;
-        --bs-btn-hover-bg: $button_color;
+        --bs-btn-hover-bg: #EA4C89;
         &:hover {color: white;}
     }
     .address_container{
