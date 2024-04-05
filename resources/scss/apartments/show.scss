@@ -5,8 +5,7 @@
         .img_container{
             
             img {
-                width: 100%; 
-                height: 100%;
+                width: 100%;
                 box-sizing: border-box;
             }
 
@@ -15,22 +14,23 @@
         .my_card_show_body{
             margin-left: 20px;
             p {
-                color: $primary_text_color;
+                color:grey;
+                font-size: var(--iw-ehf-f);
             }
         }
 
         #services {
-            width: 450px;
+            width: 750px;
 
             a {
                 width: 100px;
                 height: 50px;
-                font-size: 12px;
+                font-size: 10px;
                 text-decoration: none;
                 color: black;
 
                 i {
-                    font-size: 24px;
+                    font-size: 15px;
                 }
             }
 

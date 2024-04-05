@@ -3,42 +3,57 @@
 @section('page-title', $contact->name)
 
 @section('main-content')
-    <div class="row g-0">
+    <div class="row g-0 show_message_container mt-5">
+        <div class="mb-3">
+            Messaggio dell'appartamento:
+            <strong>{{ $apartment->title }}</strong>
+        </div>
         <div class="col d-flex justify-content-center">
-            <div class="card">
+            <div class="card w-100 ">
                 <div class="card-body">
-                    <h1 class="text-center mb-3">
-                        {{ $contact->name }}
-                    </h1>
-                        
-                    <h5 class="mb-3">
+                    <h4 class="text-center mb-3">
                         {{ $contact->email }}
-                    </h5>
+                    </h4>
+                        
+                    <div class="d-flex justify-content-between ">
+                        <div class="mb-3">
+                            Nome mittente: 
+                            <strong>
+                                {{ $contact->name }}
+                            </strong>
+                        </div>
+                        <div>
+                            <p>
+                                Inviato il: 
+                                <span class="text-primary">
+                                    {{ $contact->created_at->format('d/m/Y') }}
+                                </span>
+                              
+                                Alle: 
+                                <span class="text-primary">
+                                    {{ $contact->created_at->format('H:i')  }}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
 
-                    <p>
-                        {{ $contact->message }}
-                    </p>
+                    <div class="my-bg">
+                        <p class="text_messages">
+                            {{ $contact->message }}
+                          
+                        </p>
+                    </div>
 
-                    <p>
-                        Creato il: 
-                        <span class="text-success">
-                            {{ $contact->created_at->format('d/m/Y') }}
-                        </span>
-                        <br>
-                        Alle: 
-                        <span class="text-success">
-                            {{ $contact->created_at->format('H:i')  }}
-                        </span>
-                    </p>
+                    
+                    <div class="edit-buttons-container d-flex flex-column align-items-end mt-2 ">
 
-
-                    <div class="edit-buttons-container d-flex flex-column align-items-end">
-
-                        {{-- Bottone di eliminazione che apre una modale --}}
-                        <button class="erase-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $contact->id }}">
-                            {{-- <i class="fa-solid fa-eraser"></i> --}}
-                            ELIMINA
-                        </button>
+                        <div class="w-100 d-flex justify-content-center ">
+                            {{-- Bottone di eliminazione che apre una modale --}}
+                            <button class="erase-button btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $contact->id }}">
+                               
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
 
                         {{-- Modale per l'eliminazione del messaggio --}}
                         <div class="modal fade" id="staticBackdrop-{{ $contact->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -57,21 +72,11 @@
 
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                        {{-- Creiamo il form per l'eliminazione che con l'action reindirizza alla rotta destroy del controller, 
-                                        come argomento passo lo slug del singolo messaggio--}}
                                         <form 
                                         action="{{ route('admin.contacts.destroy', ['contact' => $contact->id]) }}" 
                                         method="POST">
-                                        {{-- 
-                                            Cross
-                                            Site
-                                            Request
-                                            Forgery
-                                            Genera un input nascosto con un token all'interno per verificare che tutte le richieste
-                                            del front-end provengano dal sito stesso e si usa per le richieste in POST
-                                        --}}
+                                       
                                         @csrf
-                                        {{-- Richiamo il metodo DELETE che non può essere inserito nel FORM --}}
                                         @method('DELETE')
                                             <button 
                                             type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -86,5 +91,15 @@
                 </div>
             </div>
         </div>
+        <div class="mt-3">
+            <a href="{{ URL::previous() }}" class=" text-decoration-none ">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                Torna ai messaggi
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        
     </div>
 @endsection
