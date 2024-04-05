@@ -62,17 +62,19 @@
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <!-- Inizio Bottone Dropdown -->
                         <div class="btn-group my-button" role="group">
-                            <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{$initials }}                    
+                            <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars"></i>
+                                {{$initials }}   
+                                {{-- <i class="fa-regular fa-circle-user"></i>                  --}}
                             </button>
                             <ul class="dropdown-menu">
-                                <li class="d-none d-lg-block">
+                                <li class="d-none d-lg-block text-center">
                                     <i class="fa-solid fa-envelope"></i>
                                     <span>
                                         {{ $user->email }}
                                     </span>
                                 </li>
-                                <li class="d-none d-lg-block">
+                                <li class="d-none d-lg-block text-center">
                                     <i class="fa-solid fa-cake-candles"></i>
                                     <span>
                                         {{$user->birthday}}                                
@@ -82,7 +84,6 @@
                                     <form method="POST" action="{{ route('logout') }}" class="text-center">
                                         @csrf
                                         <button type="submit">
-                                            <span></span>
                                             Log Out
                                         </button>
                                     </form>
