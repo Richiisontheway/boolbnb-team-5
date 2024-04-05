@@ -3,6 +3,8 @@
 @section('page-title', 'Aggiungi un appartamento')
 
 @section('main-content')
+<section id="create-apt">
+
     <h1>
         Nuovo Appartamento
     </h1>
@@ -111,7 +113,7 @@
                         </div>
                     @enderror
                     <div class="mt-2 d-flex justify-content-center">
-                        <img class="d-none" id="previewImage" src="#" alt="preview" style="max-width:300px;">
+                        <img class="d-none" id="previewImage" src="#" alt="preview">
                     </div>    
                 </div>
             </div>
@@ -150,13 +152,14 @@
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-success w-100">
+                <button type="submit" class="button-1">
                     Aggiungi
                 </button>
             </div>
         </form>
     </div>
 
+</section>
 
 {{-- script --}}
 <script>
