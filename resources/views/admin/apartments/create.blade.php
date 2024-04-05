@@ -18,7 +18,7 @@
     @endif
     <div class="row">
         {{-- method POST perché la crud create lo richiede --}}
-        <form action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" id="apt-form">
         
             @csrf
             <div class="col-8">
@@ -197,6 +197,34 @@
             }
         });
     });
+
+    // Funzione per la validazione del modulo prima della sottomissione
+    document.getElementById('apt-form').addEventListener('submit', function(event) {
+        // Ottieni il valore dell'input dell'indirizzo
+        var addressInput = document.getElementById('address');
+        var addressValue = addressInput.value;
+
+        // Ottieni la lista dei suggerimenti
+        var suggestionList = document.getElementById('suggestion-list');
+        var suggestions = suggestionList.getElementsByTagName('li');
+
+        var addressSelected = false;
+
+        // Verifica se l'indirizzo è stato selezionato dalla lista dei suggerimenti
+        for (var i = 0; i < suggestions.length; i++) {
+            if (suggestions[i].innerText === addressValue) {
+                addressSelected = true;
+                break;
+            }
+        }
+
+        // Se l'indirizzo non è stato selezionato, impedisce la sottomissione del modulo e mostra un messaggio di errore
+        if (!addressSelected) {
+            event.preventDefault(); // Impedisce la sottomissione del modulo
+            alert('Seleziona un indirizzo dalla lista dei suggerimenti.');
+        }
+    });
+
 </script>
 
 @endsection

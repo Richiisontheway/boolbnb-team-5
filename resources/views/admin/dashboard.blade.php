@@ -116,7 +116,7 @@
                     
                         <!-- Inizio Tabella Appartamenti -->
                         <div class="table-responsive">
-                            <table class="table caption-top border text-center">
+                            <table class="table caption-top border text-center apt-table">
 
                                 <!-- Titolo Tabella -->
                                 <caption class="border rounded-top-2">
@@ -195,7 +195,7 @@
                 <div class="col-12 col-lg-4 pt-3">
 
                     <!-- Inizio Card Stats Views -->
-                    <div class="card p-2">
+                    <div class="card p-2 mb-2">
                         <div class="card">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -222,7 +222,6 @@
                                 <h5>
                                     I tuoi appartamenti hanno {{ $userMessages }} messaggi.
                                 </h5>
-                                <span>{{ $userViews }}</span> volte
                                 </li>
                                 @foreach ($userApartmentsWithMostMessages as $singleUserTopApartment)
                                     <li class="list-group-item">
