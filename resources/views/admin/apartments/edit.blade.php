@@ -212,6 +212,51 @@
                 }
             });
         });
+
+        // Creo una flag per l'input dell'indirizzo
+        let suggestionSelected = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const suggestionList = document.getElementById('suggestion-list');
+            
+            // Quando l'utente clicca su uno qualsiasi dei suggerimenti
+            suggestionList.addEventListener('click', function(event) {
+                // Verifica che l'indirizzo cliccato sia un suggerimento
+                if (event.target.tagName === 'LI') {
+                    // Assegno ad una variabile il testo dell'elemento selezionato
+                    const selectedSuggestion = event.target.textContent;
+                    
+                    // Compilo l'input dell'indirizzo con il suggerimento selezionato
+                    document.getElementById('address').value = selectedSuggestion;
+
+                    // Imposta la flag a true
+                    suggestionSelected = true;
+
+                    // Pulisco la lista dei suggerimenti
+                    suggestionList.innerHTML = '';
+                }
+            });
+        });
+
+        // Quando l'utente sottomette il form
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Se la flag è ancora false
+            if (!suggestionSelected) {
+                // Un alert lo avvisa che è costretto a scegliere dalla lista degli indirizzi suggeriti
+                event.preventDefault();
+                alert('Devi selezionare un indirizzo dalla lista di suggerimenti.');
+            }
+        });
+
+        // Se l'utente avesse scelto un indirizzo dalla lista dei suggerimenti e poi dovesse
+        // cliccare nuovamente sull'input per inserire nuovamente l'indirizzo 
+        document.getElementById('address').addEventListener('focus', function() {
+            // Allora la flag viene reimpostata a false ed è costretto nuovamente a scegliere
+            // un indirizzo dalla lista dei suggerimenti
+            suggestionSelected = false;
+        });
+
+
     </script>
     
 @endsection
