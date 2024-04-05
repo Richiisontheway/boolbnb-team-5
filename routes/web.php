@@ -45,6 +45,7 @@ Route::prefix('admin')
     Route::post('/apartments/{apartment_id}/sponsor/pay', [SponsorController::class, 'pay'])->name('sponsor.pay');
     //view per il cestino
     Route::get('/trash', [AdminMainController::class, 'trash'])->name('trash');
+    Route::put('/{slug}/restore', [ApartmentController::class, 'restore'])->name('restore');
 
 
 });

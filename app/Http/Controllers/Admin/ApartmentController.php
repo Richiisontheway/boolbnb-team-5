@@ -256,13 +256,26 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index');
     }
 
-    public function restore(Apartment $apartment)
+    public function restore(string $slug)
     {
-        $user = auth()->user();
-        if ($user->id !== $apartment->user_id) {
-            return back();
-        }
-        $apartment->restore();
+        // $user = auth()->user();
+        // //verifica se utente è autenticato
+        // if(!$user){
+        //     return back()->withError('Utente non autenticato');
+        // }
+
+        // $apartment = Apartment::where('slug',$slug)->firstOrFail();
+        // if ($user->id !== $apartment->user_id) {
+        //     return back()->withError('Appartamento non trovato');
+        // }
+        // try {
+        //     // Ripristina l'appartamento
+        //     $apartment->restore();
+        // } catch (\Exception $e) {
+        //     // Gestione eccezione
+        //     return back()->withError('Si è verificato un errore durante il ripristino dell\'appartamento');
+        // }
+        // return redirect()->route('admin.apartments.show', compact('apartment'))->withSuccess('success', 'Record ripristinato con successo');
     }
     
 

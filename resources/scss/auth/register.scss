@@ -1,0 +1,49 @@
+@import "~bootstrap/scss/bootstrap";
+@import "../variables.scss";
+
+#register{
+    
+    .form_container{
+        margin: 0 auto;
+        border-radius: 20px;
+        min-height: 450px;
+        //box-shadow: 5px 5px $tertiary_text_color;
+        border: 2px $tertiary_text_color solid;
+        //background-color: rgba($color: $secondary_background_color, $alpha: 0.2);
+        h1{
+            padding: 10px 0;
+            color: $tertiary_text_color;
+        }
+        .register_button{
+            background-color: $secondary_background_color;
+            color: white;
+
+            &:hover{
+                color: black;
+            }
+        }
+    }
+}
+
+#login{
+    .form_container{
+        margin: 0 auto;
+        border-radius: 20px;
+        min-height: 450px;
+        //box-shadow: 5px 5px $tertiary_text_color;
+        border: 2px $tertiary_text_color solid;
+        //background-color: rgba($color: $secondary_background_color, $alpha: 0.2);
+        h1{
+            padding: 10px 0;
+            color: $tertiary_text_color;
+        }
+        .login_button{
+            background-color: $secondary_background_color;
+            color: white;
+
+            &:hover{
+                color: black;
+            }
+        }
+    }
+}

@@ -19,7 +19,7 @@
 
             <div class="row g-0">
 
-                @foreach ($apartments as $singleApartment)
+                @foreach ($apartment as $singleApartment)
                 
                     <div class="my-card">
                         @if ($singleApartment->cover_img != null)
@@ -34,9 +34,9 @@
                             {{ $singleApartment->address }}
                         </p>
                             {{-- Bottone di eliminazione che apre una modale --}}
-                            <button class="erase-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $singleApartment->slug }}">
+                            {{-- <button class="erase-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $singleApartment->slug }}">
                                 <i class="fa-solid fa-eraser"></i>
-                            </button>
+                            </button> --}}
 
                             {{-- Modale per l'eliminazione dell'appartamento --}}
                             <div class="modal fade" id="staticBackdrop-{{ $singleApartment->slug }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -51,25 +51,31 @@
                                         <div class="modal-body">
                                             Sei sicuto di voler eliminare: <b> {{ $singleApartment->title }} </b> ?
                                         </div>
-                                        <div class="modal-footer">
+                                        {{-- <div class="modal-footer">
  
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                            {{-- Creiamo il form per l'eliminazione che con l'action reindirizza alla rotta destroy del controller, 
-                                            come argomento passo lo slug del singolo appartamento--}}
+                                             Creiamo il form per l'eliminazione che con l'action reindirizza alla rotta destroy del controller, 
+                                            come argomento passo lo slug del singolo appartamento
                                             <form 
                                             action="{{ route('admin.apartments.destroy', ['apartment' => $singleApartment]) }}" 
                                             method="POST">
                                             @csrf
-                                            {{-- Richiamo il metodo DELETE che non può essere inserito nel FORM --}}
+                                             Richiamo il metodo DELETE che non può essere inserito nel FORM 
                                             @method('DELETE')
                                                 <button 
-                                                type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     Elimina
                                                 </button>
                                             </form>
-
-                                        </div>
+                                            
+                                        </div> --}}
+                                        {{-- <form action="{{ route('admin.apartments.restore', $apartment->slug) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit">Ripristina</button>
+                                        </form> --}}
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -1,43 +1,55 @@
 @extends('layouts.guest')
 
 @section('main-content')
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div id="login" class="row">
+        <div class="form_container col-md-7 col-lg-7">
+            <h1 class="text-center mt-4">
+                Login
+            </h1>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf 
+                <!-- Email Address -->
+                <div class="col-12 mx-auto">
+                    <div class="text-center">
+                        <label for="email">
+                            Email
+                        </label>
+                    </div>
+                    <input type="email" id="email" name="email" class="form-control">
+                </div>
 
-        <!-- Email Address -->
-        <div>
-            <label for="email">
-                Email
-            </label>
-            <input type="email" id="email" name="email">
+                <!-- Password -->
+                <div class="col-12 mx-auto">
+                    <div class="text-center">
+                        <label for="password">
+                            Password
+                        </label>
+                    </div>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+
+                <!-- Remember Me -->
+                <div class="mt-4 ms-3">
+                    <input id="remember_me" type="checkbox" name="remember" class="form-check-input">
+                    <label for="remember_me" class="form-check-label">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <div class="mt-4 text-center ">
+                    <div class="mb-4">
+                        <button type="submit" class="btn login_button">
+                            Log in
+                        </button>
+                    </div>
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="text-decoration-none m-3">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+
+                </div>
+            </form>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <label for="password">
-                Password
-            </label>
-            <input type="password" id="password" name="password">
-        </div>
-
-        <!-- Remember Me -->
-        <div class="mt-4">
-            <label for="remember_me">
-                <input id="remember_me" type="checkbox" name="remember">
-                <span>Remember me</span>
-            </label>
-        </div>
-
-        <div class="mt-4">
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <button type="submit">
-                Log in
-            </button>
-        </div>
-    </form>
+    </div>
 @endsection

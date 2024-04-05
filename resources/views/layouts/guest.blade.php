@@ -11,7 +11,7 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        <header>
+        <!--<header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container">
                     <a class="navbar-brand" href="/">Template</a>
@@ -52,9 +52,9 @@
                     </div>
                 </div>
             </nav>
-        </header>
+        </header> -->
 
-        <main class="py-4">
+        <main class="py-4 d-flex align-items-center">
             <div class="container">
                 @yield('main-content')
             </div>

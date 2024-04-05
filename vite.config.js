@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/scss/services/index.scss',
                 'resources/scss/contacts/messages.scss',
                 'resources/scss/dashboard/dashboard.scss',
+                'resources/scss/auth/register.scss',
                 'resources/js/app.js',
             ],
             refresh: true,
