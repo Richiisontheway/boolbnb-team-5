@@ -42,12 +42,16 @@
                             Log in
                         </button>
                     </div>
+                    <div class="text-center">
+                        <a href="{{route('register')}}" class="text-decoration-none m-3">
+                            Non sei registrato? 
+                        </a>
+                    </div>
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="text-decoration-none m-3">
-                            {{ __('Forgot your password?') }}
+                            {{ __('Password dimenticata?') }}
                         </a>
                     @endif
-
                 </div>
             </form>
         </div>

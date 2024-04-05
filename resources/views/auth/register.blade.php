@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div id="register" class="row">
-        <div class="form_container col-md-7 col-lg-7">
+        <div class="form_container col-sm-7 col-md-7 col-lg-7">
             <h1 class="text-center mt-4">
                 Form di registrazione
             </h1>
@@ -23,7 +23,7 @@
                     </div>
 
                     <!-- lastaname -->
-                    <div class="col-10 col-lg-5 me-lg-3 ms-md-3 ms-md-0 mt-3">
+                    <div class="col-10 col-lg-5 me-lg-3 ms-3 ms-lg-0 mt-3">
                         <label for="lastname">
                             Lastname
                         </label>
@@ -50,7 +50,7 @@
                     </div>
 
                     <!-- Email Address -->
-                    <div class="col-10 col-lg-5 me-lg-3 ms-md-3 ms-md-0 mt-3">
+                    <div class="col-10 col-lg-5 me-lg-3 ms-3 ms-lg-0 mt-3">
                         <label for="email">
                             Email <span class="text-danger">*</span>
                         </label>
@@ -79,7 +79,7 @@
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="col-10 col-lg-5 me-lg-3 ms-md-3 ms-md-0 mt-3">
+                    <div class="col-10 col-lg-5 me-lg-3 ms-3 ms-lg-0 mt-3">
                         <label for="password_confirmation">
                             Conferma Password <span class="text-danger">*</span>
                         </label>
@@ -99,7 +99,7 @@
                             </button>
                         </div>
                         <a href="{{ route('login') }}" class=" text-decoration-none ">
-                            {{ __('Already registered?') }}
+                            {{ __('Già registrato?') }}
                         </a>
                     </div>
                 </div>
