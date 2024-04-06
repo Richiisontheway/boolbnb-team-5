@@ -2,7 +2,6 @@
     $userApartments = App\Models\Apartment::where('user_id', auth()->id())->get();
     $totalUserApartments = $userApartments->count();
     $user = auth()->user();
-    $initials = strtoupper(substr($user->name, 0, 1) . substr($user->lastname, 0, 1));
 
     // Controllo quante volte sono state visualizzati in totale gli appartamenti
     $userViews = DB::table('views')
@@ -39,66 +38,6 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-
-    <!-- Inizio Header -->
-    <header>
-        <div class="text-white h-100">
-            
-            <div class="row align-items-center h-100 m-0">
-                <!-- Inizio Colonna Search Bar -->
-                {{-- <div class="col">
-                    <form action="#">
-                        <div class="input-group">
-                            <span class="my-navbar border-end-0 input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control border-start-0 my-navbar" placeholder="Prova a cercare: Lezioni di Laravel" aria-label="Prova a cercare: Lezioni di Laravel" aria-describedby="basic-addon1">
-                        </div>    
-                    </form>
-            
-                </div> --}}
-                <!-- Fine Colonna Search Bar -->
-
-                <!-- Inizio Colonna Bottoni -->
-                <div class="col-auto ms-auto user">
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <!-- Inizio Bottone Dropdown -->
-                        <div class="btn-group my-button" role="group">
-                            <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars"></i>
-                                {{$initials }}   
-                                {{-- <i class="fa-regular fa-circle-user"></i>                  --}}
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="d-lg-block text-center">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <span>
-                                        {{ $user->email }}
-                                    </span>
-                                </li>
-                                <li class="d-lg-block text-center">
-                                    <i class="fa-solid fa-cake-candles"></i>
-                                    <span>
-                                        {{$user->birthday}}                                
-                                    </span>
-                                </li>
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}" class="text-center">
-                                        @csrf
-                                        <button type="submit">
-                                            Log Out
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>                            
-                        <!-- Inizio Bottone Dropdown -->
-                    </div>
-                </div>
-                <!-- Fine Colonna Bottoni -->
-
-            </div>
-        </div>
-    </header>
-    <!-- Fine Header -->
         
     {{-- Inizio Main --}}
     <main>
