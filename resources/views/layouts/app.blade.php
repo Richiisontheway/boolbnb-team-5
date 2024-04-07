@@ -22,21 +22,46 @@
     <body>
         <main class="d-flex">
             <aside class="d-flex flex-column">    
-                <ul class="h-100 flex-grow-1">
+                <ul class="h-100 flex-grow-1 px-3">
                     <li>
-                        <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                            <span class="d-lg-block d-none">
+                                Dashboard
+                            </span>
+                            <i class="d-lg-none d-md-block fa-solid fa-table-columns"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">Appartamenti</a>
+                        <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">
+                            <span class="d-lg-block d-none">
+                                Appartamenti
+                            </span>
+                            <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">Servizi</a>
+                        <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
+                            <span class="d-lg-block d-none">
+                                Servizi
+                            </span>
+                            <i class="d-lg-none d-md-block fa-solid fa-bell-concierge"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">Messaggi</a>
+                        <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
+                            <span class="d-lg-block d-none">
+                                Messaggi
+                            </span>
+                            <i class="d-lg-none d-md-block fa-solid fa-square-envelope"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">Sponsor</a>
+                        <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
+                            <span class="d-lg-block d-none">
+                                Sponsor
+                            </span>
+                            <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
+                        </a>
                     </li>
                 </ul>
             </aside>

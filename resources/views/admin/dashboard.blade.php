@@ -69,7 +69,7 @@
                                     <th class="col-6 text-start">
                                         Nome Appartamento
                                     </th>
-                                    <th>Città</th>
+                                    <th class="d-none d-sm-block" >Città</th>
                                     <th>Sponsor</th>
                                     </tr>
                                 </thead>
@@ -86,7 +86,7 @@
                                                     </a>
                                                 </span>
                                             </td>
-                                            <td>
+                                            <td class="d-none d-sm-block">
                                                 @php
                                                     $apartmentAddress = $singleApartment->address;
                                                     $addressParts = explode(',', $apartmentAddress);
