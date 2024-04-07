@@ -28,6 +28,7 @@ Route::name('api.')->group(function() {
         'index',
         'show'
     ]);
+    Route::get('/get-sponsored-apartments', [ApartmentController::class, 'getSponsoredApartments']);
 
     Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 });

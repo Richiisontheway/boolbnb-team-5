@@ -45,4 +45,15 @@ class ApartmentController extends Controller
         }
 
     }
+
+    public function getSponsoredApartments() {
+        $apartments = Apartment::with('services', 'sponsors')
+                        ->whereHas('sponsors') 
+                        ->get(); 
+    
+        return response()->json([  
+            'success' => true,
+            'results' => $apartments
+        ]);
+    }
 }
