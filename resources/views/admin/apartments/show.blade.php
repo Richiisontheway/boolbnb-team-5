@@ -8,10 +8,10 @@
         <div class="row g-0">
             
                 <div class="my_card_show col-12 ">
-                    <div class="img_container col-lg-6 col-md-12">
-                         <h4>
-                                {{$apartment->title}} 
+                        <h4>
+                            {{$apartment->title}} 
                         </h4>
+                    <div class="img_container col-lg-6 col-md-12">
                         <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     </div>
                     
