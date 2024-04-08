@@ -39,8 +39,8 @@
         </h2>
         <div class="row flex-wrap  sponsored_apartments_container">
             @foreach ($sponsoredApartments as $apartment)
-            <div class="col-2 d-flex m-2">
-                <div class="my-card">
+            <div class="col-12 col-md-6 col-lg-3 p-2">
+                <div class="my-card h-100">
                     @if ($apartment->cover_img != null)
                         <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     @endif
