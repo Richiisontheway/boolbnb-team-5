@@ -19,7 +19,6 @@ class ApartmentController extends Controller
 
         // Recupero tutti i project
         $apartments = Apartment::with('services', 'sponsors')->get();  // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
-                    // ->paginate(20);                              // Imposto la paginazione per mostrare 15 risultati in ogni pagina
 
         return response()->json([  
             'success' => true,
@@ -64,6 +63,8 @@ class ApartmentController extends Controller
     {
         $address = $request->input('address');
         $radius = $request->input('radius');
+        $minRooms = $request->input('minRooms');
+        $minBeds = $request->input('minBeds');
 
         // Ottieni le coordinate dall'indirizzo utilizzando l'API di geocodifica
         $coordinates = $this->getCoordinatesFromAddress($address);
@@ -76,9 +77,24 @@ class ApartmentController extends Controller
                 $coordinates['lon'],
                 $radius
             ]
-        )->get();
+            );
 
-        return response()->json(['results' => $filteredApartments]);
+            if ($minRooms) {
+                $filteredApartments->where('n_rooms', '>=', $minRooms);
+            }
+        
+            // Se l'utente ha specificato un numero minimo di letti, applica il filtro
+            if ($minBeds) {
+                $filteredApartments->where('n_beds', '>=', $minBeds);
+            }
+        
+            // Esegui la query per ottenere i risultati filtrati
+            $results = $filteredApartments->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $results
+        ]);
     }
 
     private function getCoordinatesFromAddress($address)
