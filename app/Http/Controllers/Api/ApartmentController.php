@@ -14,7 +14,7 @@ use App\Models\Service;
 
 class ApartmentController extends Controller
 {
-    //Dobbiamo recuperare i dati del DB ed esporli pubblicamente
+    //Recupero gli appartamenti dal DB
     public function index() {
 
 
@@ -59,18 +59,20 @@ class ApartmentController extends Controller
             'results' => $apartments
         ]);
     }
-
+    // Definisco una funzione per la ricerca avanzata degli appartamenti
     public function advancedSearch(Request $request)
-    {
+    {   
+        // Definsco delle variabili a cui assegno gli input dell'utente
         $address = $request->input('address');
         $radius = $request->input('radius');
         $minRooms = $request->input('minRooms');
         $minBeds = $request->input('minBeds');
         $services = $request->input('services');
 
-        // Ottieni le coordinate dall'indirizzo utilizzando l'API di geocodifica
+        // Ottengo le coordinate dall'indirizzo utilizzando l'API di geocodifica
         $coordinates = $this->getCoordinatesFromAddress($address);
 
+        // Filtro gli appartamenti cercando gli appartamenti in base alle coordinate 
         $filteredApartments = Apartment::whereRaw(
             'ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(ABS(lon - ?)))) * 6371 <= ?',
             [
@@ -81,24 +83,29 @@ class ApartmentController extends Controller
             ]
             );
 
+            // Se l'utente ha selezionato un numero di stanze
             if ($minRooms) {
+                // Filtro gli appartamenti
                 $filteredApartments->where('n_rooms', '>=', $minRooms);
             }
         
-            // Se l'utente ha specificato un numero minimo di letti, applica il filtro
+            // Se l'utente ha selezionato un numero di letti
             if ($minBeds) {
+                // Filtro gli appartamenti
                 $filteredApartments->where('n_beds', '>=', $minBeds);
             }
 
+            // Se l'utente ha selezionato dei servizi
             if($services) {
                 foreach ($services as $serviceId) {
+                    // Filtro gli appartamenti
                     $filteredApartments->whereHas('services', function ($query) use ($serviceId) {
                         $query->where('service_id', $serviceId);
                     });
                 }
             }
         
-            // Esegui la query per ottenere i risultati filtrati
+            // Eseguo la query per ottenere i risultati filtrati
             $results = $filteredApartments->get();
 
         return response()->json([
@@ -106,7 +113,7 @@ class ApartmentController extends Controller
             'results' => $results
         ]);
     }
-
+    // Definisco una funzione per calcolare le coordinate degll'indirizzo scelto dall'utente
     private function getCoordinatesFromAddress($address)
     {
         $apiKey = 'x5vTIPGVXKGawffLrAoysmnVC9V0S8cq';
@@ -130,7 +137,7 @@ class ApartmentController extends Controller
             return null;
         }
     }
-
+    // Definisco una funzione per recuperare i servizi dal DB
     public function getServices() {
         $services = Service::all();
 
