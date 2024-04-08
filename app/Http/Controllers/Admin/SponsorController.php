@@ -39,14 +39,15 @@ class SponsorController extends Controller
 
     public function show($apartment_id)
     {   
-        // Configura Braintree con le chiavi di accesso da .env
+        $apartmentTitle = Apartment::findOrFail($apartment_id)->title;
+     
         Configuration::environment(env('BRAINTREE_ENV'));
         Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
         Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
         Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
         $sponsors = Sponsor::all();
         $token = Braintree\ClientToken::generate();
-        return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token'));
+        return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle'));
     }
 
     public function pay(Request $request, $apartment_id)
@@ -102,9 +103,8 @@ class SponsorController extends Controller
                 'date_end' => $date_end,
             ]);
 
-            // // Associa la sponsorizzazione all'appartamento utilizzando il metodo attach
-            // Apartment::find($apartment_id)->sponsors()->attach($sponsorId);
-            return redirect()->route('admin.apartments.index')->with('success', 'Sponsorship added successfully.');
+            
+            return redirect()->route('admin.apartments.show', $apartment_id)->with('success', 'Sponsorship added successfully.');
         } else {
             return redirect()->back()->with('error', 'Payment failed. Please try again.');
         }

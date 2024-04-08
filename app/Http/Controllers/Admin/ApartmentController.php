@@ -129,23 +129,26 @@ class ApartmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show($identifier)
     {
-
         $user = auth()->user();
-
-        //serve per far funzionare lo uri con lo slug anziché che con l'id
-        $apartment = Apartment::where('slug',$slug)->firstOrFail();
-
+    
+        // Cerca l'appartamento per ID se $identifier è un numero intero, altrimenti cerca per slug
+        if (is_numeric($identifier)) {
+            $apartment = Apartment::findOrFail($identifier);
+        } else {
+            $apartment = Apartment::where('slug', $identifier)->firstOrFail();
+        }
+    
         // Verifica se l'utente attualmente autenticato è il proprietario dell'appartamento
         if ($user->id !== $apartment->user_id) {
             // Se l'utente non è il proprietario, restituisci un errore o effettua altre azioni a tua scelta
             return back()->withError('Appartamento non trovato');
         }
         
-        // Recupera le informazioni sulla
+        // Recupera le informazioni sulla sponsorship
         $sponsorship = $apartment->sponsors()->first();
-        return view('admin.apartments.show', compact('apartment','sponsorship'));
+        return view('admin.apartments.show', compact('apartment', 'sponsorship'));
     }
 
 
