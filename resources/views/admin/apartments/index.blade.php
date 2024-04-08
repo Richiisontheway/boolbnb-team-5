@@ -35,7 +35,7 @@
             <div class="row">
                 @foreach ($apartments as $singleApartment)
                     <div class="col-12 col-md-6 col-lg-3 p-2">
-                        <div class="card h-100">
+                        <div class="card h-100" style = "border:none">
                             @if ($singleApartment->cover_img != null)
                                 <div class="img_container">
                                     <img src="{{ $singleApartment->full_cover_img }}" class="card-img-top img-fluid" alt="{{$singleApartment->title}}" style="height: 200px; object-fit: cover;">
