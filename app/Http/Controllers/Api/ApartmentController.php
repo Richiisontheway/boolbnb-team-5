@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 
 // Models
 use App\Models\Apartment;
+use App\Models\Service;
 
 class ApartmentController extends Controller
 {
@@ -65,6 +66,7 @@ class ApartmentController extends Controller
         $radius = $request->input('radius');
         $minRooms = $request->input('minRooms');
         $minBeds = $request->input('minBeds');
+        $services = $request->input('services');
 
         // Ottieni le coordinate dall'indirizzo utilizzando l'API di geocodifica
         $coordinates = $this->getCoordinatesFromAddress($address);
@@ -86,6 +88,14 @@ class ApartmentController extends Controller
             // Se l'utente ha specificato un numero minimo di letti, applica il filtro
             if ($minBeds) {
                 $filteredApartments->where('n_beds', '>=', $minBeds);
+            }
+
+            if($services) {
+                foreach ($services as $serviceId) {
+                    $filteredApartments->whereHas('services', function ($query) use ($serviceId) {
+                        $query->where('service_id', $serviceId);
+                    });
+                }
             }
         
             // Esegui la query per ottenere i risultati filtrati
@@ -119,6 +129,16 @@ class ApartmentController extends Controller
             // Gestisci l'errore
             return null;
         }
+    }
+
+    public function getServices() {
+        $services = Service::all();
+
+        return response()->json([  
+            'success' => true,
+            'results' => $services
+        ]);
+
     }
 
 }

@@ -30,7 +30,7 @@ Route::name('api.')->group(function() {
     ]);
     Route::get('/get-sponsored-apartments', [ApartmentController::class, 'getSponsoredApartments']);
     Route::post('/advanced-search', [ApartmentController::class, 'advancedSearch']);
-
+    Route::get('/services', [ApartmentController::class, 'getServices']);
     Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 });
 
