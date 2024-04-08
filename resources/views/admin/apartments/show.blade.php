@@ -3,15 +3,40 @@
 @section('page-title', 'Singolo appartamento - Show')
 
 @section('main-content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#sponsorshipSuccessModal').modal('show'); // Mostra la modale quando la pagina viene caricata
+        });
+    </script>
+    <!-- Modale di conferma -->
+    <div class="modal fade" id="sponsorshipSuccessModal" tabindex="-1" aria-labelledby="sponsorshipSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sponsorshipSuccessModalLabel">Appartamento sponsorizzato con successo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    La sponsorizzazione dell'appartamento è stata aggiunta con successo!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="apartments-show">
       
         <div class="row g-0">
             
                 <div class="my_card_show col-12 ">
-                    <div class="img_container col-lg-6 col-md-12">
-                         <h4>
-                                {{$apartment->title}} 
+                        <h4>
+                            {{$apartment->title}} 
                         </h4>
+                    <div class="img_container col-lg-6 col-md-12">
                         <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     </div>
                     
