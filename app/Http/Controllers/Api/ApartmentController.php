@@ -68,6 +68,7 @@ class ApartmentController extends Controller
         $minRooms = $request->input('minRooms');
         $minBeds = $request->input('minBeds');
         $services = $request->input('services');
+        $filterTitle = $request->input('filterTitle');
 
         // Ottengo le coordinate dall'indirizzo utilizzando l'API di geocodifica
         $coordinates = $this->getCoordinatesFromAddress($address);
@@ -103,6 +104,11 @@ class ApartmentController extends Controller
                         $query->where('service_id', $serviceId);
                     });
                 }
+            }
+
+            // Se l'utente sta cercando per nome dell'appartamento
+            if ($filterTitle) {
+                $filteredApartments->where('title', 'like', '%'.$filterTitle.'%');
             }
         
             // Eseguo la query per ottenere i risultati filtrati
