@@ -40,13 +40,17 @@ class SponsorController extends Controller
     public function show($apartment_id)
     {   
         $apartmentTitle = Apartment::findOrFail($apartment_id)->title;
-     
+        $sponsorship = Apartment::findOrFail($apartment_id)->sponsors()->first();
+
         Configuration::environment(env('BRAINTREE_ENV'));
         Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
         Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
         Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
         $sponsors = Sponsor::all();
         $token = Braintree\ClientToken::generate();
+
+       
+
         return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle'));
     }
 
