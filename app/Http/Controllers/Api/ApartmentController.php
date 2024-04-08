@@ -15,8 +15,8 @@ class ApartmentController extends Controller
 
 
         // Recupero tutti i project
-        $apartments = Apartment::with('services', 'sponsors')   // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
-                    ->paginate(8);                              // Imposto la paginazione per mostrare 15 risultati in ogni pagina
+        $apartments = Apartment::with('services', 'sponsors')->get();  // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
+                    // ->paginate(20);                              // Imposto la paginazione per mostrare 15 risultati in ogni pagina
 
         return response()->json([  
             'success' => true,
