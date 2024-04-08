@@ -15,7 +15,12 @@
         background-color: $main-background-color;
         transition: all 0.5s;
         overflow: hidden;
+        border: none;
+        border-radius: 20px;
 
+        img{
+            border-radius: 20px;
+        }
 
         &:hover{
             cursor: pointer;
@@ -33,26 +38,26 @@
         }
 
         .button_container{
-                a{
-                    padding: 3px 5px;
-                    border: none;
-                    background-color: $button_color;
-                    border-radius: 3px;
+            a{
+                padding: 3px 5px;
+                border: none;
+                background-color: $button_color;
+                border-radius: 3px;
 
-                    i{
-                        color: white;
-                    }
+                i{
+                    color: white;
                 }
-                button{
-                    line-height: normal;
-                    font-size: 1em;
-                    background-color: none;
-                    border: none;
-                    color: #FFFFFF;
-                    padding: 3px 5px;
-                    background-color: $button_color;
-                    border-radius: 3px;
-                }
+            }
+            button{
+                line-height: normal;
+                font-size: 1em;
+                background-color: none;
+                border: none;
+                color: #FFFFFF;
+                padding: 3px 5px;
+                background-color: $button_color;
+                border-radius: 3px;
+            }
         }
     }
 
