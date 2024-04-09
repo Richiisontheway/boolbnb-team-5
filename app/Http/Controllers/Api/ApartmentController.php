@@ -50,8 +50,12 @@ class ApartmentController extends Controller
     }
 
     public function getSponsoredApartments() {
+        $now = now();
+        
         $apartments = Apartment::with('services', 'sponsors')
-                        ->whereHas('sponsors') 
+                        ->whereHas('sponsors', function ($query) use ($now) {
+                            $query->where('date_end', '>', $now);
+                        })
                         ->get(); 
     
         return response()->json([  
