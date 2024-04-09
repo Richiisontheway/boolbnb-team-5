@@ -150,8 +150,8 @@ class ApartmentController extends Controller
         }
         
         // Recupera le informazioni sulla sponsorship
-        // $sponsorship = $apartment->sponsors()->first();
-        $sponsorship = $apartment->sponsors()->where('date_end', '>=', now())->first();
+        $sponsorship = $apartment->sponsors()->first();
+        // $sponsorship = $apartment->sponsors()->where('date_end', '>=', now())->first();
 
         $sponsorshipDate = DB::table('apartment_sponsor')
                             ->where('apartment_id', $apartment->id)
