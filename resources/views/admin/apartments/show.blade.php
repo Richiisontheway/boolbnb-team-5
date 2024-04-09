@@ -50,7 +50,7 @@
                                 <div>
                                     @if($sponsorship)
                                     <div class="alert alert-info">
-                                        Questo appartamento è già sponsorizzato. Tipo di sponsorizzazione: {{ $sponsorship->title }}
+                                        Questo appartamento è già sponsorizzato: {{ $sponsorship->title }}. Fine sponsorizzazione: @dd($sponsorship)
                                     </div>
                                     @else
                                     <a href="{{ route('admin.sponsor.show', $apartment->id) }}">Sponsorize this apartment</a>
@@ -64,7 +64,7 @@
                                     </a>
                                 </div>
                                 {{-- tasto delete --}}
-                                <div class="ms-3 me-3 ">
+                                <div class="ms-3 me-3 mb-3">
                                     <button class="btn button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $apartment->slug }}">
                                         <i class="fa-solid fa-eraser"></i>
                                     </button>
@@ -103,7 +103,7 @@
                                     </div>      
                                     <div>
                                         <a href="{{ route('admin.apartments.statistics', $apartment->slug) }}" class="btn button">
-                                            <i class="fa-solid fa-chart-column"></i>
+                                            <i class="fa-solid fa-envelope"></i>
                                         </a>
                                     </div>
                                 </div>
