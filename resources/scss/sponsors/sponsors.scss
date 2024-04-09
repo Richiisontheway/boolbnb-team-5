@@ -1,10 +1,37 @@
+@import '../variables.scss';
 .sponsored_apartments_container{
-    img{
-        width: 100%;
-        max-height: 40%;
-        display: block;
+    .card{
+        background-color: #FEFFFA;
+        transition: all 0.5s;
+        overflow: hidden;
+        border: none;
+        border-radius: 20px;
+
+        img{
+            border-radius: 20px;
+        }
+
+        &:hover{
+            cursor: pointer;
+            background-color: white;
+            box-shadow: 0px 0px 10px 3px #252525;
+
+            img {
+                transition: transform 0.5s;
+                transform: scale(1.1);
+            }
+        }
+        .sponsor-pill{
+            background-color: $button-color;
+            color: white;
+            padding: 5px;
+        }
+        .info{
+            background-color: $button-color;
+        }
+        .address_container{
+            font-size: 0.8em;
+        }
     }
-    .my-card{
-        border: 1px solid lightgray;
-    }
+
 }
