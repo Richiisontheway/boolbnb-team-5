@@ -37,7 +37,8 @@ class UpdateRequest extends FormRequest
             // 'zip_code' => 'required|numeric|digits:5',
             'services' => 'nullable|array|exists:services,id',
             'visible' => 'required|Boolean',
-            'delete_cover_img' => 'nullable|boolean'
+            'delete_cover_img' => 'nullable|boolean',
+            'cover_img' => 'nullable|image',
         ];
 
         // Aggiungi la regola required_if per 'cover_img' se 'delete_cover_img' non è selezionato
