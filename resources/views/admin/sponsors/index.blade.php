@@ -70,7 +70,7 @@
                                 <div class="d-flex justify-content-center col-12 g-2">
                                     <div class="d-flex me-1 button_container">
                                         <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}">
-                                            <i class="fa-solid fa-circle-info"></i>
+                                            <i class="fa-solid fa-circle-info" style="color: #EA4C89;"></i>
                                         </a>
                                     </div>                                  
                                 </div>
