@@ -149,34 +149,24 @@ class ApartmentController extends Controller
             return back()->withError('Appartamento non trovato');
         }
         
-        // Recupera le informazioni sulla sponsorship
-        $sponsorship = $apartment->sponsors()->first();
-        // $sponsorship = $apartment->sponsors()->where('date_end', '>=', now())->first();
-
-        $sponsorshipDate = DB::table('apartment_sponsor')
-                            ->where('apartment_id', $apartment->id)
-                            ->where('date_end', '>=', now())
-                            ->first();
-
-        $formattedDate = null;
-        if ($sponsorshipDate) {
-            $formattedDate = \Carbon\Carbon::parse($sponsorshipDate->date_end)->format('d/m/Y H:i');
-        }
-
         $now = Carbon::now()->toDateString();
 
-        $isActive = DB::table('apartment_sponsor')
-            ->where('apartment_id', $apartment->id)
-            ->where('date_end', '>=', $now)
-            ->exists();
+        // Recupero la sponsorizzazione più recente
+        $sponsorship = $apartment->sponsors()
+            ->whereDate('date_start', '<=', $now)
+            ->whereDate('date_end', '>=', $now)
+            ->latest('date_end')
+            ->first();
 
-        if ($isActive) {
-            // La sponsorizzazione è ancora attiva
+        $formattedDate = null;
+        $isActive = false;
+
+        if ($sponsorship) {
+            // Se esiste una sponsorizzazione attiva
             $isActive = true;
-        } else {
-            // La sponsorizzazione è scaduta
-            $isActive = false;
-        };
+            $formattedDate = \Carbon\Carbon::parse($sponsorship->date_end)->format('d/m/Y H:i');
+        }
+
         return view('admin.apartments.show', compact('apartment', 'sponsorship', 'formattedDate', 'isActive'));
     }
 
