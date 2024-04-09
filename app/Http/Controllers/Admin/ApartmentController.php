@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 //controller
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 //model
 use App\Models\Apartment;
 use App\Models\Service;
@@ -147,8 +150,34 @@ class ApartmentController extends Controller
         }
         
         // Recupera le informazioni sulla sponsorship
-        $sponsorship = $apartment->sponsors()->first();
-        return view('admin.apartments.show', compact('apartment', 'sponsorship'));
+        // $sponsorship = $apartment->sponsors()->first();
+        $sponsorship = $apartment->sponsors()->where('date_end', '>=', now())->first();
+
+        $sponsorshipDate = DB::table('apartment_sponsor')
+                            ->where('apartment_id', $apartment->id)
+                            ->where('date_end', '>=', now())
+                            ->first();
+
+        $formattedDate = null;
+        if ($sponsorshipDate) {
+            $formattedDate = \Carbon\Carbon::parse($sponsorshipDate->date_end)->format('d/m/Y H:i');
+        }
+
+        $now = Carbon::now()->toDateString();
+
+        $isActive = DB::table('apartment_sponsor')
+            ->where('apartment_id', $apartment->id)
+            ->where('date_end', '>=', $now)
+            ->exists();
+
+        if ($isActive) {
+            // La sponsorizzazione è ancora attiva
+            $isActive = true;
+        } else {
+            // La sponsorizzazione è scaduta
+            $isActive = false;
+        };
+        return view('admin.apartments.show', compact('apartment', 'sponsorship', 'formattedDate', 'isActive'));
     }
 
 
@@ -294,4 +323,5 @@ class ApartmentController extends Controller
     //     $apartment = Apartment::all(); 
     //     return view('admin.apartments.trash', compact('apartment'));
     // }
+
 }
