@@ -128,7 +128,7 @@
                             >
                             <label class="form-check-label" for="service-{{$service->id}}">
                                 {{ $service->title }}
-                            </label>
+                            </label> 
                         </div>
                     @endforeach
                 </div>
