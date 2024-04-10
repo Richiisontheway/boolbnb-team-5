@@ -14,39 +14,45 @@
     <div class="row">
         <div class="col-12 col-lg-8">
             <div class="messages_container">
-                <p>Messaggi ricevuti: 
-                    <strong>{{ $messages->count() }}</strong>
-                </p>
-                <table class="table table-hover ">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Testo Messaggio</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($messages as $message)
+                @if ($messages->count() > 0)
+                    <p>Messaggi ricevuti: 
+                        <strong>{{ $messages->count() }}</strong>
+                    </p>
+
+                    <table class="table table-hover ">
+                        <thead>
                             <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $message->email }}</td>
-                                <td>{{ $message->name }}</td>
-                                <td>
-                                    <a href="{{ route('admin.contacts.show', ['contact' => $message->id]) }}" class="show-button align-self-baseline link_message">
-                                        {{ $message->message }}</i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.contacts.show', ['contact' => $message->id]) }}" class="show-button align-self-baseline">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </td>
-                            </tr> 
-                        @endforeach 
-                    </tbody>
-                </table>
+                                <th scope="col">#</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Testo Messaggio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($messages as $message)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $message->email }}</td>
+                                    <td>{{ $message->name }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.contacts.show', ['contact' => $message->id]) }}" class="show-button align-self-baseline link_message">
+                                            {{ $message->message }}</i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.contacts.show', ['contact' => $message->id]) }}" class="show-button align-self-baseline">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr> 
+                            @endforeach 
+                        </tbody>
+                    </table>
+                @else 
+                    <p>
+                        Non hai ricevuto messaggi per questo appartamento.
+                    </p>
+                @endif
             </div>        
         </div>
         <div class="col-12 col-lg-4 mt-lg-0 mt-3 ">
@@ -59,7 +65,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Data</th>
-                            <th scope="col">ip</th>
+                            {{-- <th scope="col">ip</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +73,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $view->created_at }}</td>
-                                <td>{{ $view->user_ip }}</td>
+                                {{-- <td>{{ $view->user_ip }}</td> --}}
                             </tr> 
                         @endforeach 
                     </tbody>

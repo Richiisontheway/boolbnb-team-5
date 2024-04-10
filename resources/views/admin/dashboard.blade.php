@@ -112,14 +112,17 @@
                                                     @if ($currentSponsor->id == 1)
                                                         <span class="badgetext-bg-silver px-1">
                                                             {{ $currentSponsor->title }}
+                                                            <i class="fa-solid fa-certificate"></i>
                                                         </span>
                                                     @elseif ($currentSponsor->id == 2)
                                                         <span class="badgetext-bg-gold px-1">
                                                             {{ $currentSponsor->title }}
+                                                            <i class="fa-solid fa-certificate"></i>
                                                         </span>
                                                     @elseif ($currentSponsor->id == 3)
                                                         <span class="badgetext-bg-platinum px-1">
                                                             {{ $currentSponsor->title }}
+                                                            <i class="fa-solid fa-certificate"></i>
                                                         </span>
                                                     @endif       
                                                 @endif   
