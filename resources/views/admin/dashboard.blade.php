@@ -97,22 +97,31 @@
                                                 {{ $newApartmentAddress }}
                                             </td>
                                             <td>
-                                                @if ($singleApartment->sponsors)
-                                                    @foreach ($singleApartment->sponsors as $sponsor)
-                                                        @if ($sponsor->id == 1)
-                                                            <span class="badgetext-bg-silver px-1">
-                                                                {{ $sponsor->title }}
-                                                            </span>
-                                                        @elseif ($sponsor->id == 2)
-                                                            <span class="badgetext-bg-gold px-1">
-                                                                {{ $sponsor->title }}
-                                                            </span>
-                                                        @elseif ($sponsor->id == 3)
-                                                            <span class="badgetext-bg-platinum px-1">
-                                                                {{ $sponsor->title }}
-                                                            </span>
-                                                        @endif       
-                                                    @endforeach
+                                                @php
+                                                    $currentDate = now()->toDateString();
+                                                    $currentSponsor = null;
+                                                    $activeSponsorships = $singleApartment->sponsors()->wherePivot('date_end', '>=', $currentDate)->orderBy('date_start', 'desc')->get();
+                                                    foreach ($activeSponsorships as $sponsor) {
+                                                        if ($sponsor->pivot->date_start <= $currentDate) {
+                                                            $currentSponsor = $sponsor;
+                                                            break;
+                                                        }
+                                                    }
+                                                @endphp
+                                                @if ($currentSponsor)
+                                                    @if ($currentSponsor->id == 1)
+                                                        <span class="badgetext-bg-silver px-1">
+                                                            {{ $currentSponsor->title }}
+                                                        </span>
+                                                    @elseif ($currentSponsor->id == 2)
+                                                        <span class="badgetext-bg-gold px-1">
+                                                            {{ $currentSponsor->title }}
+                                                        </span>
+                                                    @elseif ($currentSponsor->id == 3)
+                                                        <span class="badgetext-bg-platinum px-1">
+                                                            {{ $currentSponsor->title }}
+                                                        </span>
+                                                    @endif       
                                                 @endif   
                                             </td>
                                         </tr>
@@ -124,7 +133,7 @@
 
                     {{-- Altrimenti viene avvisato che ancora non ne ha --}}
                     @else
-                        <p>Non hai ancora aggiunto nessun appartamento.</p>
+                        <p>Non hai ancora nessun appartamento.</p>
                     @endif
 
                 </div>
