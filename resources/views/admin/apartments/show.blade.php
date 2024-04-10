@@ -53,7 +53,7 @@
                                         Questo appartamento è già sponsorizzato: {{ $sponsorship->title }}. Fine sponsorizzazione: {{ $formattedDate }}
                                     </div>
                                     @else
-                                    <a href="{{ route('admin.sponsor.show', $apartment->id) }}">Sponsorize this apartment</a>
+                                    <a href="{{ route('admin.sponsor.show', $apartment->id) }}" class="text-decoration-none">Sponsorize this apartment</a>
                                     @endif
                                 </div>
                                 <div class="d-flex">
