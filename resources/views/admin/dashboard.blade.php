@@ -69,8 +69,8 @@
                                     <th class="col-6 text-start">
                                         Nome Appartamento
                                     </th>
-                                    <th class="d-none d-sm-block" >Città</th>
-                                    <th>Sponsor</th>
+                                    <th class="d-none d-sm-block text-start" >Città</th>
+                                    <th class="text-start">Sponsor</th>
                                     </tr>
                                 </thead>
                                 {{-- Fine Testata Tabella --}}
@@ -86,7 +86,7 @@
                                                     </a>
                                                 </span>
                                             </td>
-                                            <td class="d-none d-sm-block">
+                                            <td class="d-none d-sm-block text-start">
                                                 @php
                                                     $apartmentAddress = $singleApartment->address;
                                                     $addressParts = explode(',', $apartmentAddress);
@@ -96,7 +96,7 @@
                                                 @endphp
                                                 {{ $newApartmentAddress }}
                                             </td>
-                                            <td>
+                                            <td class="text-start">
                                                 @php
                                                     $currentDate = now()->toDateString();
                                                     $currentSponsor = null;

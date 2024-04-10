@@ -1,37 +1,138 @@
 @import '../variables.scss';
-.sponsored_apartments_container{
-    .card{
-        background-color: #FEFFFA;
-        transition: all 0.5s;
-        overflow: hidden;
-        border: none;
-        border-radius: 20px;
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
-        img{
-            border-radius: 20px;
-        }
+.container {
 
-        &:hover{
-            cursor: pointer;
-            background-color: white;
-            box-shadow: 0px 0px 10px 3px #252525;
-
-            img {
-                transition: transform 0.5s;
-                transform: scale(1.1);
+    .sponsorship-container {
+        .description-info {
+            span {
+                font-weight: bold;
+                font-size: 12px;
             }
         }
-        .sponsor-pill{
-            background-color: $button-color;
-            color: white;
-            padding: 5px;
-        }
-        .info{
-            background-color: $button-color;
-        }
-        .address_container{
-            font-size: 0.8em;
-        }
+        
     }
 
+    .my-card {
+        background-color: $main-background-color;
+        overflow: hidden;
+        border: 1px solid black;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+        transition: background-image 0.5s ease;
+
+
+        &:hover{
+            box-shadow: 0px 0px 10px 3px #252525;
+            color: black;
+        }
+
+        &.gold:hover{
+            background-image:
+                linear-gradient(
+                    -72deg,
+                    #ffde45,
+                    #ffffff 16%,
+                    #ffde45 21%,
+                    #ffffff 24%,
+                    #452100 27%,
+                    #ffde45 36%,
+                    #ffffff 45%,
+                    #ffffff 60%,
+                    #ffde45 72%,
+                    #ffffff 80%,
+                    #ffde45 84%,
+                    #452100 
+                );
+            }
+
+            &.silver:hover{
+                background-image:
+                linear-gradient(
+                    -72deg,
+                    #dedede,
+                    #ffffff 16%,
+                    #dedede 21%,
+                    #ffffff 24%,
+                    #454545 27%,
+                    #dedede 36%,
+                    #ffffff 45%,
+                    #ffffff 60%,
+                    #dedede 72%,
+                    #ffffff 80%,
+                    #dedede 84%,
+                    #a1a1a1 
+                );
+            }
+
+            &.platinum:hover{
+                background-image:
+                linear-gradient(
+                    -72deg,
+                    #dedeff,
+                    #ffffff 16%,
+                    #dedeff 21%,
+                    #ffffff 24%,
+                    #555564 27%,
+                    #dedeff 36%,
+                    #ffffff 45%,
+                    #ffffff 60%,
+                    #dedeff 72%,
+                    #ffffff 80%,
+                    #dedeff 84%,
+                    #555564
+                );
+            }
+
+        &:hover::after{
+            opacity: 1;
+            transform-origin: 100px 100px;
+            transform: scale(1) translate(-10px, -70px);
+        }
+        
+    }
+
+    .sponsored_apartments_container{
+        .card{
+            background-color: #FEFFFA;
+            transition: all 0.5s;
+            overflow: hidden;
+            border: none;
+            border-radius: 20px;
+
+            img{
+                border-radius: 20px;
+            }
+
+            &:hover{
+                cursor: pointer;
+                background-color: white;
+                box-shadow: 0px 0px 10px 3px #252525;
+
+                img {
+                    transition: transform 0.5s;
+                    transform: scale(1.1);
+                }
+            }
+            .sponsor-pill{
+                color: $button-color;
+                padding: 5px;
+            }
+            .info{
+                background-color: $button-color;
+            }
+            .address_container{
+                font-size: 0.8em;
+            }
+
+            .button_container {
+                a {
+                    color:$button-color;
+                }
+            }
+        }
+
+    }
 }

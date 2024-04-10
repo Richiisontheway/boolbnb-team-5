@@ -39,22 +39,22 @@
                             <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
                             <span class="d-lg-block d-none">
                                 Servizi
                             </span>
                             <i class="d-lg-none d-md-block fa-solid fa-bell-concierge"></i>
                         </a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
                             <span class="d-lg-block d-none">
                                 Messaggi
                             </span>
                             <i class="d-lg-none d-md-block fa-solid fa-square-envelope"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
                             <span class="d-lg-block d-none">

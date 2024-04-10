@@ -29,11 +29,23 @@ class SponsorController extends Controller
     {
         $sponsors = Sponsor::all();
         $user = Auth::user();
+        
         $sponsoredApartmentIds = Apartment::where('user_id', $user->id)
-            ->whereHas('sponsors')
+        ->whereHas('sponsors', function ($query) {
+            // Verifico che la data corrente non sia compresa tra date_start e date_end
+            $query->whereDate('date_start', '>', now())
+                ->orWhereDate('date_end', '<', now());
+        })
+        ->pluck('id');
+
+        // Filtro gli ID di tutti gli appartamenti dell'utente che non sono mai stati sponsorizzati
+        $unsponsoredApartmentIds = Apartment::where('user_id', $user->id)
+            ->whereNotIn('id', $sponsoredApartmentIds)
             ->pluck('id');
-    
-        $sponsoredApartments = Apartment::whereIn('id', $sponsoredApartmentIds)->get();
+
+        // Riassegno agli appartamenti quelli che non hanno sponsorizzazioni attive o non sono stati mai sponsorizzati
+        $sponsoredApartments = Apartment::whereIn('id', $unsponsoredApartmentIds)->get();
+        
         return view('admin.sponsors.index', compact('sponsors', 'sponsoredApartments'));
     }
 
