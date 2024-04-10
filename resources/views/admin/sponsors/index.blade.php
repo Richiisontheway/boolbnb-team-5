@@ -31,7 +31,7 @@
                     <div class="col-12 mx-auto mt-3">
                         <div class="row">
                             <div class="col-4 d-lg-flex align-items-lg-stretch">
-                                <div class="my-card silver p-lg-5">
+                                <div class="my-card silver p-2">
                                     <div class="row flex-column justify-content-between">
                                         <div class="col-12 text-center">
                                             <h4 class="mt-1">
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="col-4 d-lg-flex align-items-lg-stretch">
-                                <div class="my-card gold p-lg-5">
+                                <div class="my-card gold p-2">
                                     <div class="row flex-column justify-content-around">
                                         <div class="col-12 text-center">
                                             <h4 class="mt-1">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="col-4 d-lg-flex align-items-lg-stretch ">
-                                <div class="my-card platinum p-lg-5">
+                                <div class="my-card platinum p-2">
                                     <div class="row flex-column justify-content-around">
                                         <div class="col-12 text-center">
                                             <h4 class="mt-1">
