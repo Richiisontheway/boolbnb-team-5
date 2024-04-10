@@ -49,7 +49,7 @@
                                 {{-- Sezione sponsorizzazione  --}}
                                 <div>
                                     @if($isActive)
-                                    <div class="alert alert-info">
+                                    <div id="sponsors" class="alert alert-info">
                                         Questo appartamento è già sponsorizzato: {{ $sponsorship->title }}. Fine sponsorizzazione: {{ $formattedDate }}
                                     </div>
                                     @else
