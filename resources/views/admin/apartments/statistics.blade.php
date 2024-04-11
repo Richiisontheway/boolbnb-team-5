@@ -60,7 +60,7 @@
                 <p>Totale visitatori: 
                     <strong>{{ $views->count() }}</strong>
                 </p>
-                <table class="table table-hover ">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
