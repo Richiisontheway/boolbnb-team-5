@@ -58,14 +58,13 @@ main {
                 width: 80px;
                 height: 50px;
                 border-radius: 25px;
-                color: white;
+               
                 background-color: rgb(67, 75, 76);
                 transition: background-color 0.5s ease;
-    
-                &:hover {
-                    transition: 1s;
-                    background-color: red;
+                button{
+                    color: white;
                 }
+                
             }
     
             ul {
