@@ -7,7 +7,7 @@
             img {
                 width: 100%;
                 box-sizing: border-box;
-                border-radius: 10%;
+                border-radius: 20px;
                 overflow: hidden;
             }
 
@@ -22,27 +22,36 @@
         }
 
         #services {
-            width: 750px;
+            
 
             a {
                 width: 100px;
                 height: 50px;
-                font-size: 10px;
                 text-decoration: none;
                 color: black;
 
-                i {
-                    font-size: 15px;
-                }
+                
             }
 
         }
         #sponsors{
-            width: 750px;
+            
         }
         .button{
             background-color: black;
             color: white;
+        }
+
+        .service-item {
+            white-space: nowrap; 
+        }
+        
+        .service-item i {
+            vertical-align: middle; 
+        }
+        
+        .service-item span {
+            word-wrap: break-word; 
         }
         
     }
