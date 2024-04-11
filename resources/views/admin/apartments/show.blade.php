@@ -4,14 +4,12 @@
 
 @section('main-content')
     
-    <section id="apartments-show">
+    <div id="apartments-show" class="container mt-5">
       
         <div class="row g-0">
             
-                <div class="my_card_show col-12 ">
-                        <h4>
-                            {{$apartment->title}} 
-                        </h4>
+                <div class="my_card_show " >
+                        
                     <div class="img_container col-lg-6 col-md-12">
                         <img src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                     </div>
@@ -20,8 +18,11 @@
 
                         <div class="mt-3">
                             <h4>
-                                 {{ $apartment->address }}
+                            {{$apartment->title}} 
                             </h4>
+                            <h5>
+                                 {{ $apartment->address }}
+                            </h5>
                             <p>
                                 {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }} Letti · {{ $apartment->n_baths }} Bagni · {{ $apartment->mq }} m²
                             </p>
@@ -31,18 +32,22 @@
                         <div>
                             <div>
                                 <h5>Cosa Troverai</h5>
-                                <div id="services" class="d-flex flex-wrap  ">
-                                    
-                                    @forelse ($apartment->services as $service)
-                                        <a href="{{ route('admin.services.show' , ['service' => $service->id]) }}" class="d-flex align-items-center">
-                                            <i class="{{$service->icon}} pe-2"></i> {{$service->title}}
-                                        </a>
-                                    @empty
-                                        <h5>
-                                            Nessun servizio incluso
-                                        </h5>
-                                    @endforelse
+                                <div class="row">
+                                    <div class="col-lg-10 col-md-12">
+                                        <div id="services">
+                                            @forelse ($apartment->services as $service)
+                                                <a href="{{ route('admin.services.show' , ['service' => $service->id]) }}" class="me-2" >
+                                                    <i class="{{$service->icon}} pe-2"></i> {{$service->title}}
+                                                </a>
+                                            @empty
+                                                <h5>
+                                                    Nessun servizio incluso
+                                                </h5>
+                                            @endforelse
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
                             <hr>
                             <div>
@@ -107,7 +112,6 @@
                                         </a>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
 
@@ -115,6 +119,6 @@
                 </div>
             
         </div>
-    </section>
+    </div>
 
 @endsection

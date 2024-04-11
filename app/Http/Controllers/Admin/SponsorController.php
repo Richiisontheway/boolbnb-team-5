@@ -15,6 +15,9 @@ use App\Models\Apartment;
 
 //Facades
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 
 // http://127.0.0.1:8000/admin/sponsors
 //helper
@@ -61,7 +64,26 @@ class SponsorController extends Controller
         $sponsors = Sponsor::all();
         $token = Braintree\ClientToken::generate();
 
-       
+        // Recupera l'ultima sponsorizzazione attiva dell'appartamento
+        $latestSponsorship = DB::table('apartment_sponsor')
+        ->where('apartment_id', $apartment_id)
+        ->where('date_end', '>=', Carbon::now())
+        ->orderBy('date_end', 'desc')
+        ->first();
+
+        // dd($latestSponsorship);
+
+        // Verifica se esiste una sponsorizzazione attiva
+        $isActive = $latestSponsorship !== null;
+        
+        if ($isActive) {
+
+            // Imposta l'errore nella variabile $errors
+            $errors = new \Illuminate\Support\MessageBag();
+            $errors->add('error', 'Oops.. c\'è stato un errore!');
+
+            return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle', 'errors'));
+        }
 
         return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle'));
     }

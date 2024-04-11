@@ -311,8 +311,11 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->firstOrFail();
         $views = $apartment->views;
-        $messages = Contact::where('apartment_id', $apartment->id)->get();
-        return view('admin.apartments.statistics', compact('apartment', 'views','messages'));
+        $messages = Contact::where('apartment_id', $apartment->id)->orderBy('id', 'desc')->get();
+
+        // dd($newestMessages);
+
+        return view('admin.apartments.statistics', compact('apartment', 'views', 'messages'));
     }
     // public function trash(Apartment $apartment)
     // {

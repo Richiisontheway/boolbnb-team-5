@@ -3,7 +3,22 @@
 @section('page-title', 'Sponsorizzazioni disponibili')
 
 @section('main-content')
+
     <div class="row justify-content-center ">
+
+        <div class="col-12 col-md-8">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="list-unstyled">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
+
         <h1 class="mb-4 col-12 col-lg-8 text-left">{{ $apartmentTitle }}</h1>
         <form id="payment-form" method="POST" action="{{ route('admin.sponsor.pay', $apartment_id) }}" class="col-12 col-lg-8">
             @csrf
