@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+// Models
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Sponsor;
 
+// Helpers
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -53,33 +55,7 @@ class MainController extends Controller
 
         $apartments = Apartment::where('user_id', $user->id)->get();
         
-        foreach ($apartments as $apartment) {
-
-            // Recupera l'ultima sponsorizzazione attiva dell'appartamento
-            $latestSponsorship = DB::table('apartment_sponsor')
-                                ->where('apartment_id', $apartment->id)
-                                ->where('date_end', '>=', Carbon::now())
-                                ->orderBy('date_end', 'desc')
-                                ->first();
-
-        }
-
-        // Verifica se esiste una sponsorizzazione attiva
-        $isActive = $latestSponsorship !== null;
-        
-        // Inizializza la variabile del titolo dello sponsor
-        $sponsorTitle = null;
-
-        // Se la sponsorizzazione è attiva, ottieni il titolo dello sponsor
-        if ($isActive) {
-            $sponsor = Sponsor::find($latestSponsorship->sponsor_id);
-            if ($sponsor) {
-                $sponsorTitle = $sponsor->title;
-            }
-        }
-        
-
-        return view('admin.dashboard', compact('user','totalUserApartments', 'userApartments', 'userViews', 'userTopApartments', 'userMessages', 'userApartmentsWithMostMessages', 'isActive', 'latestSponsorship', 'sponsorTitle'));
+        return view('admin.dashboard', compact('user','totalUserApartments', 'userApartments', 'userViews', 'userTopApartments', 'userMessages', 'userApartmentsWithMostMessages'));
     }
     
     public function trash()
