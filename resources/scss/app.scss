@@ -10,7 +10,7 @@ main {
 
     aside {
         height: 100vh;
-        background-color: $primary_background_color;
+        background-color: rgb(67, 75, 76);
 
         ul{
             list-style: none;
@@ -52,16 +52,18 @@ main {
         .user {
             position: sticky;
             top: 10px;
-            z-index: 1;        
+            z-index: 1; 
+                  
 
             .my-button {
                 width: 80px;
                 height: 50px;
                 border-radius: 25px;
-                background-color: $primary_background_color;
+                color: white;
+                background-color: rgb(67, 75, 76);
                 transition: background-color 0.5s ease;
     
-                .my-button:hover {
+                &:hover {
                     transition: 1s;
                     background-color: red;
                 }
@@ -70,14 +72,17 @@ main {
             ul {
                 overflow-x: auto;
                 width: 250px;
+                
                 li {
                     padding: 8px;
                     cursor: pointer;
                     text-align: start;
+                    
     
                     i{
                         font-size: 24px;
                         color: $primary_background_color;
+                        
                     }
     
                     span {

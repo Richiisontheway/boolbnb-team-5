@@ -21,7 +21,7 @@
     </head>
     <body>
         <main class="d-flex">
-            <aside class="d-flex flex-column">    
+            <aside class="d-flex align-items-end flex-column">    
                 <ul class="h-100 flex-grow-1 px-3">
                     <li>
                         <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
@@ -63,6 +63,10 @@
                             <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
                         </a>
                     </li>
+                    <li class="mt-auto p-2">
+                        <img src="../../storage/img/logo_VV_ridimensionato.svg" alt="">
+                    </li>
+
                 </ul>
             </aside>
             <div class="main-menu-container overflow-y-scroll">

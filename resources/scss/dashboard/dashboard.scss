@@ -2,6 +2,9 @@
 main {
     table {
         tbody {
+            a{
+                color: $primary_text_color;
+            }
             tr {
                 td {
                     .badgetext-bg-silver, 
