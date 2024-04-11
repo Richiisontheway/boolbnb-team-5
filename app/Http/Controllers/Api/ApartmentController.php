@@ -88,37 +88,47 @@ class ApartmentController extends Controller
                 $coordinates['lon'],
                 $radius
             ]
-            );
+        );
 
-            // Se l'utente ha selezionato un numero di stanze
-            if ($minRooms) {
+        // Se l'utente ha selezionato un numero di stanze
+        if ($minRooms) {
+            // Filtro gli appartamenti
+            $filteredApartments->where('n_rooms', '>=', $minRooms);
+        }
+    
+        // Se l'utente ha selezionato un numero di letti
+        if ($minBeds) {
+            // Filtro gli appartamenti
+            $filteredApartments->where('n_beds', '>=', $minBeds);
+        }
+
+        // Se l'utente ha selezionato dei servizi
+        if($services) {
+            foreach ($services as $serviceId) {
                 // Filtro gli appartamenti
-                $filteredApartments->where('n_rooms', '>=', $minRooms);
+                $filteredApartments->whereHas('services', function ($query) use ($serviceId) {
+                    $query->where('service_id', $serviceId);
+                });
             }
-        
-            // Se l'utente ha selezionato un numero di letti
-            if ($minBeds) {
-                // Filtro gli appartamenti
-                $filteredApartments->where('n_beds', '>=', $minBeds);
-            }
+        }
 
-            // Se l'utente ha selezionato dei servizi
-            if($services) {
-                foreach ($services as $serviceId) {
-                    // Filtro gli appartamenti
-                    $filteredApartments->whereHas('services', function ($query) use ($serviceId) {
-                        $query->where('service_id', $serviceId);
-                    });
-                }
-            }
-
-            // Se l'utente sta cercando per nome dell'appartamento
-            if ($filterTitle) {
-                $filteredApartments->where('title', 'like', '%'.$filterTitle.'%');
-            }
+        // Se l'utente sta cercando per nome dell'appartamento
+        if ($filterTitle) {
+            $filteredApartments->where('title', 'like', '%'.$filterTitle.'%');
+        }
         
-            // Eseguo la query per ottenere i risultati filtrati
-            $results = $filteredApartments->get();
+        // Eseguo la query per ottenere i risultati filtrati
+        $results = $filteredApartments->get();
+
+        // Estraggo gli appartamenti sponsorizzati
+        $sponsoredApartments = $results->filter(function ($apartment) {
+            return $apartment->sponsors()->where('date_end', '>', now())->exists();
+        });
+
+        // Gli appartamenti sponsorizzati vengono visualizzati per primi
+        $results = $sponsoredApartments->sortByDesc(function ($apartment) {
+            return $apartment->sponsors()->where('date_end', '>', now())->max('date_end');
+        })->merge($results->whereNotIn('id', $sponsoredApartments->pluck('id')));
 
         return response()->json([
             'success' => true,
