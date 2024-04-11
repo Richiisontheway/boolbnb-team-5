@@ -72,7 +72,7 @@
                         @foreach($views as $view)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $view->created_at }}</td>
+                                <td>{{ $view->date }}</td>
                                 {{-- <td>{{ $view->user_ip }}</td> --}}
                             </tr> 
                         @endforeach 
@@ -80,11 +80,57 @@
                 </table>
             </div>
         </div>
+        
     </div>
-    
-    
-    
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+        const ctx = document.getElementById('myChart');
+
+        // Estrai i dati dei contatti per il grafico
+        const contacts = @json($messages);
+        const dataContacts = new Array(12).fill(0); // Crea un array di lunghezza 12 inizializzato a 0 per memorizzare i conteggi per ogni mese
+
+        // Estrai i dati delle visualizzazioni per il grafico
+        const views = @json($views);
+        const dataViews = new Array(12).fill(0); // Crea un array di lunghezza 12 inizializzato a 0 per memorizzare i conteggi per ogni mese
+
+        // Cicla sui contatti e incrementa il conteggio per il mese corrispondente
+        contacts.forEach(contact => {
+            const month = new Date(contact.created_at).getMonth(); // Ottieni il mese (da 0 a 11)
+            dataContacts[month]++;
+        });
+
+        // Cicla sulle visualizzazioni e incrementa il conteggio per il mese corrispondente
+        views.forEach(view => {
+            const month = new Date(view.date).getMonth(); // Ottieni il mese (da 0 a 11)
+            dataViews[month]++;
+        });
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                datasets: [ {
+                    label: 'Views',
+                    data: dataViews,
+                    borderWidth: 1,
+                    tension: 0.6
+                }]
+            },
+            options: {               
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </div>
 
 

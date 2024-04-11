@@ -885,5 +885,86 @@ return
         'email' =>'davide@mail.com',
         'message' =>'Ciao, vorrei sapere se è inclusa una cucina attrezzata.',
         'apartment_id' => '36'
+        ],
+        [
+            'name' => 'Emma Thompson',
+            'email' => 'emma.thompson@example.com',
+            'message' => "Hello, I'm interested in scheduling a visit for the apartment.",
+            'apartment_id' => 23
+        ],
+        [
+        'name' => 'John Smith',
+        'email' => 'john.smith@example.com',
+        'message' => 'Hi, could you please arrange a viewing for the apartment?',
+        'apartment_id' => 42
+        ],
+
+        [
+        'name' => 'Sophia Davis',
+        'email' => 'sophia.davis@example.com',
+        'message' => "Good day, I'd like to inquire about scheduling a visit to see the apartment.",
+        'apartment_id' => 17
+        ],
+
+        [
+        'name' => 'Michael Johnson',
+        'email' => 'michael.johnson@example.com',
+        'message' => "Greetings, I'm interested in viewing the apartment. Could you provide more details?",
+        'apartment_id' => 68
+        ],
+
+        [
+        'name' => 'Emily Wilson',
+        'email' => 'emily.wilson@example.com',
+        'message' => "Hello, I'm considering a visit to see the apartment. Is that possible?",
+        'apartment_id' => 10
+        ],
+
+        [
+        'name' => 'Daniel Martinez',
+        'email' => 'daniel.martinez@example.com',
+        'message' => "Hi, I'm interested in scheduling a visit to view the apartment.",
+        'apartment_id' => 32
+        ],
+
+        [
+        'name' => 'Olivia Garcia',
+        'email' => 'olivia.garcia@example.com',
+        'message' => "Hello, I'd like to arrange a visit to see the apartment. Can you assist me with that?",
+        'apartment_id' => 55
+        ],
+
+        [
+        'name' => 'Ethan Brown',
+        'email' => 'ethan.brown@example.com',
+        'message' => "Good day, I'm considering a visit to view the apartment. Could you provide more information?",
+        'apartment_id' => 20
+        ],
+
+        [
+        'name' => 'Ava Rodriguez',
+        'email' => 'ava.rodriguez@example.com',
+        'message' => "Hi, I'm interested in scheduling a visit to see the apartment. Could you let me know the available times?",
+        'apartment_id' => 5
+        ],
+
+        [
+        'name' => 'Liam Wilson',
+        'email' => 'liam.wilson@example.com',
+        'message' => "Hello, I'm interested in viewing the apartment. Can you provide details on how to arrange a visit?",
+        'apartment_id' => 35
+        ],
+        [
+        'name' => 'Grace Taylor',
+        'email' => 'grace.taylor@example.com',
+        'message' => "Hi, I'd like to arrange a visit to view the apartment. Could you provide more details?",
+        'apartment_id' => 28
+        ],
+
+        [
+        'name' => 'Lucas Rodriguez',
+        'email' => 'lucas.rodriguez@example.com',
+        'message' => "Good day, I'm considering a visit to view the apartment. Can you provide more information?",
+        'apartment_id' => 53
         ]
 ];
