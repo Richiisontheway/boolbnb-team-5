@@ -28,6 +28,8 @@ Route::name('api.')->group(function() {
         'index',
         'show'
     ]);
+
+    Route::post('/get-views/{slug}',[ApartmentController::class, 'views']);
     Route::get('/get-sponsored-apartments', [ApartmentController::class, 'getSponsoredApartments']);
     Route::post('/advanced-search', [ApartmentController::class, 'advancedSearch']);
     Route::get('/services', [ApartmentController::class, 'getServices']);

@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 // Helper
 use GuzzleHttp\Client;
+use Carbon\Carbon;
 
 // Models
 use App\Models\Apartment;
 use App\Models\Service;
+use App\Models\View;
 
 class ApartmentController extends Controller
 {
@@ -155,6 +157,48 @@ class ApartmentController extends Controller
             'success' => true,
             'results' => $services
         ]);
+
+    }
+
+    public function views(Request $request, $slug) {
+
+        // Prendo l'ip dell'utente che visita l'appartamento
+        $clientIpAddress = $request->getClientIp();
+
+        // Registro la data
+        $date = Carbon::today();
+
+        // Recupero i dati dell'appartamento
+        $apartment = Apartment::where('slug', $slug)
+                    ->first();
+        
+        if ($apartment) {
+            // Applico un controllo per cui verifico se esite già una visualizzazione 
+            // per l'appartamento e l'indirizzo IP in data odierna
+            $existingView = View::where('apartment_id', $apartment->id)
+                                ->where('user_ip', $clientIpAddress)
+                                ->whereDate('date', $date)
+                                ->first();
+
+            // Se esiste già una visualizzazione per l'appartamento e l'indirizzo IP odierno,
+            if ($existingView) {
+                return response()->json(['message' => 'Visualizzazione già registrata per oggi']);
+
+            // Se non esiste una visualizzazione per l'appartamento e l'indirizzo IP odierno
+            // creo una nuova visualizzazione
+            } else {
+                $view = new View();
+                $view->apartment_id = $apartment->id;
+                $view->user_ip = $clientIpAddress;
+                $view->date = $date;
+                $view->save();
+    
+                return response()->json(['message' => 'Visualizzazione registrata con successo']);
+            }
+        // Se l'appartamento non esiste restituisco un errore
+        } else {
+            return response()->json(['error' => 'Appartamento non trovato'], 404);
+        }
 
     }
 
