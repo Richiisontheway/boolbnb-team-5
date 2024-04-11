@@ -911,75 +911,72 @@ return [
         'address' => 'borgata sagna logna , 123,10054 Cesana torinese',
         //'zip_code' => '10054' // CAP di Cesana torinese
     ],
-    [
+    [    //D5 - campobello di licata
         'title' => 'Casa Nino ',
-        'n_rooms' => 4,
-        'n_beds' => 4,
+        'n_rooms' => 1,
+        'n_beds' => 1,
         'n_baths' => 2,
-        'mq' => 80,
-        'price' => 30.50,
-        'lat' => 41.8864 , // via dei fratelli laurana Roma, Lazio, Italia
-        'lon' => 12.5034, // via dei fratelli laurana Roma, Lazio, Italia
+        'mq' => 50,
+        'price' => 29.50,
+        'lat' => 37.25844 , 
+        'lon' => 13.918266, 
         'cover_img' => "img/apt-66.avif",
         'visible' => true,
-        'address' => 'via dei fratelli laurana, 123,00184 Roma',
+        'address' => 'via dei fratelli laurana, 49,92023 Campobello di Licata',
         //'zip_code' => '00184' // CAP di Roma
     ],
-    [
-        'title' => 'TRULLO PACE',
-        'n_rooms' => 4,
-        'n_beds' => 4,
+    [   //D1 -------- DELIA
+        'title' => 'Villa Deliella',
+        'n_rooms' => 6,
+        'n_beds' => 6,
         'n_baths' => 2,
-        'mq' => 80,
-        'price' => 30.50,
-        'lat' => 40.651018, // strada provinciale 26 Ceglie Messapica, Puglia, Italy, Italia
-        'lon' => 17.526486, // strada provinciale 26 Ceglie Messapica, Puglia, Italy, Italia
+        'mq' => 120,
+        'price' => 71.50,
+        'lat' => 37.3560363, 
+        'lon' => 13.9272894, 
         'cover_img' => "img/apt-67.avif",
         'visible' => true,
-        'address' => 'strada provinciale 26, 123,72013 Messapica',
+        'address' => 'via luigi la verde , 15,93010 Delia',
         //'zip_code' => '72013' // CAP di Messapica
     ],
-    [
-        'title' => 'Canova',
-        'n_rooms' => 4,
-        'n_beds' => 4,
+    [   //D2 -------- CANICATTI'
+        'title' => 'Villa del Parnaso',
+        'n_rooms' => 5,
+        'n_beds' => 5,
         'n_baths' => 2,
-        'mq' => 80,
-        'price' => 30.50,
-        'lat' => 43.4644, // via fortezza medicea Poggibonsi, Toscana, Italia
-        'lon' => 11.1519 , // via fortezza medicea Poggibonsi, Toscana, Italia
+        'mq' => 110,
+        'price' => 37.50,
+        'lat' => 37.358942, 
+        'lon' => 13.850364 , 
         'cover_img' => "img/apt-68.avif",
         'visible' => true,
-        'address' => 'via fortezza medicea , 123,53036 Poggibonsi',
-        'zip_code' => '53036' // CAP di Poggibonsi
+        'address' => 'viale della regione, 1,92024 Canicattì',
     ],
-    [
+    [   //D3 - caltanissetta
         'title' => 'SINIS-THARROS',
         'n_rooms' => 4,
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
-        'lat' => 39.5865, // via marco polo Cittadella del Capo, Calabria, Italia
-        'lon' => 15.8457, // via marco polo Cittadella del Capo, Calabria, Italia
+        'price' => 50.50,
+        'lat' => 37.4899412, 
+        'lon' => 14.0631618, 
         'cover_img' => "img/apt-69.avif",
         'visible' => true,
-        'address' => 'via marco polo, 123,87020 Cittadella del Capo',
-        //'zip_code' => '87020' // CAP di Cittadella del Capo
+        'address' => 'via marco polo, 123,93100 Caltanissetta',
     ],
-    [
+    [   // D4 - agrigento
         'title' => 'Villa Zefiro',
         'n_rooms' => 4,
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
-        'lat' => 41.9976, // via macchiavelli Campomarino, Puglia, Italy, Italia
-        'lon' => 14.9435 , // via macchiavelli Campomarino, Puglia, Italy, Italia
+        'price' => 41.50,
+        'lat' => 37.3122991, 
+        'lon' => 13.57465 , 
         'cover_img' => "img/apt-70.avif",
         'visible' => true,
-        'address' => 'via macchiavelli, 123,86042 Campomarino',
-        //'zip_code' => '86042' // CAP di Campomarino
+        'address' => 'via macchiavelli, 23,92100 Agrigento',
     ],
 
 ];
