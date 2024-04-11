@@ -3,6 +3,8 @@
         border: 1px solid lightgray;
         border-radius: 20px;
         padding: 20px;
+        height: 350px;
+        overflow: auto;
     }
 
     .link_message{
@@ -16,8 +18,5 @@
         text-overflow: ellipsis; 
         white-space: nowrap; 
     }
-    .views_container{
-        height: 345px;
-        overflow: auto;
-    }
+    
 }

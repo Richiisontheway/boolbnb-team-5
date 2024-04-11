@@ -44,6 +44,7 @@
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                     </td>
+
                                 </tr> 
                             @endforeach 
                         </tbody>
@@ -82,8 +83,10 @@
         </div>
         
     </div>
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-lg-8  ">
+            <canvas id="myChart" class="w-100"></canvas>
+        </div>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -101,8 +104,15 @@
 
         // Cicla sui contatti e incrementa il conteggio per il mese corrispondente
         contacts.forEach(contact => {
-            const month = new Date(contact.created_at).getMonth(); // Ottieni il mese (da 0 a 11)
-            dataContacts[month]++;
+            let date = contact.date;
+            // Se la data di contatto è null, utilizza la data di creazione
+            if (!date && contact.created_at) {
+                date = contact.created_at;
+            }
+            if (date) {
+                const month = new Date(date).getMonth(); // Ottieni il mese (da 0 a 11)
+                dataContacts[month]++;
+            }
         });
 
         // Cicla sulle visualizzazioni e incrementa il conteggio per il mese corrispondente
@@ -110,22 +120,30 @@
             const month = new Date(view.date).getMonth(); // Ottieni il mese (da 0 a 11)
             dataViews[month]++;
         });
-
+        
         new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-                datasets: [ {
+                datasets: [ 
+                {
+                    label: 'Messages',
+                    data: dataContacts,
+                    borderWidth: 2.5,
+                    tension: 0.5
+                },
+                {
                     label: 'Views',
                     data: dataViews,
-                    borderWidth: 1,
-                    tension: 0.6
+                    borderWidth: 2.5,
+                    tension: 0.5
                 }]
             },
             options: {               
                 scales: {
                     y: {
-                        beginAtZero: true
+                        min: 0,
+                        max: 12,
                     }
                 }
             }

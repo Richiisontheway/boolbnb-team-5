@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', 64);
             $table->string('email');
             $table->string('message', 2048);
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }
