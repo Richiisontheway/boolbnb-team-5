@@ -52,6 +52,7 @@
                             <hr>
                             <div>
                                 {{-- Sezione sponsorizzazione  --}}
+<<<<<<< HEAD
                                 <div class="row">
                                     <div class="">
                                         @if($isActive)
@@ -113,6 +114,66 @@
                                             </div> 
                                         </div>
                                        
+=======
+                                <div>
+                                    @if($latestSponsorship)
+                                    <div id="sponsors" class="alert alert-info">
+                                        Questo appartamento è già sponsorizzato: {{ $sponsorTitle }}. Fine sponsorizzazione: {{ $formattedDate }}
+                                    </div>
+                                    @else
+                                    <a href="{{ route('admin.sponsor.show', $apartment->id) }}" class="text-decoration-none">Sponsorize this apartment</a>
+                                    @endif
+                                </div>
+                                <div class="d-flex">
+                                    {{-- tasto modifica --}}
+                                <div>
+                                    <a class="btn  button" href="{{route('admin.apartments.edit' , ['apartment' => $apartment->slug  ])}}">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                </div>
+                                {{-- tasto delete --}}
+                                <div class="ms-3 me-3 mb-3">
+                                    <button class="btn button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $apartment->slug }}">
+                                        <i class="fa-solid fa-eraser"></i>
+                                    </button>
+        
+                                        <div class="modal fade" id="staticBackdrop-{{ $apartment->slug }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                                                            Eliminazione Appartamento
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Sei sicuto di voler eliminare: <b> {{ $apartment->title }} </b> ?
+                                                    </div>
+                                                    <div class="modal-footer">
+            
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            
+                                                        <form 
+                                                        action="{{ route('admin.apartments.destroy', ['apartment' => $apartment]) }}" 
+                                                        method="POST">
+                                                    
+                                                        @csrf
+                                                        @method('DELETE')
+                                                            <button 
+                                                            type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                Elimina
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </div>      
+                                    <div>
+                                        <a href="{{ route('admin.apartments.statistics', $apartment->slug) }}" class="btn button">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </a>
+>>>>>>> afc8d9aae6e6d4605d45a7ae0848298144539c3c
                                     </div>
                                 </div>
                             </div>

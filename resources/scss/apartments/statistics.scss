@@ -16,4 +16,8 @@
         text-overflow: ellipsis; 
         white-space: nowrap; 
     }
+    .views_container{
+        height: 345px;
+        overflow: auto;
+    }
 }
