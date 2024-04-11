@@ -1,38 +1,7 @@
 @php
-    $userApartments = App\Models\Apartment::where('user_id', auth()->id())->get();
-    $totalUserApartments = $userApartments->count();
-    $user = auth()->user();
-
-    // Controllo quante volte sono state visualizzati in totale gli appartamenti
-    $userViews = DB::table('views')
-                    ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
-                    ->where('apartments.user_id', auth()->id())
-                    ->count();
-    // Controllo quali sono gli appartamenti con più visualizzazioni
-    $userTopApartments = DB::table('apartments')
-                                    ->join('views', 'apartments.id', '=', 'views.apartment_id')
-                                    ->where('apartments.user_id', auth()->id())
-                                    ->select('apartments.*', DB::raw('COUNT(views.id) as views_count'))
-                                    ->groupBy('apartments.id')
-                                    ->orderByDesc('views_count')
-                                    ->take(3)
-                                    ->get();
-    // Controllo quanti messaggi sono stati mandati in totale
-    $userMessages = DB::table('contacts')
-                    ->join('apartments', 'contacts.apartment_id', '=', 'apartments.id')
-                    ->where('apartments.user_id', auth()->id())
-                    ->count();
-    // Controllo quali sono gli appartamenti con più messaggi   
-    $userApartmentsWithMostMessages = DB::table('apartments')
-                                        ->join('contacts', 'apartments.id', '=', 'contacts.apartment_id')
-                                        ->where('apartments.user_id', auth()->id())
-                                        ->select('apartments.*', DB::raw('COUNT(contacts.id) as messages_count'))
-                                        ->groupBy('apartments.id')
-                                        ->orderByDesc('messages_count')
-                                        ->take(3)
-                                        ->get();
+    use Carbon\Carbon;
+    use App\Models\Sponsor;
 @endphp
-
 @extends('layouts.app')
 
 @section('page-title', 'Dashboard')
@@ -98,34 +67,43 @@
                                             </td>
                                             <td class="text-start">
                                                 @php
-                                                    $currentDate = now()->toDateString();
-                                                    $currentSponsor = null;
-                                                    $activeSponsorships = $singleApartment->sponsors()->wherePivot('date_end', '>=', $currentDate)->orderBy('date_start', 'desc')->get();
-                                                    foreach ($activeSponsorships as $sponsor) {
-                                                        if ($sponsor->pivot->date_start <= $currentDate) {
-                                                            $currentSponsor = $sponsor;
-                                                            break;
+                                                    // Recupera l'ultima sponsorizzazione attiva dell'appartamento
+                                                    $latestSponsorship = DB::table('apartment_sponsor')
+                                                        ->where('apartment_id', $singleApartment->id)
+                                                        ->where('date_end', '>=', Carbon::now())
+                                                        ->orderBy('date_end', 'desc')
+                                                        ->first();
+
+                                                    // Inizializza la variabile del titolo dello sponsor
+                                                    $sponsorTitle = null;
+
+                                                    // Se la sponsorizzazione è attiva, ottieni il titolo dello sponsor
+                                                    if ($latestSponsorship) {
+                                                        $sponsor = Sponsor::find($latestSponsorship->sponsor_id);
+                                                        if ($sponsor) {
+                                                            $sponsorTitle = $sponsor->title;
                                                         }
                                                     }
                                                 @endphp
-                                                @if ($currentSponsor)
-                                                    @if ($currentSponsor->id == 1)
+
+                                                @if ($latestSponsorship)
+                                                    @if ($latestSponsorship->sponsor_id == 1)
                                                         <span class="badgetext-bg-silver px-1">
-                                                            {{ $currentSponsor->title }}
+                                                            {{ $sponsorTitle }}
                                                             <i class="fa-solid fa-certificate"></i>
                                                         </span>
-                                                    @elseif ($currentSponsor->id == 2)
+                                                    @elseif ($latestSponsorship->sponsor_id == 2)
                                                         <span class="badgetext-bg-gold px-1">
-                                                            {{ $currentSponsor->title }}
+                                                            {{ $sponsorTitle }}
                                                             <i class="fa-solid fa-certificate"></i>
                                                         </span>
-                                                    @elseif ($currentSponsor->id == 3)
+                                                    @elseif ($latestSponsorship->sponsor_id == 3)
                                                         <span class="badgetext-bg-platinum px-1">
-                                                            {{ $currentSponsor->title }}
+                                                            {{ $sponsorTitle }}
                                                             <i class="fa-solid fa-certificate"></i>
                                                         </span>
-                                                    @endif       
-                                                @endif   
+                                                    @endif
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
