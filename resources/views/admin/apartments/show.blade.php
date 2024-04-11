@@ -48,9 +48,9 @@
                             <div>
                                 {{-- Sezione sponsorizzazione  --}}
                                 <div>
-                                    @if($isActive)
+                                    @if($latestSponsorship)
                                     <div id="sponsors" class="alert alert-info">
-                                        Questo appartamento è già sponsorizzato: {{ $sponsorship->title }}. Fine sponsorizzazione: {{ $formattedDate }}
+                                        Questo appartamento è già sponsorizzato: {{ $sponsorTitle }}. Fine sponsorizzazione: {{ $formattedDate }}
                                     </div>
                                     @else
                                     <a href="{{ route('admin.sponsor.show', $apartment->id) }}" class="text-decoration-none">Sponsorize this apartment</a>
