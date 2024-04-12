@@ -27,61 +27,66 @@
             color: black;
         }
 
-        &.gold:hover{
-            background-image:
-                linear-gradient(
+        &.gold:hover h4{
+            background:
+            -webkit-linear-gradient(
                     -72deg,
                     #ffde45,
-                    #ffffff 16%,
-                    #ffde45 21%,
-                    #ffffff 24%,
-                    #452100 27%,
-                    #ffde45 36%,
-                    #ffffff 45%,
-                    #ffffff 60%,
-                    #ffde45 72%,
-                    #ffffff 80%,
-                    #ffde45 84%,
+                    #ffffff 6%,
+                    #ffde45 51%,
+                    #ffffff 14%,
+                    #452100 37%,
+                    #ffde45 56%,
+                    #ffffff 50%,
+                    #ffffff 10%,
+                    #ffde45 12%,
+                    #ffde45 90%,
                     #452100 
                 );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             }
 
-            &.silver:hover{
-                background-image:
-                linear-gradient(
+            &.silver:hover h4{
+                background:
+                -webkit-linear-gradient(
                     -72deg,
                     #dedede,
-                    #ffffff 16%,
-                    #dedede 21%,
-                    #ffffff 24%,
-                    #454545 27%,
-                    #dedede 36%,
-                    #ffffff 45%,
-                    #ffffff 60%,
-                    #dedede 72%,
+                    #ffffff 6%,
+                    #838383 51%,
+                    #ffffff 54%,
+                    #454545 17%,
+                    #dedede 96%,
+                    #ffffff 50%,
+                    #ffffff 10%,
+                    #dedede 52%,
                     #ffffff 80%,
-                    #dedede 84%,
+                    #dedede 90%,
                     #a1a1a1 
                 );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;    
             }
 
-            &.platinum:hover{
-                background-image:
-                linear-gradient(
+            &.platinum:hover h4{
+                background:
+                -webkit-linear-gradient(
                     -72deg,
                     #dedeff,
-                    #ffffff 16%,
-                    #dedeff 21%,
-                    #ffffff 24%,
-                    #555564 27%,
-                    #dedeff 36%,
-                    #ffffff 45%,
-                    #ffffff 60%,
-                    #dedeff 72%,
+                    #ffffff 6%,
+                    #dedeff 51%,
+                    #ffffff 54%,
+                    #555564 17%,
+                    #dedeff 96%,
+                    #ffffff 50%,
+                    #ffffff 10%,
+                    #dedeff 52%,
                     #ffffff 80%,
-                    #dedeff 84%,
+                    #dedeff 90%,
                     #555564
                 );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;    
             }
 
         &:hover::after{

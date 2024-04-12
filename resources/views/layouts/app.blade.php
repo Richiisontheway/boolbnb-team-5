@@ -72,7 +72,7 @@
             <div class="main-menu-container overflow-y-scroll">
             {{-- TUTTO IL MENU --}}
                 <!-- Inizio Colonna Bottoni -->
-                <div class="row justify-content-end user">
+                <div class="row g-0 justify-content-end user">
                     <div class="col-auto me-5">
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                             <!-- Inizio Bottone Dropdown -->
@@ -112,7 +112,7 @@
                 <!-- Fine Colonna Bottoni -->
                 <div class="main-container">
                     {{-- MAIN MENU --}}
-                    <div class="container">
+                    <div class="container h-100">
                         @yield('main-content')
                     </div>
                 </div>
