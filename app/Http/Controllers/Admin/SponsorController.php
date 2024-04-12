@@ -33,57 +33,56 @@ class SponsorController extends Controller
         $sponsors = Sponsor::all();
         $user = Auth::user();
         
-        $sponsoredApartmentIds = Apartment::where('user_id', $user->id)
-        ->whereHas('sponsors', function ($query) {
-            // Verifico che la data corrente non sia compresa tra date_start e date_end
-            $query->whereDate('date_start', '>', now())
-                ->orWhereDate('date_end', '<', now());
+        $unsponsoredApartments = Apartment::leftJoin('apartment_sponsor', function($join) {
+            $join->on('apartments.id', '=', 'apartment_sponsor.apartment_id')
+                 ->where('apartment_sponsor.date_end', '>', now());
         })
-        ->pluck('id');
-
-        // Filtro gli ID di tutti gli appartamenti dell'utente che non sono mai stati sponsorizzati
-        $unsponsoredApartmentIds = Apartment::where('user_id', $user->id)
-            ->whereNotIn('id', $sponsoredApartmentIds)
-            ->pluck('id');
-
-        // Riassegno agli appartamenti quelli che non hanno sponsorizzazioni attive o non sono stati mai sponsorizzati
-        $sponsoredApartments = Apartment::whereIn('id', $unsponsoredApartmentIds)->get();
+        ->where('apartments.user_id', $user->id)
+        ->whereNull('apartment_sponsor.id')
+        ->get(['apartments.*']);
         
-        return view('admin.sponsors.index', compact('sponsors', 'sponsoredApartments'));
+        return view('admin.sponsors.index', compact('sponsors', 'unsponsoredApartments'));
     }
 
     public function show($apartment_id)
     {   
-        $apartmentTitle = Apartment::findOrFail($apartment_id)->title;
-        $sponsorship = Apartment::findOrFail($apartment_id)->sponsors()->first();
+        $user = Auth::user();
+
+        // Verifica che l'appartamento appartenga all'utente loggato
+        $apartment = Apartment::where('id', $apartment_id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        // Controlla se l'appartamento esiste e appartiene all'utente
+        if (!$apartment) {
+            // Se l'appartamento non esiste o non appartiene all'utente, reindirizza con un messaggio di errore
+            return redirect()->back()->withErrors(['error' => 'Oops.. non abbiamo trovato l\' appartamento!']);
+        }
+
+        $apartmentTitle = $apartment->title;
+
+        // Recupera l'ultima sponsorizzazione attiva dell'appartamento
+        $latestSponsorship = DB::table('apartment_sponsor')
+                            ->where('apartment_id', $apartment_id)
+                            ->where('date_end', '>=', Carbon::now())
+                            ->orderBy('date_end', 'desc')
+                            ->first();
+
+        // Verifica se esiste una sponsorizzazione attiva
+        $isActive = $latestSponsorship !== null;
+
+        if ($isActive) {
+            // Se l'appartamento è già sponsorizzato, reindirizza con un messaggio di errore
+            return redirect()->back()->withErrors(['error' => 'Oops.. ci deve essere stato un errore.']);
+        }
 
         Configuration::environment(env('BRAINTREE_ENV'));
         Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
         Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
         Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
+
         $sponsors = Sponsor::all();
         $token = Braintree\ClientToken::generate();
-
-        // Recupera l'ultima sponsorizzazione attiva dell'appartamento
-        $latestSponsorship = DB::table('apartment_sponsor')
-        ->where('apartment_id', $apartment_id)
-        ->where('date_end', '>=', Carbon::now())
-        ->orderBy('date_end', 'desc')
-        ->first();
-
-        // dd($latestSponsorship);
-
-        // Verifica se esiste una sponsorizzazione attiva
-        $isActive = $latestSponsorship !== null;
-        
-        if ($isActive) {
-
-            // Imposta l'errore nella variabile $errors
-            $errors = new \Illuminate\Support\MessageBag();
-            $errors->add('error', 'Oops.. c\'è stato un errore!');
-
-            return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle', 'errors'));
-        }
 
         return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle'));
     }
