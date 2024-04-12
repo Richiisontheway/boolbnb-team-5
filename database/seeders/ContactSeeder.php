@@ -16,29 +16,23 @@ class ContactSeeder extends Seeder
      */
     public function run(): void
     {
-
-        // Schema::withoutForeignKeyConstraints(function () {
-        //     Contact::truncate();
-        // });
-
-        $apartment = Apartment::all();
-
+        $apartments = Apartment::all();
         $contactData = config('messages');
 
-        foreach ($contactData as $singleContact) {
+        foreach ($apartments as $apartment) {
+            $numberOfMessages = mt_rand(1, 20); 
 
-            $contact = New Contact();
-            $apartment = Apartment::inRandomOrder()->first();
+            $randomContacts = collect($contactData)->shuffle()->take($numberOfMessages);
 
-            $contact->apartment_id = $apartment->id;
-            $contact->name = $singleContact['name'];
-            $contact->email = $singleContact['email'];
-            $contact->message = $singleContact['message'];
-            $contact->date = $singleContact['date'];
-            $contact->apartment_id = $singleContact['apartment_id'];
-            $contact->save();
+            foreach ($randomContacts as $randomContact) {
+                $contact = new Contact();
+                $contact->apartment_id = $apartment->id;
+                $contact->name = $randomContact['name'];
+                $contact->email = $randomContact['email'];
+                $contact->message = $randomContact['message'];
+                $contact->date = $randomContact['date'];
+                $contact->save();
+            }
         }
-
-
     }
 }
