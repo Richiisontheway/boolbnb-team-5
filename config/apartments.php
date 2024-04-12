@@ -7,7 +7,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 60.99,
         'lat' => 41.9028, // Latitudine di Roma
         'lon' => 12.4964, // Longitudine di Roma
         'cover_img' => "img/apt-01.avif",
@@ -21,7 +21,7 @@ return [
         'n_beds' => 3,
         'n_baths' => 1,
         'mq' => 70,
-        'price' => 40.00,
+        'price' => 80,
         'lat' => 45.4642, // Latitudine di Milano
         'lon' => 9.1900, // Longitudine di Milano
         'cover_img' => "img/apt-02.avif",
@@ -35,7 +35,7 @@ return [
         'n_beds' => 2,
         'n_baths' => 1,
         'mq' => 60,
-        'price' => 35.00,
+        'price' => 50.99,
         'lat' => 43.7696, // Latitudine di Firenze
         'lon' => 11.2558, // Longitudine di Firenze
         'cover_img' => "img/apt-03.avif",
@@ -147,7 +147,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 49,
         'lat' => 40.744272, // Contrada Difesa S. Salvatore, Ostuni
         'lon' => 17.565830, // Contrada Difesa S. Salvatore, Ostuni
         'cover_img' => "img/apt-11.avif",
@@ -161,7 +161,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 61,
         'lat' => 43.484691, // Via pieve dei pitti Terricciola, Toscana, Italia
         'lon' => 10.692128, // Via pieve dei pitti Terricciola, Toscana, Italia
         'cover_img' => "img/apt-12.avif",
@@ -175,7 +175,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 33.50,
         'lat' => 43.461457, // Località baida Poggibonsi, Toscana, Italia
         'lon' => 11.126516, // Località baida Poggibonsi, Toscana, Italia
         'cover_img' => "img/apt-13.avif",
@@ -189,7 +189,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 37.99,
         'lat' => 39.903252, // via nuoro Loceri, Sardegna, Italia
         'lon' => 9.549583, // via nuoro Loceri, Sardegna, Italia
         'cover_img' => "img/apt-14.avif",
@@ -203,7 +203,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 41,
         'lat' => 40.621447, // Strada provinciale 47 Latiano, Puglia, Italia
         'lon' => 17.727526, // Strada provinciale 47 Latiano, Puglia, Italia
         'cover_img' => "img/apt-15.avif",
@@ -217,7 +217,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 17,
         'lat' => 46.499118, // Via palù dell'agnello Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'lon' => 11.344525, // Via palù dell'agnello Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'cover_img' => "img/apt-16.avif",
@@ -231,7 +231,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 32,
         'lat' => 46.498972, // Via agruzzo grutzenweg Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'lon' => 11.337417, // Via agruzzo grutzenweg Bolzano, Trentino-Alto Adige/Südtirol, Italia
         'cover_img' => "img/apt-17.avif",
@@ -245,7 +245,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 60,
         'lat' => 45.739238, // frazione tur de villa Gressan, Aosta, Italia
         'lon' => 7.318330, // frazione tur de villa Gressan, Aosta, Italia
         'cover_img' => "img/apt-18.avif",
@@ -259,7 +259,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 51.99,
         'lat' => 43.570920, // via colle rucci Montaione, Toscana, Italia
         'lon' => 10.906160, // via colle rucci Montaione, Toscana, Italia
         'cover_img' => "img/apt-19.avif",
@@ -273,7 +273,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 61,
         'lat' => 43.710150, // via marmoreccia Cerreto Guidi, Toscana, Italia
         'lon' => 10.892710, // via marmoreccia Cerreto Guidi, Toscana, Italia
         'cover_img' => "img/apt-20.avif",
@@ -287,7 +287,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 34,
         'lat' => 44.671759, // Strada provinciale 160 Voltaggio, Piemonte, Italia
         'lon' => 8.899394, // Strada provinciale 160 Voltaggio, Piemonte, Italia
         'cover_img' => "img/apt-21.avif",
@@ -301,7 +301,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 41,
         'lat' => 40.265890, // via silvio maurano Castellabate, Campania, Italia
         'lon' => 14.995586, // via silvio maurano Castellabate, Campania, Italia
         'cover_img' => "img/apt-22.avif",
@@ -315,7 +315,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 91.99,
         'lat' => 40.744366, // strada provinciale 13 Cisternino, Puglia, Italia
         'lon' => 17.422960, // strada provinciale 13 Cisternino, Puglia, Italia
         'cover_img' => "img/apt-23.avif",
@@ -329,7 +329,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 110.99,
         'lat' => 40.046837, // via amico b. Gallipoli, Puglia, Italy, Italia
         'lon' => 17.994430, // via amico b. Gallipoli, Puglia, Italy, Italia
         'cover_img' => "img/apt-24.avif",
@@ -343,7 +343,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 62,
         'lat' => 45.067445, // corso s. maurizzio Torino, Piemonte, Italia
         'lon' => 7.683736, // corso s. maurizzio Torino, Piemonte, Italia
         'cover_img' => "img/apt-25.avif",
@@ -357,7 +357,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 76,
         'lat' => 40.728088, // Contrada difesa s. salvatore Ostuni, Brindisi, Italia
         'lon' => 17.536644, // Contrada difesa s. salvatore Ostuni, Brindisi, Italia
         'cover_img' => "img/apt-26.avif",
@@ -371,7 +371,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 76.50,
         'lat' => 40.996905, // strada comunale marinesca Polignano a Mare, Puglia, Italy, Italia
         'lon' => 17.205880, // strada comunale marinesca Polignano a Mare, Puglia, Italy, Italia
         'cover_img' => "img/apt-27.avif",
@@ -385,7 +385,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 46.99,
         'lat' => 40.038947, // via san paolo Palinuro, Campania, Italia
         'lon' => 15.300364, // via san paolo Palinuro, Campania, Italia
         'cover_img' => "img/apt-28.avif",
@@ -399,7 +399,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 22.99,
         'lat' => 40.666599, // strada provinciale 28 Ceglie Messapica, Puglia, Italy, Italia
         'lon' => 17.457778, // strada provinciale 28 Ceglie Messapica, Puglia, Italy, Italia
         'cover_img' => "img/apt-29.avif",
@@ -413,7 +413,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 31,
         'lat' => 40.861918, // via vecchia di laureto Fasano, Puglia, Italy, Italia
         'lon' => 17.391830, // via vecchia di laureto Fasano, Puglia, Italy, Italia
         'cover_img' => "img/apt-30.avif",
@@ -441,7 +441,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 69.99,
         'lat' => 40.051741, // via roma Santa Cesarea Terme, Puglia, Italy, Italia
         'lon' => 18.425752, // via roma Santa Cesarea Terme, Puglia, Italy, Italia
         'cover_img' => "img/apt-32.avif",
@@ -455,7 +455,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 39.99,
         'lat' => 42.415295, // str. consortile delle poppe Tuscania, Lazio, Italia
         'lon' => 11.862656, // str. consortile delle poppe Tuscania, Lazio, Italia
         'cover_img' => "img/apt-33.avif",
@@ -469,7 +469,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 76.99,
         'lat' => 45.582956, // via premuda Monza, Lombardia, Italia
         'lon' => 9.279672, // via premuda Monza, Lombardia, Italia
         'cover_img' => "img/apt-34.avif",
@@ -483,7 +483,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 17.99,
         'lat' => 41.278128, // consorzio tirreno Terracina, Lazio, Italia
         'lon' => 13.254048, // consorzio tirreno Terracina, Lazio, Italia
         'cover_img' => "img/apt-35.avif",
@@ -497,7 +497,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 96.99,
         'lat' => 44.058513, // via s.paolo Rimini, RN, Italia
         'lon' => 12.568466, // via s.paolo Rimini, RN, Italia
         'cover_img' => "img/apt-36.avif",
@@ -511,7 +511,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 64.99,
         'lat' => 43.468070, // via capassi San Gimignano, Toscana, Italia
         'lon' => 11.044723, // via capassi San Gimignano, Toscana, Italia
         'cover_img' => "img/apt-37.avif",
@@ -525,7 +525,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 64.99,
         'lat' => 45.820440, // via aldo moro Ranzanico Lago, Lombardia, Italia
         'lon' => 9.944800, // via aldo moro Ranzanico Lago, Lombardia, Italia
         'cover_img' => "img/apt-38.avif",
@@ -539,7 +539,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 40.99,
         'lat' => 41.212978, // via dei canali  Gaeta, Lazio, Italia
         'lon' => 13.580664, // via dei canali  Gaeta, Lazio, Italia
         'cover_img' => "img/apt-39.avif",
@@ -553,7 +553,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 78.20,
         'lat' => 42.425345, // via guelfo civinini Porto Santo Stefano, Toscana, Italia
         'lon' => 11.124964, // via guelfo civinini Porto Santo Stefano, Toscana, Italia
         'cover_img' => "img/apt-40.avif",
@@ -567,7 +567,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 90.40,
         'lat' => 46.209088, // via bugliaga Trasquera, Piemonte, Italia
         'lon' => 8.151991, // via bugliaga Trasquera, Piemonte, Italia
         'cover_img' => "img/apt-41.avif",
@@ -581,7 +581,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 42.99,
         'lat' => 38.080837, // strada provinciale 168bis Marina di Caronia, Sicilia, Italia
         'lon' => 14.442736, // strada provinciale 168bis Marina di Caronia, Sicilia, Italia
         'cover_img' => "img/apt-42.avif",
@@ -595,7 +595,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 81.99,
         'lat' => 42.582175, // contrada camerino Pineto, Abruzzo, Italia
         'lon' => 14.069850, // contrada camerino Pineto, Abruzzo, Italia
         'cover_img' => "img/apt-43.avif",
@@ -609,7 +609,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 55.99,
         'lat' => 40.773177, // contrada nardelli Locorotondo, Puglia, Italy, Italia
         'lon' => 17.322764, // contrada nardelli Locorotondo, Puglia, Italy, Italia
         'cover_img' => "img/apt-44.avif",
@@ -623,7 +623,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 11,
         'lat' => 42.935829, // contrada montebove est Ripatransone, Marche, Italia
         'lon' =>  13.841095, // contrada montebove est Ripatransone, Marche, Italia
         'cover_img' => "img/apt-45.avif",
@@ -637,7 +637,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 76,
         'lat' => 40.743614, // strada provinciale 16 Cisternino, Italia
         'lon' => 17.414755, // strada provinciale 16 Cisternino, Italia
         'cover_img' => "img/apt-46.avif",
@@ -651,7 +651,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 12.99,
         'lat' => 45.057009, // strada oliva  Moncalvo, Piemonte, Italia
         'lon' => 8.347833, // strada oliva  Moncalvo, Piemonte, Italia
         'cover_img' => "img/apt-47.avif",
@@ -665,7 +665,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 47.99,
         'lat' => 42.456643, // strada provinciale litoranea Chiarone Scalo, Capalbio, Grosseto, Toscana, Italia
         'lon' => 11.400714, // strada provinciale litoranea Chiarone Scalo, Capalbio, Grosseto, Toscana, Italia
         'cover_img' => "img/apt-48.avif",
@@ -679,7 +679,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 66.99,
         'lat' => 40.634958, // via duca mastalo II Amalfi, Campania, Italia
         'lon' => 14.602710, // via duca mastalo II Amalfi, Campania, Italia
         'cover_img' => "img/apt-49.avif",
@@ -693,7 +693,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 69.88,
         'lat' => 45.178373, //via chiesa Bionde, Veneto, Italia
         'lon' => 11.245959, // via chiesa Bionde, Veneto, Italia
         'cover_img' => "img/apt-50.avif",
@@ -707,7 +707,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 90.69,
         'lat' => 42.672253, // procenese Proceno, Lazio, Italia
         'lon' => 11.731937, // procenese Proceno, Lazio, Italia
         'cover_img' => "img/apt-51.avif",
@@ -721,7 +721,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 49.60,
         'lat' => 39.923028, // via porto frailis Arbatax, Sardegna, Italia
         'lon' => 9.698210, // via porto frailis Arbatax, Sardegna, Italia
         'cover_img' => "img/apt-52.avif",
@@ -735,7 +735,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 28,
         'lat' => 42.843974, // strada provinciale 206 Montelovesco, Umbria, Italia
         'lon' => 12.663372, // strada provinciale 206 Montelovesco, Umbria, Italia
         'cover_img' => "img/apt-53.avif",
@@ -749,7 +749,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 62.90,
         'lat' => 44.839569, // via bologna Ferrara, Emilia-Romagna, Italia
         'lon' => 11.626221, // via bologna Ferrara, Emilia-Romagna, Italia
         'cover_img' => "img/apt-54.avif",
@@ -763,7 +763,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 24.90,
         'lat' => 46.421036, // borgo vico Forni di Sotto, Friuli-Venezia Giulia, Italia
         'lon' => 12.643162, // borgo vico Forni di Sotto, Friuli-Venezia Giulia, Italia
         'cover_img' => "img/apt-55.avif",
@@ -777,7 +777,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 74.99,
         'lat' => 43.446365, // strada provinciale 101 di montemaggio, Toscana, Italia
         'lon' => 11.213024, // strada provinciale 101 di montemaggio, Toscana, Italia
         'cover_img' => "img/apt-56.avif",
@@ -791,7 +791,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 400,
         'lat' => 40.800444, // via posillipo Napoli, Campania, Italia
         'lon' => 14.213292, // via posillipo Napoli, Campania, Italia
         'cover_img' => "img/apt-57.avif",
@@ -805,7 +805,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 63,
         'lat' => 37.738845, // via pedara sant'agata Mascali, Sicilia, Italia
         'lon' => 15.214859, // via pedara sant'agata Mascali, Sicilia, Italia
         'cover_img' => "img/apt-58.avif",
@@ -819,7 +819,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 51,
         'lat' => 37.602595, // via spiaggia Acireale, Sicilia, Italia
         'lon' => 15.164582, // via spiaggia Acireale, Sicilia, Italia
         'cover_img' => "img/apt-59.avif",
@@ -833,7 +833,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 51,
         'lat' => 40.343265, // via 29 Marina di Lizzano, Puglia, Italy, Italia
         'lon' => 17.433283, // via 29 Marina di Lizzano, Puglia, Italy, Italia
         'cover_img' => "img/apt-60.avif",
@@ -847,7 +847,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 71,
         'lat' => 36.823382, // via lago  Pantelleria, Trapani, Italia
         'lon' => 11.951682, // via lago  Pantelleria, Trapani, Italia
         'cover_img' => "img/apt-61.avif",
@@ -861,7 +861,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 44,
         'lat' => 40.650369, // via san michele Pomarico, Basilicata, Italia
         'lon' => 16.562587, // via san michele Pomarico, Basilicata, Italia
         'cover_img' => "img/apt-62.avif",
@@ -875,7 +875,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 33,
         'lat' => 40.705018, // strada provinciale 70 Martina Franca, Puglia, Italy, Italia
         'lon' => 17.336548, // strada provinciale 70 Martina Franca, Puglia, Italy, Italia
         'cover_img' => "img/apt-63.avif",
@@ -889,7 +889,7 @@ return [
         'n_beds' => 4,
         'n_baths' => 2,
         'mq' => 80,
-        'price' => 30.50,
+        'price' => 60,
         'lat' => 45.330601, // via croce Albettone, Veneto, Italia
         'lon' => 11.350206, // via croce Albettone, Veneto, Italia
         'cover_img' => "img/apt-64.avif",
