@@ -46,36 +46,43 @@ class SponsorController extends Controller
 
     public function show($apartment_id)
     {   
-        $apartmentTitle = Apartment::findOrFail($apartment_id)->title;
-        $sponsorship = Apartment::findOrFail($apartment_id)->sponsors()->first();
+        $user = Auth::user();
+
+        // Verifica che l'appartamento appartenga all'utente loggato
+        $apartment = Apartment::where('id', $apartment_id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        // Controlla se l'appartamento esiste e appartiene all'utente
+        if (!$apartment) {
+            // Se l'appartamento non esiste o non appartiene all'utente, reindirizza con un messaggio di errore
+            return redirect()->back()->withErrors(['error' => 'Oops.. non abbiamo trovato l\' appartamento!']);
+        }
+
+        $apartmentTitle = $apartment->title;
+
+        // Recupera l'ultima sponsorizzazione attiva dell'appartamento
+        $latestSponsorship = DB::table('apartment_sponsor')
+                            ->where('apartment_id', $apartment_id)
+                            ->where('date_end', '>=', Carbon::now())
+                            ->orderBy('date_end', 'desc')
+                            ->first();
+
+        // Verifica se esiste una sponsorizzazione attiva
+        $isActive = $latestSponsorship !== null;
+
+        if ($isActive) {
+            // Se l'appartamento è già sponsorizzato, reindirizza con un messaggio di errore
+            return redirect()->back()->withErrors(['error' => 'Oops.. ci deve essere stato un errore.']);
+        }
 
         Configuration::environment(env('BRAINTREE_ENV'));
         Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
         Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
         Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
+
         $sponsors = Sponsor::all();
         $token = Braintree\ClientToken::generate();
-
-        // Recupera l'ultima sponsorizzazione attiva dell'appartamento
-        $latestSponsorship = DB::table('apartment_sponsor')
-        ->where('apartment_id', $apartment_id)
-        ->where('date_end', '>=', Carbon::now())
-        ->orderBy('date_end', 'desc')
-        ->first();
-
-        // dd($latestSponsorship);
-
-        // Verifica se esiste una sponsorizzazione attiva
-        $isActive = $latestSponsorship !== null;
-        
-        if ($isActive) {
-
-            // Imposta l'errore nella variabile $errors
-            $errors = new \Illuminate\Support\MessageBag();
-            $errors->add('error', 'Oops.. c\'è stato un errore!');
-
-            return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle', 'errors'));
-        }
 
         return view('admin.apartments.sponsor', compact('sponsors', 'apartment_id', 'token', 'apartmentTitle'));
     }
