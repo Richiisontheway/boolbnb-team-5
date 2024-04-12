@@ -48,12 +48,12 @@
             </div>
         </div>
 
-        <div class="col-4 h-100 sponsorship align-items-center align-items-lg-stretch">
+        <div class="col-4 h-100 sponsorship">
             <div class="row h-100 g-0">
                 <div class="col-12 mx-auto">
-                    <div class="row g-0 h-100 flex-column">
+                    <div class="row g-0 h-100 flex-column justify-content-around">
                         <div class="col-12 d-lg-flex">
-                            <div class="my-card w-100 silver">
+                            <div class="my-card p-2 w-100 silver">
                                 <div class="row g-0 flex-column">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">
@@ -65,7 +65,7 @@
                                             <h6 class="text-center">
                                                 2,99 € / 24h
                                             </h6>
-                                            <ul class="d-none d-lg-block fa-ul d-flex flex-column flex-grow-1 justify-content-around">
+                                            <ul class="fa-ul d-flex flex-column flex-grow-1 justify-content-around">
                                                 <li>
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Prima pagina per 24 ore  
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-lg-flex">
-                            <div class="my-card mt-2 gold w-100">
+                            <div class="my-card p-2 mt-2 gold w-100">
                                 <div class="row g-0 flex-column justify-content-around">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">
@@ -98,7 +98,7 @@
                                             <h6 class="text-center">
                                                 5,99 € / 72h
                                             </h6>
-                                            <ul class="d-none d-lg-block fa-ul d-flex flex-column flex-grow g-0-1 justify-content-around">
+                                            <ul class="fa-ul d-flex flex-column flex-grow g-0-1 justify-content-around">
                                                 <li>
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Homepage e ricerca per 3 giorni
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-lg-flex ">
-                            <div class="my-card mt-2 platinum w-100">
+                            <div class="my-card p-2 mt-2 platinum w-100">
                                 <div class="row g-0 flex-column h-100 justify-content-around">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">
@@ -132,7 +132,7 @@
                                             <h6 class="text-center">
                                                 9,99 € / 144h
                                             </h6>
-                                            <ul class="d-none d-lg-block fa-ul d-flex flex-column flex-grow-1 justify-content-around">
+                                            <ul class="fa-ul d-flex flex-column flex-grow-1 justify-content-around">
                                                 <li> 
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Visibilità massima per 6 giorni         
