@@ -168,7 +168,7 @@
             Hai ancora degli appartamenti non sponsorizzati
         </p>
         <div class="row sponsored_apartments_container">
-                @foreach ($sponsoredApartments as $singleApartment)
+                @foreach ($unsponsoredApartments as $singleApartment)
                     <div class="col-12 col-md-6 col-lg-3 p-2">
                         <div class="card h-100" style = "border:none">
                             @if ($singleApartment->cover_img != null)
