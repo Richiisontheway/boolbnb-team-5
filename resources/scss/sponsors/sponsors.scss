@@ -2,6 +2,94 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+.my-card {
+    background-color: $card-bg-color;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.gold:hover h4{
+        transition: transform 0.5s;
+        transform: scale(1.1);
+        background:
+        -webkit-linear-gradient(
+                -72deg,
+                #ffde45,
+                #ffffff 6%,
+                #ffde45 51%,
+                #ffffff 14%,
+                #452100 37%,
+                #ffde45 56%,
+                #ffffff 50%,
+                #ffffff 10%,
+                #ffde45 12%,
+                #ffde45 90%,
+                #452100 
+            );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+
+        &.silver:hover h4{
+            transition: transform 0.5s;
+            transform: scale(1.1);
+            background:
+            -webkit-linear-gradient(
+                -72deg,
+                #dedede,
+                #ffffff 6%,
+                #838383 51%,
+                #ffffff 54%,
+                #454545 17%,
+                #dedede 96%,
+                #ffffff 50%,
+                #ffffff 10%,
+                #dedede 52%,
+                #ffffff 80%,
+                #dedede 90%,
+                #a1a1a1 
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;    
+        }
+
+        &.platinum:hover h4{
+            transition: transform 0.5s;
+            transform: scale(1.1);
+            background:
+            -webkit-linear-gradient(
+                -72deg,
+                #dedeff,
+                #ffffff 6%,
+                #dedeff 51%,
+                #ffffff 54%,
+                #555564 17%,
+                #dedeff 96%,
+                #ffffff 50%,
+                #ffffff 10%,
+                #dedeff 52%,
+                #ffffff 80%,
+                #dedeff 90%,
+                #555564
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;    
+        }
+
+    &:hover::after{
+        opacity: 1;
+        transform-origin: 100px 100px;
+        transform: scale(1) translate(-10px, -70px);
+    }
+    
+}
+
 .container {
 
     .sponsorship-container {
