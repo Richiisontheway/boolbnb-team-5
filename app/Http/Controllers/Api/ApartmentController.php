@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // Helper
 use GuzzleHttp\Client;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 // Models
 use App\Models\Apartment;
@@ -35,11 +36,20 @@ class ApartmentController extends Controller
                     ->where('slug', $slug)
                     ->first();
 
+        $latestSponsorship = null;
+
         if ($apartment != null) {
+
+            $latestSponsorship = DB::table('apartment_sponsor')
+                                ->where('apartment_id', $apartment->id)
+                                ->where('date_end', '>=', Carbon::now())
+                                ->orderBy('date_end', 'desc')
+                                ->first();                            
 
             return response()->json([  
                 'success' => true,
-                'results' => $apartment
+                'results' => $apartment,
+                'latestSponsorship' => $latestSponsorship
             ]);
 
         } else {
