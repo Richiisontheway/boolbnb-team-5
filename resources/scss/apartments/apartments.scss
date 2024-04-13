@@ -5,9 +5,12 @@
     background-color: $main-background-color; 
 
     .add_button{
+        background-color: $card-bg-color;
         color: $button_color;
-        --bs-btn-hover-bg: #EA4C89;
-        &:hover {color: white;}
+        &:hover {
+            background-color: #EA4C89;
+            color: white;
+        }
     }
 
     .card {

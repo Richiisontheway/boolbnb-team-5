@@ -14,18 +14,17 @@
                 Appartamenti di {{ $user->name }} {{ $user->lastname }}
             </h1> 
             
-            <div class="row mt-3">
+            <div class="row mt-3 justify-content-end">
                 
-                <div class="col-12 col-lg-6">
+                <div class="col-6 col-lg-3">
                     <div class="">
-                    
                         <input type="text" name="filter" id="filter" class="form-control" placeholder="cerca tra i tuoi appartamenti...">
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-6 mt-lg-0  mt-2 ">
+                <div class="col-6 col-lg-3 mt-lg-0  mt-2 ">
                     <div class="d-grid gap-2 col mx-auto">
-                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary w-100 add_button">Aggiungi un nuovo appartamento</a>
+                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary border-0 w-100 add_button">Aggiungi un nuovo appartamento</a>
                     </div>
                 </div>
                 
