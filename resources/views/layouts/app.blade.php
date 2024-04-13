@@ -20,101 +20,101 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        <main class="d-flex">
-            <aside class="d-flex align-items-end flex-column">    
-                <ul class="h-100 flex-grow-1 px-3">
-                    <li>
-                        <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
-                            <span class="d-lg-block d-none">
-                                Dashboard
-                            </span>
-                            <i class="d-lg-none d-md-block fa-solid fa-table-columns"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">
-                            <span class="d-lg-block d-none">
-                                Appartamenti
-                            </span>
-                            <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
-                        </a>
-                    </li>
-                    {{-- <li>
-                        <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
-                            <span class="d-lg-block d-none">
-                                Servizi
-                            </span>
-                            <i class="d-lg-none d-md-block fa-solid fa-bell-concierge"></i>
-                        </a>
-                    </li> --}}
-                    {{-- <li>
-                        <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
-                            <span class="d-lg-block d-none">
-                                Messaggi
-                            </span>
-                            <i class="d-lg-none d-md-block fa-solid fa-square-envelope"></i>
-                        </a>
-                    </li> --}}
-                    <li>
-                        <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
-                            <span class="d-lg-block d-none">
-                                Sponsor
-                            </span>
-                            <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
-                        </a>
-                    </li>
-                    <li class="mt-auto p-2">
-                        <img src="../../storage/img/logo_VV_ridimensionato.svg" alt="">
-                    </li>
-
-                </ul>
-            </aside>
+        <main>
             <div class="main-menu-container overflow-y-scroll">
             {{-- TUTTO IL MENU --}}
-                <!-- Inizio Colonna Bottoni -->
-                <div class="row g-0 justify-content-end user">
-                    <div class="col-auto me-5">
-                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <!-- Inizio Bottone Dropdown -->
-                            <div class="btn-group my-button" role="group">
-                                <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-bars"></i>
-                                    {{$initials }}   
-                                    {{-- <i class="fa-regular fa-circle-user"></i>                  --}}
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="d-lg-block text-center">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <span>
-                                            {{ $user->email }}
-                                        </span>
-                                    </li>
-                                    <li class="d-lg-block text-center">
-                                        <i class="fa-solid fa-cake-candles"></i>
-                                        <span>
-                                            {{$user->birthday}}                                
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <form method="POST" action="{{ route('logout') }}" class="text-center">
-                                            @csrf
-                                            <button type="submit">
-                                                Log Out
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>                            
-                            <!-- Inizio Bottone Dropdown -->
+                <header class="row g-0 align-items-center"> 
+                    <div class="logo col-auto ms-2">
+                        <a href="http://localhost:5174/" class="text-decoration-none">
+                            LOGO
+                            {{-- <img src="/logo.svg" alt=""> --}}
+                        </a>
+                    </div>   
+                    <ul class="h-100 col-auto flex-grow-1 m-0">
+                        <li>
+                            <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                                <span class="d-lg-block d-none">
+                                    Dashboard
+                                </span>
+                                <i class="d-lg-none d-md-block fa-solid fa-table-columns"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">
+                                <span class="d-lg-block d-none">
+                                    Appartamenti
+                                </span>
+                                <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
+                            </a>
+                        </li>
+                        {{-- <li>
+                            <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
+                                <span class="d-lg-block d-none">
+                                    Servizi
+                                </span>
+                                <i class="d-lg-none d-md-block fa-solid fa-bell-concierge"></i>
+                            </a>
+                        </li> --}}
+                        {{-- <li>
+                            <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
+                                <span class="d-lg-block d-none">
+                                    Messaggi
+                                </span>
+                                <i class="d-lg-none d-md-block fa-solid fa-square-envelope"></i>
+                            </a>
+                        </li> --}}
+                        <li>
+                            <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
+                                <span class="d-lg-block d-none">
+                                    Sponsor
+                                </span>
+                                <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
+                            </a>
+                        </li>
+                        <li class="mt-auto p-2">
+                            <img src="../../storage/img/logo_VV_ridimensionato.svg" alt="">
+                        </li>
+                    </ul>
+                    <!-- Inizio Colonna Bottoni -->
+                    <div class="col-auto user">
+                        <div class="col-auto">
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <!-- Inizio Bottone Dropdown -->
+                                <div class="btn-group my-button" role="group">
+                                    <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-bars"></i>
+                                        {{$initials }}   
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="d-lg-block m-0">
+                                            <span>
+                                                {{$user->name}} {{ $user->lastname }}                             
+                                            </span>
+                                        </li>
+                                        <li class="d-lg-block m-0">
+                                            <span>
+                                                {{ $user->email }}
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}" class="text-center">
+                                                @csrf
+                                                <button type="submit">
+                                                    Log Out
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>                            
+                                <!-- Inizio Bottone Dropdown -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Fine Colonna Bottoni -->
-                <div class="main-container">
-                    {{-- MAIN MENU --}}
-                    <div class="container h-100">
-                        @yield('main-content')
-                    </div>
+                    <!-- Fine Colonna Bottoni -->
+                </header>
+                {{-- MAIN MENU --}}
+                <div class="container h-100">
+                    @yield('main-content')
                 </div>
             </div>
         </main>

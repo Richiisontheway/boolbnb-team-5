@@ -11,7 +11,7 @@
     {{-- Inizio Main --}}
     <main>
         <!-- Inizio Container Tabelle -->
-        <div class="container-fluid p-0 my-table-container">
+        <div class="container p-0 my-table-container">
 
             <!-- Inizio 2^ Row  -->
             <div class="row">

@@ -8,19 +8,20 @@ main {
     width: 100%;
     background-color: $main-background-color;
 
-    aside {
-        height: 100vh;
-        background-color: rgb(67, 75, 76);
+    header {
+        // height: 100vh;
+        background-color: $main-background-color;
 
         ul{
             list-style: none;
             color: $primary_text_color;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            // flex-direction: column;
             align-items: center;
             li{
-                margin: 10px;
-                font-size: 18px;
+                margin: 0 10px;
+                font-size: 16px;
 
                 a {
                     display: flex;
@@ -28,42 +29,45 @@ main {
                 }
 
                 .active {
-                    background-color: $secondary_text_color;  // Colore di sfondo per il link attivo
-                    color: #ffffff;              // Colore del testo per il link attivo
-                    font-weight: bold;           // Opzionale: rende il testo in grassetto
+                    position: relative;
+                    // background-color: $secondary_text_color;
+                    color: $secondary_text_color;
+                    font-weight: bold;
                     padding: 8px;
                     border-radius: 5px;
-                    transition: background-color 0.5s ease 0s;
+                    transition: color 0.5s ease 0s;
 
-                    &:hover {
-                        background-color: #AAB2FF;
-                    }    
-                }
-                &:hover {
-                    color: white;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 3px; 
+                        background-color: $secondary_text_color; 
+                        transition: height 0.5s ease, background-color 0.5s ease; 
+                        border-radius: 5px;
+                    }
+                
+                    &:hover::after {
+                        height: 5px;
+                    }
                 }
             }
         }
-    }
-    .main-menu-container {
-        width: 100%;
-        flex-grow: 1;
 
-        .user {
-            position: sticky;
-            top: 10px;
-            z-index: 1; 
-                  
+        .user {         
+            border-radius: 50%;       
 
             .my-button {
                 width: 80px;
                 height: 50px;
                 border-radius: 25px;
                
-                background-color: rgb(67, 75, 76);
+                background-color: $main-background-color;
                 transition: background-color 0.5s ease;
                 button{
-                    color: white;
+                    color: $secondary_text_color;
                 }
                 
             }
@@ -80,23 +84,14 @@ main {
     
                     i{
                         font-size: 24px;
-                        color: $primary_background_color;
+                        color: $primary_text_color;
                         
                     }
     
                     span {
                         font-weight: bold;
-                        display: none;
                     }
-    
-                    &:hover i {
-                        display: none;
-                    }
-            
-                    &:hover span {
-                        display: block;
-                    }
-                            
+                                
                     button {
     
                         background-color: transparent;
@@ -152,7 +147,12 @@ main {
                 }
             }
         }
-    
+  
+    }
+    .main-menu-container {
+        width: 100%;
+        flex-grow: 1;
+        background-color: $main-background-color;  
     
     }
 }
