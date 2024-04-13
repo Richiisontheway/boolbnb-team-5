@@ -24,10 +24,31 @@ class ApartmentController extends Controller
         // Recupero tutti i project
         $apartments = Apartment::with('services', 'sponsors')->get();  // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
 
-        return response()->json([  
-            'success' => true,
-            'results' => $apartments
-        ]);
+        if ($apartments->isNotEmpty()) {
+            // Se ci sono appartamenti, cerco l'ultima sponsorizzazione attiva per ciascun appartamento
+            foreach ($apartments as $apartment) {
+                $latestSponsorship = DB::table('apartment_sponsor')
+                    ->where('apartment_id', $apartment->id)
+                    ->where('date_end', '>=', Carbon::now())
+                    ->orderBy('date_end', 'desc')
+                    ->first();
+
+                // Aggiungo l'ultima sponsorizzazione trovata come attributo dell'appartamento
+                $apartment->latestSponsorship = $latestSponsorship;
+            }
+
+            return response()->json([  
+                'success' => true,
+                'results' => $apartments
+            ]);
+            
+        } else {
+            // Se non ci sono appartamenti, ritorno una risposta JSON con un messaggio di errore
+            return response()->json([
+                'success' => false,
+                'message' => 'Nessun appartamento trovato'
+            ]);
+        }
     }
 
     public function show(string $slug) {
