@@ -25,10 +25,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 description-info">
+                    <div class="col-12 description-info py-1">
                         <div class="row">
                             <div class="col-12">
-                                <div class="my-description-card">
+                                <div class="my-description-card me-2">
                                     <h6>
                                         Evidenza in Homepage
                                     </h6>
@@ -36,7 +36,7 @@
                                         Il tuo appartamento sarà presentato in cima agli elenchi di ricerca, garantendo che sia il primo ad essere visualizzato dagli utenti che corrispondono al profilo ideale del tuo pubblico di riferimento quando visitano la nostra homepage.
                                     </p>
                                 </div>
-                                <div class="my-description-card">
+                                <div class="my-description-card mx-2">
                                     <h6>
                                         Maggiore Visibilità
                                     </h6>
@@ -44,7 +44,7 @@
                                         Sfruttando il nostro algoritmo avanzato, il tuo appartamento sarà raccomandato agli utenti che corrispondono al profilo ideale del tuo pubblico di riferimento, garantendo una maggiore visibilità.
                                     </p>
                                 </div>
-                                <div class="my-description-card">
+                                <div class="my-description-card mx-2">
                                     <h6>
                                         Presentazione Esclusiva
                                     </h6>
@@ -52,7 +52,7 @@
                                         La sponsorizzazione premium distingue il tuo appartamento con animazioni esclusive, rendendolo diverso dagli altri annunci sulla piattaforma.
                                     </p>
                                 </div>
-                                <div class="my-description-card">
+                                <div class="my-description-card mx-2">
                                     <h6>
                                         Aumento delle Prenotazioni
                                     </h6>
@@ -60,7 +60,7 @@
                                         Gli annunci sponsorizzati tendono ad attirare un maggior numero di prenotazioni rispetto alla media.
                                     </p>
                                 </div>
-                                <div class="my-description-card">
+                                <div class="my-description-card mx-2">
                                     <h6>
                                         Feedback e Recensioni Prioritarie
                                     </h6>

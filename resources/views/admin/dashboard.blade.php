@@ -24,22 +24,16 @@
                     
                         <!-- Inizio Tabella Appartamenti -->
                         <div class="table-responsive">
-                            <table class="table caption-top border text-center apt-table">
+                            <table class="table table-hover text-center apt-table">
 
-                                <!-- Titolo Tabella -->
-                                <caption class="border rounded-top-2">
-                                    <h5 class="ps-2 fs-4">
-                                        Numero Totale Appartamenti: {{ $totalUserApartments }}
-                                    </h5>
-                                </caption>
                                 {{-- Inizio Testata Tabella --}}
                                 <thead>
                                     <tr>
-                                    <th class="col-6 text-start">
-                                        Nome Appartamento
-                                    </th>
-                                    <th class="d-none d-sm-block text-start" >Città</th>
-                                    <th class="text-start">Sponsor</th>
+                                        <th class="col-6 text-start table-titles">
+                                            I tuoi appartamenti
+                                        </th>
+                                        <th class="d-none d-sm-block text-start table-titles" >Città</th>
+                                        <th class="text-start table-titles">Sponsor</th>
                                     </tr>
                                 </thead>
                                 {{-- Fine Testata Tabella --}}
@@ -51,6 +45,9 @@
                                                 <img src="img/class-avatar.jpg" alt="">
                                                 <span>
                                                     <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}" class="text-decoration-none">
+                                                        <span>
+                                                            <i class="fa-solid fa-link"></i>
+                                                        </span>
                                                         {{ $singleApartment->title }}
                                                     </a>
                                                 </span>
@@ -123,45 +120,44 @@
                 <!-- Inizio Colonna Dx -->
                 <div class="col-12 col-lg-4 pt-3">
 
-                    <!-- Inizio Card Stats Views -->
-                    <div class="card p-2 mb-2">
-                        <div class="card">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                <h5>
-                                    I tuoi appartamenti hanno {{ $userViews }} visualizzazioni.
-                                </h5>
-                                </li>
-                                @foreach ($userTopApartments as $singleUserTopApartment)
-                                    <li class="list-group-item">
-                                        {{ $singleUserTopApartment->title }}
-                                        <span> -  {{ $singleUserTopApartment->views_count }} visualizzazioni</span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>                              
-                    </div> 
-                    <!-- Fine Card Stats Views -->
+                    <div class="row g-0">
+                        <h5>
+                            Gli appartamenti preferiti dai tuoi ospiti
+                        </h5>
 
-                    <!-- Inizio Card Stats Messaggi -->
-                    <div class="card p-2">
-                        <div class="card">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                <h5>
-                                    I tuoi appartamenti hanno {{ $userMessages }} messaggi.
-                                </h5>
-                                </li>
-                                @foreach ($userApartmentsWithMostMessages as $singleUserTopApartment)
-                                    <li class="list-group-item">
-                                        {{ $singleUserTopApartment->title }}
-                                        <span> -  {{ $singleUserTopApartment->messages_count }} messaggi</span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>                              
-                    </div> 
-                    <!-- Fine Card Stats Messaggi -->
+                        <!-- Inizio Card Stats Views -->
+                        <div class="mb-2">
+                            <div class="card border-0">
+                                <ul class="list-group list-group-flush">
+                                    @foreach ($userTopApartments as $singleUserTopApartment)
+                                        <li class="list-group-item fst-italic">
+                                            {{ $singleUserTopApartment->title }}
+                                            <span class="fw-light"> -  {{ $singleUserTopApartment->views_count }} visualizzazioni</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>                              
+                        </div> 
+                        <!-- Fine Card Stats Views -->
+
+                        <!-- Inizio Card Stats Messaggi -->
+                        <div>
+                            <div class="card border-0">
+                                <ul class="list-group list-group-flush">
+                                    @foreach ($userApartmentsWithMostMessages as $singleUserTopApartment)
+                                        <li class="list-group-item fst-italic">
+                                            {{ $singleUserTopApartment->title }}
+                                            <span class="fw-light"> -  {{ $singleUserTopApartment->messages_count }} messaggi</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>                              
+                        </div> 
+                        <!-- Fine Card Stats Messaggi -->
+
+
+                    </div>
+
                     
                 </div>
                 <!-- Inizio Colonna Dx -->

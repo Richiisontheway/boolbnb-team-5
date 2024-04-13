@@ -101,6 +101,7 @@
             }
             p {
                 font-size: 14px;
+                color: #aeaeae;
             }
         }
 
@@ -127,6 +128,7 @@
                         font-size: 12px;
                         white-space: normal;
                         overflow: hidden;
+                        
                     }
 
             }
@@ -147,6 +149,10 @@
             overflow: hidden;
             border: none;
             border-radius: 20px;
+
+            .img_container {
+                overflow: hidden;
+            }
 
             img{
                 // border-radius: 20px;

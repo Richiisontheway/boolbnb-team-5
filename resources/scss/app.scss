@@ -3,11 +3,16 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+body {
+    background-color: $main-background-color;
+}
+
 main {
     height: 100vh;
     width: 100%;
     background-color: $main-background-color;
-
+    
     header {
         // height: 100vh;
         background-color: $main-background-color;

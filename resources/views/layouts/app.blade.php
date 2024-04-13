@@ -23,7 +23,7 @@
         <main>
             <header class="row g-0 align-items-center"> 
                 <div class="logo col-auto ms-2">
-                    <a href="http://localhost:5174/" class="text-decoration-none">
+                    <a href="http://localhost:5174/" class="text-decoration-none" target="_blank">
                         LOGO
                         {{-- <img src="/logo.svg" alt=""> --}}
                     </a>

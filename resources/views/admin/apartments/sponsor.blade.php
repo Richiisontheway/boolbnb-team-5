@@ -53,7 +53,7 @@
                 <div class="col-12 mx-auto">
                     <div class="row g-0 h-100 flex-column justify-content-around">
                         <div class="col-12 d-lg-flex">
-                            <div class="my-card p-2 w-100 silver">
+                            <div class="my-card p-2 mb-3 w-100 silver">
                                 <div class="row g-0 flex-column">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-lg-flex">
-                            <div class="my-card p-2 mt-2 gold w-100">
+                            <div class="my-card p-2 my-3 gold w-100">
                                 <div class="row g-0 flex-column justify-content-around">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-lg-flex ">
-                            <div class="my-card p-2 mt-2 platinum w-100">
+                            <div class="my-card p-2 my-3 platinum w-100">
                                 <div class="row g-0 flex-column h-100 justify-content-around">
                                     <div class="col-12 text-center">
                                         <h4 class="mt-1">

@@ -1,9 +1,31 @@
 @import "../variables.scss";
 main {
+    
     table {
+       
+        thead {
+            tr {
+                .table-titles {
+                    font-size: 14px;
+                    color: $secondary_text_color;
+                }
+            }
+
+
+        }
+
         tbody {
             a{
-                color: $primary_text_color;
+                color: black;
+
+                span {
+                    font-size: 10px;
+                    font-weight: lighter;
+                }
+
+                &:hover {
+                    color: $primary_text_color;
+                }
             }
             tr {
                 td {
@@ -22,8 +44,20 @@ main {
                     .badgetext-bg-platinum i{
                         color: #c8c7c7;
                     }
+
                 }
+                &:hover td {
+                    background-color: $table-hover-bg;
+                }
+
             }
+
+            tr:last-of-type {
+                border-bottom: transparent;
+            }
+
         }
+
     }
+
 }
