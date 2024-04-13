@@ -21,16 +21,15 @@
     </head>
     <body>
         <main>
-            <div class="main-menu-container overflow-y-scroll">
-            {{-- TUTTO IL MENU --}}
-                <header class="row g-0 align-items-center"> 
-                    <div class="logo col-auto ms-2">
-                        <a href="http://localhost:5174/" class="text-decoration-none">
-                            LOGO
-                            {{-- <img src="/logo.svg" alt=""> --}}
-                        </a>
-                    </div>   
-                    <ul class="h-100 col-auto flex-grow-1 m-0">
+            <header class="row g-0 align-items-center"> 
+                <div class="logo col-auto ms-2">
+                    <a href="http://localhost:5174/" class="text-decoration-none">
+                        LOGO
+                        {{-- <img src="/logo.svg" alt=""> --}}
+                    </a>
+                </div>   
+                <div class="col-auto flex-grow-1">
+                    <ul class="h-100 m-0">
                         <li>
                             <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                                 <span class="d-lg-block d-none">
@@ -75,44 +74,49 @@
                             <img src="../../storage/img/logo_VV_ridimensionato.svg" alt="">
                         </li>
                     </ul>
-                    <!-- Inizio Colonna Bottoni -->
-                    <div class="col-auto user">
-                        <div class="col-auto">
-                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                <!-- Inizio Bottone Dropdown -->
-                                <div class="btn-group my-button" role="group">
-                                    <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-bars"></i>
-                                        {{$initials }}   
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class="d-lg-block m-0">
-                                            <span>
-                                                {{$user->name}} {{ $user->lastname }}                             
-                                            </span>
-                                        </li>
-                                        <li class="d-lg-block m-0">
-                                            <span>
-                                                {{ $user->email }}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <form method="POST" action="{{ route('logout') }}" class="text-center">
-                                                @csrf
-                                                <button type="submit">
-                                                    Log Out
-                                                </button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>                            
-                                <!-- Inizio Bottone Dropdown -->
-                            </div>
+                </div>
+
+                <!-- Inizio Colonna Bottoni -->
+                <div class="col-auto user">
+                    <div class="col-auto">
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <!-- Inizio Bottone Dropdown -->
+                            <div class="btn-group my-button" role="group">
+                                <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-bars"></i>
+                                    {{$initials }}   
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-lg-block m-0">
+                                        <span>
+                                            {{$user->name}} {{ $user->lastname }}                             
+                                        </span>
+                                    </li>
+                                    <li class="d-lg-block m-0">
+                                        <span>
+                                            {{ $user->email }}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}" class="text-center">
+                                            @csrf
+                                            <button type="submit">
+                                                Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>                            
+                            <!-- Inizio Bottone Dropdown -->
                         </div>
                     </div>
-                    <!-- Fine Colonna Bottoni -->
-                </header>
-                {{-- MAIN MENU --}}
+                </div>
+                <!-- Fine Colonna Bottoni -->
+            </header>
+            {{-- MAIN MENU --}}
+            <div class="main-menu-container">
+                {{-- TUTTO IL MENU --}}
+    
                 <div class="container h-100">
                     @yield('main-content')
                 </div>
