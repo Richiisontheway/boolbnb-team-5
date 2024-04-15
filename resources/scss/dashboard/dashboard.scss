@@ -29,20 +29,9 @@ main {
             }
             tr {
                 td {
-                    .badgetext-bg-silver, 
-                    .badgetext-bg-gold,
-                    .badgetext-bg-platinum {
-                        padding: 8px 6px;
-                        border-radius: 12px;
-                    }
-                    .badgetext-bg-silver i {
-                        color: #A9A9A9;
-                    }
-                    .badgetext-bg-gold i {
-                        color: #C07F00;
-                    }
-                    .badgetext-bg-platinum i{
-                        color: #c8c7c7;
+                    .fa-check {
+                        font-size: 20px;
+                        color: $secondary_text_color;
                     }
 
                 }
