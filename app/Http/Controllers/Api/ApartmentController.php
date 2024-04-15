@@ -91,10 +91,31 @@ class ApartmentController extends Controller
                         })
                         ->get(); 
     
-        return response()->json([  
-            'success' => true,
-            'results' => $apartments
-        ]);
+        if ($apartments->isNotEmpty()) {
+            // Se ci sono appartamenti, cerco l'ultima sponsorizzazione attiva per ciascun appartamento
+            foreach ($apartments as $apartment) {
+                $latestSponsorship = DB::table('apartment_sponsor')
+                    ->where('apartment_id', $apartment->id)
+                    ->where('date_end', '>=', Carbon::now())
+                    ->orderBy('date_end', 'desc')
+                    ->first();
+
+                // Aggiungo l'ultima sponsorizzazione trovata come attributo dell'appartamento
+                $apartment->latestSponsorship = $latestSponsorship;
+            }
+
+            return response()->json([  
+                'success' => true,
+                'results' => $apartments
+            ]);
+            
+        } else {
+            // Se non ci sono appartamenti, ritorno una risposta JSON con un messaggio di errore
+            return response()->json([
+                'success' => false,
+                'message' => 'Nessun appartamento trovato'
+            ]);
+        }
     }
     // Definisco una funzione per la ricerca avanzata degli appartamenti
     public function advancedSearch(Request $request)
@@ -161,10 +182,29 @@ class ApartmentController extends Controller
             return $apartment->sponsors()->where('date_end', '>', now())->max('date_end');
         })->merge($results->whereNotIn('id', $sponsoredApartments->pluck('id')));
 
-        return response()->json([
-            'success' => true,
-            'results' => $results
-        ]);
+        if ($results->isNotEmpty()) {
+            foreach ($results as $result) {
+                $latestSponsorship = DB::table('apartment_sponsor')
+                    ->where('apartment_id', $result->id)
+                    ->where('date_end', '>=', Carbon::now())
+                    ->orderBy('date_end', 'desc')
+                    ->first();
+
+                $result->latestSponsorship = $latestSponsorship;
+            }
+
+            return response()->json([
+                'success' => true,
+                'results' => $results
+            ]);
+    
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Nessun appartamento trovato'
+            ]);
+        }
+
     }
     // Definisco una funzione per calcolare le coordinate degll'indirizzo scelto dall'utente
     private function getCoordinatesFromAddress($address)
