@@ -114,6 +114,7 @@
     <script>
         //assegno una variabile all elemento con id filter
         let input_filter = document.getElementById('filter');
+        console.log(input_filter);
         //evento che si scatena ad ogni input nel tag
         input_filter.addEventListener('input',function(){
             //faccio diventare tutta la value dell'input in minuscolo

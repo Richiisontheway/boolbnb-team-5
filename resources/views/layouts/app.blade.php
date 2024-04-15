@@ -45,22 +45,7 @@
                                 <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
                             </a>
                         </li>
-                        {{-- <li>
-                            <a class="nav-link {{ Request::routeIs('admin.services.index') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
-                                <span class="d-lg-block d-none">
-                                    Servizi
-                                </span>
-                                <i class="d-lg-none d-md-block fa-solid fa-bell-concierge"></i>
-                            </a>
-                        </li> --}}
-                        {{-- <li>
-                            <a class="nav-link {{ Request::routeIs('admin.contacts.index') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
-                                <span class="d-lg-block d-none">
-                                    Messaggi
-                                </span>
-                                <i class="d-lg-none d-md-block fa-solid fa-square-envelope"></i>
-                            </a>
-                        </li> --}}
+                        
                         <li>
                             <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
                                 <span class="d-lg-block d-none">
@@ -68,9 +53,6 @@
                                 </span>
                                 <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
                             </a>
-                        </li>
-                        <li class="mt-auto p-2">
-                            <img src="../../storage/img/logo_VV_ridimensionato.svg" alt="">
                         </li>
                     </ul>
                 </div>
