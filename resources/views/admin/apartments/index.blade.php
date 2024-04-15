@@ -42,10 +42,8 @@
                             @endif
                             <div class="card-body text-start">
                                 <div class="card-text row">
-                                    <div class="col-12">
-                                        <strong>
-                                            {{$singleApartment->title}}
-                                        </strong>
+                                    <div class="title">    
+                                        {{$singleApartment->title}}                                     
                                     </div>
                                     <div class="col-12 address_container">
                                         {{ $singleApartment->address }}
@@ -112,29 +110,31 @@
         </div>
     </section>
     <script>
-        //assegno una variabile all elemento con id filter
+        // Assegno una variabile all'elemento con id filter
         let input_filter = document.getElementById('filter');
-        console.log(input_filter);
-        //evento che si scatena ad ogni input nel tag
-        input_filter.addEventListener('input',function(){
-            //faccio diventare tutta la value dell'input in minuscolo
+
+        // Evento che si scatena ad ogni input nell'input tag
+        input_filter.addEventListener('input', function () {
+            // Faccio diventare tutta la value dell'input in minuscolo
             const filter = input_filter.value.toLowerCase();
-            //prendo tutti gli elementi della classe my-cards
-            let cards = document.querySelectorAll('.my-card');
-            //ciclo nella variabile cards che ha restituito una NodeList
-            cards.forEach(function(card){
-                //il contenuto degli h3 li prendo in minuscolo
-                let title = card.querySelector('h3').textContent.toLowerCase();
-                //se la codizione viene rispettata aggiungo una classe se no ne aggiungo un altra
+            console.log(filter);
+
+            // Prendo tutti gli elementi che rappresentano le colonne degli appartamenti
+            let columns = document.querySelectorAll('.col-12.col-md-6.col-lg-3');
+
+            // Ciclo attraverso le colonne degli appartamenti
+            columns.forEach(function (column) {
+                // Trovo il titolo dell'appartamento all'interno della colonna
+                let title = column.querySelector('.title').textContent.toLowerCase();
+
+                // Controllo se il titolo include il testo inserito nell'input di filtro
                 if (title.includes(filter)) {
-                    card.style.display = 'block';
-                }
-                else{
-                    card.style.display = 'none';
+                    column.style.display = 'block'; // Mostra la colonna
+                } else {
+                    column.style.display = 'none'; // Nascondi la colonna
                 }
             });
-        })
-
+        });
     </script>
 
 @endsection
