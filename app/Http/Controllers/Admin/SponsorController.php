@@ -50,6 +50,7 @@ class SponsorController extends Controller
 
         // Verifica che l'appartamento appartenga all'utente loggato
         $apartment = Apartment::where('id', $apartment_id)
+            ->where('visible', '=', 1)
             ->where('user_id', $user->id)
             ->first();
 
