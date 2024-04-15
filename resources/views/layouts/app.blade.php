@@ -24,8 +24,7 @@
             <header class="row g-0 align-items-center"> 
                 <div class="logo col-auto ms-2">
                     <a href="http://localhost:5174/" class="text-decoration-none" target="_blank">
-                        LOGO
-                        {{-- <img src="/logo.svg" alt=""> --}}
+                        <img src="{{ asset('logo.svg') }}" alt="Logo" class="logo_container">
                     </a>
                 </div>   
                 <div class="col-auto flex-grow-1">
