@@ -63,7 +63,7 @@
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                             <!-- Inizio Bottone Dropdown -->
                             <div class="btn-group my-button" role="group">
-                                <button type="button" class="btn d-flex align-items-center justify-content-between" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button type="button" class="btn d-flex align-items-center justify-content-between p-1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-bars"></i>
                                     {{$initials }}   
                                 </button>

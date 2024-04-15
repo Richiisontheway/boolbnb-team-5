@@ -22,7 +22,9 @@ class ApartmentController extends Controller
 
 
         // Recupero tutti i project
-        $apartments = Apartment::with('services', 'sponsors')->get();  // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
+        $apartments = Apartment::with('services', 'sponsors')
+                                ->where('visible', '=', 1)
+                                ->get();  // Tramite Eager Loading gli dico di portarsi dietro le relazioni durante la serializzazione degli apartments
 
         if ($apartments->isNotEmpty()) {
             // Se ci sono appartamenti, cerco l'ultima sponsorizzazione attiva per ciascun appartamento
@@ -54,6 +56,7 @@ class ApartmentController extends Controller
     public function show(string $slug) {
 
         $apartment = Apartment::with('services', 'sponsors')
+                    ->where('visible', '=', 1)
                     ->where('slug', $slug)
                     ->first();
 
@@ -86,6 +89,7 @@ class ApartmentController extends Controller
         $now = now();
         
         $apartments = Apartment::with('services', 'sponsors')
+                        ->where('visible', '=', 1)
                         ->whereHas('sponsors', function ($query) use ($now) {
                             $query->where('date_end', '>', $now);
                         })
@@ -173,7 +177,9 @@ class ApartmentController extends Controller
         }
         
         // Eseguo la query per ottenere i risultati filtrati
-        $results = $filteredApartments->get();
+        $results = $filteredApartments
+                    ->where('visible', '=', 1)
+                    ->get();
 
         // Estraggo gli appartamenti sponsorizzati
         $sponsoredApartments = $results->filter(function ($apartment) {
@@ -254,6 +260,7 @@ class ApartmentController extends Controller
 
         // Recupero i dati dell'appartamento
         $apartment = Apartment::where('slug', $slug)
+                    ->where('visible', '=', 1)
                     ->first();
         
         if ($apartment) {
