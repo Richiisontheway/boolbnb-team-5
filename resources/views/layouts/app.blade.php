@@ -96,7 +96,7 @@
             </header>
             {{-- MAIN MENU --}}
             <div class="main-menu-container">
-                {{-- TUTTO IL MENU --}}
+                {{-- TUTTO IL MENU --}} 
     
                 <div class="container h-100">
                     @yield('main-content')
