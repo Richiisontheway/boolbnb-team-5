@@ -52,7 +52,7 @@
                                                     </a>
                                                 </span>
                                             </td>
-                                            <td class="d-none d-sm-block text-start">
+                                            <td class="d-none d-sm-block text-start address">
                                                 @php
                                                     $apartmentAddress = $singleApartment->address;
                                                     $addressParts = explode(',', $apartmentAddress);
@@ -70,36 +70,10 @@
                                                         ->where('date_end', '>=', Carbon::now())
                                                         ->orderBy('date_end', 'desc')
                                                         ->first();
-
-                                                    // Inizializza la variabile del titolo dello sponsor
-                                                    $sponsorTitle = null;
-
-                                                    // Se la sponsorizzazione è attiva, ottieni il titolo dello sponsor
-                                                    if ($latestSponsorship) {
-                                                        $sponsor = Sponsor::find($latestSponsorship->sponsor_id);
-                                                        if ($sponsor) {
-                                                            $sponsorTitle = $sponsor->title;
-                                                        }
-                                                    }
                                                 @endphp
 
                                                 @if ($latestSponsorship)
-                                                    @if ($latestSponsorship->sponsor_id == 1)
-                                                        <span class="badgetext-bg-silver px-1">
-                                                            {{ $sponsorTitle }}
-                                                            <i class="fa-solid fa-certificate"></i>
-                                                        </span>
-                                                    @elseif ($latestSponsorship->sponsor_id == 2)
-                                                        <span class="badgetext-bg-gold px-1">
-                                                            {{ $sponsorTitle }}
-                                                            <i class="fa-solid fa-certificate"></i>
-                                                        </span>
-                                                    @elseif ($latestSponsorship->sponsor_id == 3)
-                                                        <span class="badgetext-bg-platinum px-1">
-                                                            {{ $sponsorTitle }}
-                                                            <i class="fa-solid fa-certificate"></i>
-                                                        </span>
-                                                    @endif
+                                                    <i class="fa-solid fa-check"></i>
                                                 @endif
                                             </td>
                                         </tr>
