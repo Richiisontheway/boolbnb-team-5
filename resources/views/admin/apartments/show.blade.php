@@ -20,11 +20,11 @@
                             <h4>
                             {{$apartment->title}} 
                             </h4>
-                            <h5>
+                            <div class="color-1">
                                  {{ $apartment->address }}
-                            </h5>
+                            </div>
                             <p>
-                                {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }} Letti · {{ $apartment->n_baths }} Bagni · {{ $apartment->mq }} m²
+                                {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }}<abbr title="letti"><i class="fa-solid fa-bed px-1"></i></abbr> · {{ $apartment->n_baths }} <abbr title="bagno"><i class="fa-solid fa-bath px-1 "></i></abbr> · {{ $apartment->mq }} m²
                             </p>
                         </div>
                         <hr>
