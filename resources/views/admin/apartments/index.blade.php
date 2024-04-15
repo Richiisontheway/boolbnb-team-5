@@ -43,10 +43,10 @@
                             <div class="card-body text-start">
                                 <div class="card-text row">
                                     <div class="title">    
-                                        {{$singleApartment->title}}                                     
+                                        {{Str::limit($singleApartment->title,35, '...')}}                                     
                                     </div>
                                     <div class="col-12 address_container">
-                                        {{ $singleApartment->address }}
+                                        {{ Str::limit($singleApartment->address,40, '...') }}
                                     </div>
                                     <div class="d-flex justify-content-center col-12 g-2 ">
                                         <div class="d-flex me-1 button_container">
