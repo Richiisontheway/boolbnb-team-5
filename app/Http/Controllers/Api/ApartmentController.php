@@ -132,7 +132,10 @@ class ApartmentController extends Controller
         $coordinates = $this->getCoordinatesFromAddress($address);
 
         // Filtro gli appartamenti cercando gli appartamenti in base alle coordinate 
-        $filteredApartments = Apartment::whereRaw(
+        $filteredApartments = Apartment::selectRaw('*, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(ABS(lon - ?)))) * 6371 AS distance')
+        ->orderBy('distance', 'asc')
+        ->setBindings([$coordinates['lat'], $coordinates['lat'], $coordinates['lon']])
+        ->whereRaw(
             'ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(ABS(lon - ?)))) * 6371 <= ?',
             [
                 $coordinates['lat'],
