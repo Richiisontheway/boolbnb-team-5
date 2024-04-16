@@ -35,10 +35,18 @@
 
         }
         #sponsors{
-            
+            .sponsors-info {
+                background-color: $table-hover-bg;
+                padding: 16px;
+                border-radius: 20px;
+            }
+
+            a {
+                color: $primary-text-color;
+            }
         }
         .button{
-            background-color: black;
+            background-color: $button-color;
             color: white;
         }
 

@@ -1,7 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import "variables";
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
 }
 
 body {
