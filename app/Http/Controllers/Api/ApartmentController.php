@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\View;
+use App\Models\User;
 
 class ApartmentController extends Controller
 {
@@ -68,12 +69,16 @@ class ApartmentController extends Controller
                                 ->where('apartment_id', $apartment->id)
                                 ->where('date_end', '>=', Carbon::now())
                                 ->orderBy('date_end', 'desc')
-                                ->first();                            
+                                ->first(); 
+                                
+            $owner = $apartment->user;
 
+                                            
             return response()->json([  
                 'success' => true,
                 'results' => $apartment,
-                'latestSponsorship' => $latestSponsorship
+                'latestSponsorship' => $latestSponsorship,
+                'owner' => $owner 
             ]);
 
         } else {
