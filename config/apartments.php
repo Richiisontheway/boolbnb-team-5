@@ -38,7 +38,7 @@ return [
         'price' => 100, 
         'lat' => 45.4529, // Latitudine di Milano
         'lon' => 9.1939, // Longitudine di Milano
-        'cover_img' => "img/apt-02_milano.jpg",
+        'cover_img' => "img/apt-2_milano.jpg",
         'visible' => true,              //12-18
         'address' => 'Via Carlo Crivelli, 20122 Milano',
         //'zip_code' => ' 20123' // CAP di Milano
@@ -52,7 +52,7 @@ return [
         'price' => 60,  
         'lat' => 45.4539, // Latitudine di Milano
         'lon' => 9.1876, // Longitudine di Milano
-        'cover_img' => "img/apt-03_milano.jpg",
+        'cover_img' => "img/apt-3_milano.jpg",
         'visible' => true,             
         'address' => 'Via Aldo Lusardi, 20122 Milano',
         //'zip_code' => ' 20123' // CAP di Milano
@@ -66,7 +66,7 @@ return [
         'price' => 80,  
         'lat' => 45.4586, // Latitudine di Milano
         'lon' => 9.1867, // Longitudine di Milano
-        'cover_img' => "img/apt-04_milano.jpg",
+        'cover_img' => "img/apt-4_milano.jpg",
         'visible' => true,             
         'address' => 'Via Carlo Ottavio Cornaggia, 20122 Milano',
         //'zip_code' => ' 20123' // CAP di Milano
