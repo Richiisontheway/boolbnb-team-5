@@ -60,7 +60,7 @@
                 <!-- Inizio Colonna Bottoni -->
                 <div class="col-auto user">
                     <div class="col-auto">
-                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group me-2" role="group" aria-label="Button group with nested dropdown">
                             <!-- Inizio Bottone Dropdown -->
                             <div class="btn-group my-button" role="group">
                                 <button type="button" class="btn d-flex align-items-center justify-content-between p-1" data-bs-toggle="dropdown" aria-expanded="false">

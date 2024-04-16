@@ -142,6 +142,7 @@ class SponsorController extends Controller
                 'date_end' => $date_end,
             ]);
 
+            echo "<script>showConfirmationMessage('Sponsorizzazione aggiunta con successo.')</script>";
             
             return redirect()->route('admin.apartments.show', $apartment_id)->with('success', 'Sponsorship added successfully.');
         } else {

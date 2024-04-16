@@ -17,6 +17,10 @@
                                 @endforeach
                             </ul>
                         </div>
+                        @elseif (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
                     @endif
                 </div>
 
@@ -160,6 +164,7 @@
     </div>
 
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         var form = document.querySelector('#payment-form');
         var dropinInstance;
@@ -186,10 +191,24 @@
 
                 // Imposta il valore di payment_method_nonce con il nonce della carta di credito
                 document.querySelector('#payment-method-nonce').value = payload.nonce;
+
+                // Chiama la funzione per visualizzare il messaggio di conferma
+                showConfirmationMessage('Sponsorizzazione aggiunta con successo.');
+
                 // Invia il form
                 form.submit();
             });
         });
+
+        function showConfirmationMessage(message) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Payment successful',
+                text: message,
+                showConfirmButton: false,
+                timer: 3000 // Mostra il messaggio per 3 secondi
+            });
+        }
     </script>
     
 @endsection
