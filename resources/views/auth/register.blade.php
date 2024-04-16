@@ -3,7 +3,10 @@
 @section('main-content')
     <div id="register" class="row">
         <div class="form_container col-sm-7 col-md-7 col-lg-7">
-            <h1 class="text-center mt-4">
+            <div class="text-center mt-2 pt-3">
+                <img src="{{ asset('logo.svg') }}" alt="Logo" class="logo_container">
+            </div>
+            <h1 class="text-center mt-2">
                 Form di registrazione
             </h1>
             <form method="POST" action="{{ route('register') }}" onsubmit="return checkPassword()">

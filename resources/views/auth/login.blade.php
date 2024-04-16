@@ -3,6 +3,9 @@
 @section('main-content')
     <div id="login" class="row">
         <div class="form_container col-md-7 col-lg-7">
+            <div class="d-flex align-content-center  pt-2">
+                <img src="{{ asset('logo.svg') }}" alt="Logo" class="logo_container">
+            </div>
             <h1 class="text-center mt-4">
                 Login
             </h1>
