@@ -38,6 +38,7 @@ class SponsorController extends Controller
                  ->where('apartment_sponsor.date_end', '>', now());
         })
         ->where('apartments.user_id', $user->id)
+        ->where('visible', '=', 1)
         ->whereNull('apartment_sponsor.id')
         ->get(['apartments.*']);
         

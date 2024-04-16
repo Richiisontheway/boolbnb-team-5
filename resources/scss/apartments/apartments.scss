@@ -7,6 +7,7 @@
     .add_button{
         background-color: $card-bg-color;
         color: $button_color;
+        transition: all 0.5s;
         &:hover {
             background-color: #EA4C89;
             color: white;
@@ -72,6 +73,8 @@
                 padding: 3px 5px;
                 background-color: $button_color;
                 border-radius: 3px;
+                
+
             }
         }
     }

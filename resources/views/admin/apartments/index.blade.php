@@ -18,13 +18,13 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="">
-                        <input type="text" name="filter" id="filter" class="form-control" placeholder="cerca tra i tuoi appartamenti...">
+                        <input type="text" name="filter" id="filter" class="form-control border-0" placeholder="cerca tra i tuoi appartamenti...">
                     </div>
                 </div>
 
                 <div class="col-6 col-lg-5 mt-lg-0  mt-2 ">
                     <div class="d-grid gap-2 col mx-auto">
-                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary border-0 w-100 add_button">Aggiungi un nuovo appartamento</a>
+                        <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary border-0 w-100 add_button">Aggiungi un nuovo appartamento <i class="fa-solid fa-plus"></i></a>
                     </div>
                 </div>
                 
@@ -42,13 +42,13 @@
                             @endif
                             <div class="card-body text-start">
                                 <div class="card-text row">
-                                    <div class="title">    
-                                        {{Str::limit($singleApartment->title,35, '...')}}                                     
+                                    <div class="fw-semibold">    
+                                        {{Str::limit($singleApartment->title,20, '...')}}                                     
                                     </div>
-                                    <div class="col-12 address_container">
-                                        {{ Str::limit($singleApartment->address,40, '...') }}
+                                    <div class="col-12 address_container fw-normal">
+                                        {{ Str::limit($singleApartment->address,30, '...') }}
                                     </div>
-                                    <div class="d-flex justify-content-center col-12 g-2 ">
+                                    <div class="d-flex justify-content-center col-12 g-2 mt-3">
                                         <div class="d-flex me-1 button_container">
                                             <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}">
                                                 <i class="fa-solid fa-circle-info"></i>

@@ -29,11 +29,11 @@
                                 {{-- Inizio Testata Tabella --}}
                                 <thead>
                                     <tr>
-                                        <th class="col-6 text-start table-titles">
+                                        <th class="col-6 text-start table-titles fw-semibold">
                                             I tuoi appartamenti
                                         </th>
-                                        <th class="text-start table-titles" >Città</th>
-                                        <th class="text-start table-titles">Sponsor</th>
+                                        <th class="text-start table-titles fw-medium" >Città</th>
+                                        <th class="text-start table-titles fw-medium">Sponsor</th>
                                     </tr>
                                 </thead>
                                 {{-- Fine Testata Tabella --}}
@@ -44,15 +44,15 @@
                                             <td class="text-start">
                                                 <img src="img/class-avatar.jpg" alt="">
                                                 <span>
-                                                    <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}" class="text-decoration-none">
+                                                    <a href="{{ route('admin.apartments.show' , ['apartment' => $singleApartment->slug]) }}" class="text-decoration-none fw-normal">
                                                         <span>
                                                             <i class="fa-solid fa-link"></i>
                                                         </span>
-                                                        {{ $singleApartment->title }}
+                                                        {{ Str::limit($singleApartment->title, 25, '...') }}
                                                     </a>
                                                 </span>
                                             </td>
-                                            <td class="text-start address">
+                                            <td class="text-start address fw-bolder">
                                                 @php
                                                     $apartmentAddress = $singleApartment->address;
                                                     $addressParts = explode(',', $apartmentAddress);
@@ -104,7 +104,7 @@
                             <div class="card border-0">
                                 <ul class="list-group list-group-flush">
                                     @foreach ($userTopApartments as $singleUserTopApartment)
-                                        <li class="list-group-item fst-italic">
+                                        <li class="list-group-item fst-italic fw-normal">
                                             {{ $singleUserTopApartment->title }}
                                             <span class="fw-light"> -  {{ $singleUserTopApartment->views_count }} visualizzazioni</span>
                                         </li>
@@ -119,7 +119,7 @@
                             <div class="card border-0">
                                 <ul class="list-group list-group-flush">
                                     @foreach ($userApartmentsWithMostMessages as $singleUserTopApartment)
-                                        <li class="list-group-item fst-italic">
+                                        <li class="list-group-item fst-italic fw-normal">
                                             {{ $singleUserTopApartment->title }}
                                             <span class="fw-light"> -  {{ $singleUserTopApartment->messages_count }} messaggi</span>
                                         </li>

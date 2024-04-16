@@ -31,7 +31,7 @@
                     <ul class="h-100 m-0">
                         <li>
                             <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
-                                <span class="d-lg-block d-none">
+                                <span class="d-lg-block d-none fw-semibold">
                                     Dashboard
                                 </span>
                                 <i class="d-lg-none d-md-block fa-solid fa-table-columns"></i>
@@ -39,7 +39,7 @@
                         </li>
                         <li>
                             <a class="nav-link {{ Request::routeIs('admin.apartments.index') ? 'active' : '' }}" href="{{route('admin.apartments.index')}}">
-                                <span class="d-lg-block d-none">
+                                <span class="d-lg-block d-none fw-semibold">
                                     Appartamenti
                                 </span>
                                 <i class="d-lg-none d-md-block fa-solid fa-house-user"></i>
@@ -48,7 +48,7 @@
                         
                         <li>
                             <a class="nav-link {{ Request::routeIs('admin.sponsors.index') ? 'active' : '' }}" href="{{ route('admin.sponsors.index') }}">
-                                <span class="d-lg-block d-none">
+                                <span class="d-lg-block d-none fw-semibold">
                                     Sponsor
                                 </span>
                                 <i class="d-lg-none d-md-block fa-solid fa-certificate"></i>
@@ -69,13 +69,15 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li class="d-lg-block m-0">
-                                        <span>
+                                        <span class="fw-semibold d-flex align-items-center">
+                                            <i class="fa-regular fa-circle-user pe-1"></i>
                                             {{$user->name}} {{ $user->lastname }}                             
                                         </span>
                                     </li>
                                     <li class="d-lg-block m-0">
-                                        <span>
-                                            {{ $user->email }}
+                                        <span class="fw-semibold d-flex align-items-center">
+                                            <i class="fa-solid fa-at pe-1"></i>
+                                            {{ Str::limit($user->email,20, '...') }}
                                         </span>
                                     </li>
                                     <li>

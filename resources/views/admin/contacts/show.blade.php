@@ -40,7 +40,6 @@
                     <div class="my-bg">
                         <p class="text_messages">
                             {{ $contact->message }}
-                          
                         </p>
                     </div>
 

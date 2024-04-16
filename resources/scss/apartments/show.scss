@@ -13,14 +13,6 @@
 
         }
  
-        .my_card_show_body{
-            margin-left: 20px;
-            p {
-                color:grey;
-                font-size: var(--iw-ehf-f);
-            }
-        }
-
         #services {
             
 
@@ -35,10 +27,8 @@
 
         }
         #sponsors{
-            .sponsors-info {
-                background-color: $table-hover-bg;
-                padding: 16px;
-                border-radius: 20px;
+            .sponsors-info span {
+                color: $button-color;
             }
 
             a {
@@ -48,10 +38,11 @@
         .button{
             background-color: $button-color;
             color: white;
-        }
+            transition: transform 0.5s;
 
-        .service-item {
-            white-space: nowrap; 
+            &:hover {
+                transform: scale(1.05);
+            }
         }
         
         .service-item i {
