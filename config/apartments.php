@@ -1149,6 +1149,174 @@ return [
         'cover_img' => "img/jazz-hotel.jpeg",
         'visible' => true,
         'address' => 'Via Degli Astronauti, 2, 07026 Olbia',
-    ]
+    ],
+    [
+        'title' => 'Diana e Atteone B&B',
+        'n_rooms' => 3,
+        'n_beds' => 3,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.9669, // Latitudine di Aversa
+        'lon' =>  14.2020, // Longitudine di Aversa
+        'cover_img' => "img/apt-01-Aversa.jpg",
+        'visible' => true,
+        'address' => 'Via antonio Canduglia, 501,81031 Aversa',
+        //'zip_code' => ' 81031' // CAP di Aversa
+    ],
+    [
+        'title' => 'Stile loft',
+        'n_rooms' => 2,
+        'n_beds' => 2,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.9669, // Latitudine di Aversa
+        'lon' =>  14.2020, // Longitudine di Aversa
+        'cover_img' => "img/apt-02-Aversa.jpg",
+        'visible' => true,
+        'address' => 'Via Pietro Rosano, 501,81031 Aversa',
+        //'zip_code' => ' 81031' // CAP di Aversa
+    ],
+    [
+        'title' => 'La stanza delle ustioni',
+        'n_rooms' => 4,
+        'n_beds' => 4,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.9669, // Latitudine di Aversa
+        'lon' =>  14.2020, // Longitudine di Aversa
+        'cover_img' => "img/apt-03-Aversa.jpg",
+        'visible' => true,
+        'address' => 'Via Alfonso Aragona, 501,81031 Aversa',
+        //'zip_code' => ' 81031' // CAP di Aversa
+    ],
+    [
+        'title' => 'La stanza del rinfresco',
+        'n_rooms' => 1,
+        'n_beds' => 1,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.9669, // Latitudine di Aversa
+        'lon' =>  14.2020, // Longitudine di Aversa
+        'cover_img' => "img/apt-04-Aversa.jpg",
+        'visible' => true,
+        'address' => 'Via Giuseppe de Lieto, 501,81031 Aversa',
+        //'zip_code' => ' 81031' // CAP di Aversa
+    ],
+    [
+        'title' => 'Lætitia cottage',
+        'n_rooms' => 2,
+        'n_beds' => 2,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 41.0832, // Latitudine di Caserta
+        'lon' =>  14.3343, // Longitudine di Caserta
+        'cover_img' => "img/apt-02-Caserta.jpg",
+        'visible' => true,
+        'address' => 'Vicolo Arturo vitelli, 501,81100 Caserta',
+        //'zip_code' => ' 81100' // CAP di Caserta
+    ],
+    [
+        'title' => 'Atrium apartment',
+        'n_rooms' => 3,
+        'n_beds' => 3,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 41.0832, // Latitudine di Caserta
+        'lon' =>  14.3343, // Longitudine di Caserta
+        'cover_img' => "img/apt-03-Caserta.jpg",
+        'visible' => true,
+        'address' => 'Via Leonardo Santorio, 501,81100 Caserta',
+        //'zip_code' => ' 81100' // CAP di Caserta
+    ],
+    [
+        'title' => 'Casa Parravano',
+        'n_rooms' => 4,
+        'n_beds' => 4,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 41.0832, // Latitudine di Caserta
+        'lon' =>  14.3343, // Longitudine di Caserta
+        'cover_img' => "img/apt-01-Caserta.jpg",
+        'visible' => true,
+        'address' => 'Via Franco Ferrante, 501,81100 Caserta',
+        //'zip_code' => ' 81100' // CAP di Caserta
+    ],
+    [
+        'title' => 'Ad un soffio dalla Reggia',
+        'n_rooms' => 1,
+        'n_beds' => 1,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 41.0832, // Latitudine di Caserta
+        'lon' =>  14.3343, // Longitudine di Caserta
+        'cover_img' => "img/apt-04-Caserta.jpg",
+        'visible' => true,
+        'address' => 'Via Ignazio Melone, 501,81100 Caserta',
+        //'zip_code' => ' 81100' // CAP di Caserta
+    ],
+    [
+        'title' => 'Home Sweet home',
+        'n_rooms' => 4,
+        'n_beds' => 4,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.8518, // Latitudine di Napoli
+        'lon' =>  14.2681, // Longitudine di Napoli
+        'cover_img' => "img/apt-03-Napoli.jpg",
+        'visible' => true,
+        'address' => 'Vicolo San Severino, 501,80121 Napoli',
+        //'zip_code' => ' 80121' // CAP di Napoli
+    ],
+    [
+        'title' => 'Metro Materdei',
+        'n_rooms' => 3,
+        'n_beds' => 3,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.8518, // Latitudine di Napoli
+        'lon' =>  14.2681, // Longitudine di Napoli
+        'cover_img' => "img/apt-01-Napoli.jpg",
+        'visible' => true,
+        'address' => 'Via Alessio Aurelio Pelliccia, 501,80121 Napoli',
+        //'zip_code' => ' 80121' // CAP di Napoli
+    ],
+    [
+        'title' => "L'Insolita Reggia",
+        'n_rooms' => 2,
+        'n_beds' => 2,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.8518, // Latitudine di Napoli
+        'lon' =>  14.2681, // Longitudine di Napoli
+        'cover_img' => "img/apt-02-Napoli.jpg",
+        'visible' => true,
+        'address' => 'Via Marino e Contronei, 501,80121 Napoli',
+        //'zip_code' => ' 80121' // CAP di Napoli
+    ],
+    [
+        'title' => 'Appartamento centro Procida sul mare',
+        'n_rooms' => 5,
+        'n_beds' => 5,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 80,
+        'lat' => 40.7590, // Latitudine di Procida
+        'lon' =>  14.0180, // Longitudine di Procida
+        'cover_img' => "img/apt-04-Procida.jpg",
+        'visible' => true,
+        'address' => 'Via dei bagni, 501,80079 Procida',
+        //'zip_code' => ' 80079' // CAP di Procida
+    ],
 
 ];
