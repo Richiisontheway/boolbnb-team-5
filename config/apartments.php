@@ -30,6 +30,48 @@ return [
         //'zip_code' => ' 20123' // CAP di Milano
     ],
     [
+        'title' => 'Casa Oriana Fallaci',
+        'n_rooms' => 4,
+        'n_beds' => 5,
+        'n_baths' => 2,
+        'mq' => 100,
+        'price' => 100, 
+        'lat' => 45.4529, // Latitudine di Milano
+        'lon' => 9.1939, // Longitudine di Milano
+        'cover_img' => "img/apt-02_milano.jpg",
+        'visible' => true,              //12-18
+        'address' => 'Via Carlo Crivelli, 20122 Milano',
+        //'zip_code' => ' 20123' // CAP di Milano
+    ],
+    [
+        'title' => 'Appartamento Milano',
+        'n_rooms' => 2,
+        'n_beds' => 1,
+        'n_baths' => 1,
+        'mq' => 70,
+        'price' => 60,  
+        'lat' => 45.4539, // Latitudine di Milano
+        'lon' => 9.1876, // Longitudine di Milano
+        'cover_img' => "img/apt-03_milano.jpg",
+        'visible' => true,             
+        'address' => 'Via Aldo Lusardi, 20122 Milano',
+        //'zip_code' => ' 20123' // CAP di Milano
+    ],
+    [
+        'title' => 'Casa Milano',
+        'n_rooms' => 3,
+        'n_beds' => 2,
+        'n_baths' => 1,
+        'mq' => 120,  
+        'price' => 80,  
+        'lat' => 45.4586, // Latitudine di Milano
+        'lon' => 9.1867, // Longitudine di Milano
+        'cover_img' => "img/apt-04_milano.jpg",
+        'visible' => true,             
+        'address' => 'Via Carlo Ottavio Cornaggia, 20122 Milano',
+        //'zip_code' => ' 20123' // CAP di Milano
+    ],
+    [
         'title' => 'Florentia Palace',
         'n_rooms' => 2,
         'n_beds' => 2,
