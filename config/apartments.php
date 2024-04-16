@@ -1271,7 +1271,7 @@ return [
         'price' => 80,
         'lat' => 40.8518, // Latitudine di Napoli
         'lon' =>  14.2681, // Longitudine di Napoli
-        'cover_img' => "img/apt-03-Napoli.jpg",
+        'cover_img' => "img/apt-03-Napoli.png",
         'visible' => true,
         'address' => 'Vicolo San Severino, 501,80121 Napoli',
         //'zip_code' => ' 80121' // CAP di Napoli
