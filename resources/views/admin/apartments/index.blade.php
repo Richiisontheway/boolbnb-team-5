@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <div class="col-6 col-lg-3 mt-lg-0  mt-2 ">
+                <div class="col-6 col-lg-5 mt-lg-0  mt-2 ">
                     <div class="d-grid gap-2 col mx-auto">
                         <a href="{{ route('admin.apartments.create') }}" class="btn btn-outline-secondary border-0 w-100 add_button">Aggiungi un nuovo appartamento</a>
                     </div>
