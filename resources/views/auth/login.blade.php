@@ -3,10 +3,10 @@
 @section('main-content')
     <div id="login" class="row">
         <div class="form_container col-md-7 col-lg-7">
-            <div class="d-flex align-content-center  pt-2">
-                <img src="{{ asset('logo.svg') }}" alt="Logo" class="logo_container">
+            <div class="text-center  pt-3">
+                <img src="{{ asset('logo.svg') }}" alt="Logo" class="logo_container h-100">
             </div>
-            <h1 class="text-center mt-4">
+            <h1 class="text-center mt-2 pb-3">
                 Login
             </h1>
             <form method="POST" action="{{ route('login') }}">
