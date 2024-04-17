@@ -13,7 +13,7 @@
                     </div>
                     <div class="my_card_show_body col-12">
                         <div class="row">
-                            <div class="col-12 my-3 text-warning">
+                            <div class="col-12 my-3 text-danger fw-bolder">
                                 @if ($apartment->visible == 0)
                                     Attualmente hai scelto di impostare il tuo appartamento come non disponibile
                                 @endif
@@ -54,7 +54,7 @@
                                     @else
                                     <div class="col-auto mb-3 fw-normal">
                                         Massimizza le possibilità di affitto e
-                                        <a href="{{ route('admin.sponsor.show', $apartment->id) }}" class="text-decoration-none">SPONSORIZZA</a>
+                                        <a href="{{ route('admin.sponsor.show', $apartment->id) }}" class="text-decoration-none fw-normal">SPONSORIZZA</a>
                                         questo appartamento
                                     </div>
                                     @endif

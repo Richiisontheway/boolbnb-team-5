@@ -85,7 +85,7 @@
 
                     {{-- Altrimenti viene avvisato che ancora non ne ha --}}
                     @else
-                        <p>Non hai ancora nessun appartamento.</p>
+                        <p class="vh-100">Non hai ancora nessun appartamento.</p>
                     @endif
 
                 </div>
