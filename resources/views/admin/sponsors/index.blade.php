@@ -88,7 +88,7 @@
         <h2>
             Approfittane ora
         </h2>
-        <p>
+        <p class="fw-normal">
             Hai ancora degli appartamenti non sponsorizzati
         </p>
         <div class="row sponsored_apartments_container">
