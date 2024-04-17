@@ -22,10 +22,10 @@
                                 <h4>
                                     {{$apartment->title}} 
                                 </h4>
-                                <div class="color-1">
+                                <div class="color-1 fw-normal">
                                     {{ $apartment->address }}
                                 </div>
-                                <div class="my-2">
+                                <div class="my-2 fw-bolder">
                                     {{ $apartment->n_rooms }} Stanze · {{ $apartment->n_beds }}<abbr title="letti"><i class="fa-solid fa-bed px-1"></i></abbr> · {{ $apartment->n_baths }} <abbr title="bagno"><i class="fa-solid fa-bath px-1 "></i></abbr> · {{ $apartment->mq }} m²
                                 </div>
                                 <hr>
@@ -49,7 +49,7 @@
                                 <div class="col-12 mt-3" id="sponsors">
                                     @if($latestSponsorship)
                                     <div class="col-auto mb-3 sponsors-info fw-normal">
-                                        Questo appartamento è già sponsorizzato: <span> {{ $sponsorTitle }} </span> . Fine sponsorizzazione: <span> {{ $formattedDate }} </span> 
+                                        Questo appartamento è già sponsorizzato: <span class="fw-normal"> {{ $sponsorTitle }} </span> . Fine sponsorizzazione: <span class="fw-normal"> {{ $formattedDate }} </span> 
                                     </div>
                                     @else
                                     <div class="col-auto mb-3 fw-normal">
