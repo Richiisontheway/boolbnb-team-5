@@ -136,10 +136,9 @@ class ApartmentController extends Controller
         $minBeds = $request->input('minBeds');
         $services = $request->input('services');
         $filterTitle = $request->input('filterTitle');
-
+        
         // Ottengo le coordinate dall'indirizzo utilizzando l'API di geocodifica
         $coordinates = $this->getCoordinatesFromAddress($address);
-
         // Filtro gli appartamenti cercando gli appartamenti in base alle coordinate 
         $filteredApartments = Apartment::selectRaw('*, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(ABS(lon - ?)))) * 6371 AS distance')
         ->orderBy('distance', 'asc')
@@ -153,13 +152,12 @@ class ApartmentController extends Controller
                 $radius
             ]
         );
-
         // Se l'utente ha selezionato un numero di stanze
         if ($minRooms) {
             // Filtro gli appartamenti
             $filteredApartments->where('n_rooms', '>=', $minRooms);
         }
-    
+        
         // Se l'utente ha selezionato un numero di letti
         if ($minBeds) {
             // Filtro gli appartamenti
@@ -221,10 +219,12 @@ class ApartmentController extends Controller
 
     }
     // Definisco una funzione per calcolare le coordinate degll'indirizzo scelto dall'utente
-    private function getCoordinatesFromAddress($address)
+    public function getCoordinatesFromAddress($address)
     {
         $apiKey = 'x5vTIPGVXKGawffLrAoysmnVC9V0S8cq';
-        $client = new Client();
+        $client = new Client([
+            'verify' => false,
+        ]);
 
         try {
             $response = $client->get("https://api.tomtom.com/search/2/geocode/{$address}.json?key={$apiKey}");
