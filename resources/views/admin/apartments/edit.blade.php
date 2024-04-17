@@ -6,8 +6,8 @@
 
 <section id="edit-apt">
 
-    <div class="fs-2"> 
-        <span class="fs-1">
+    <div class="fs-2 fw-normal mt-3"> 
+        <span class="fs-1 fw-medium">
             {{$apartment->title}}
         </span>
         (Modifica)
@@ -16,7 +16,7 @@
     <div class="mb-4">
         <a href="{{route('admin.apartments.index')}}" class="text-decoration-none text-dark">
             <i class="fa-solid fa-arrow-rotate-left"></i> 
-            <span>
+            <span class="fw-normal">
                 Torna Indietro
             </span> 
         </a>
@@ -32,7 +32,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="row">
                         <div class="col-12">
-                            <label for="title" class="form-label">Nome dell'appartamento <span class="text-danger">*</span></label>
+                            <label for="title" class="form-label fw-normal">Nome dell'appartamento <span class="text-danger">*</span></label>
                             {{-- old('title funziona solo se il form è stato sottomesso ma sono spuntati errori o altro')
                                 Se non c'è alcun valore precedentemente inserito, verrà utilizzato il valore di $apartment->title. --}}
                             <input type="text" value="{{ $apartment->title, old('title') }}" class="form-control" id="title" maxlength="255"  name="title" placeholder="nome appartamento" required>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mt-3">
-                            <label for="address" class="form-label">Indirizzo completo<span class="text-danger">*</span></label>
+                            <label for="address" class="form-label fw-normal">Indirizzo completo<span class="text-danger">*</span></label>
                             <input type="text" value="{{ $apartment->address, old('address') }}" class="form-control" id="address" name="address" maxlength="255" placeholder="inserisci l'indirizzo"  required>
                             @error('address')
                                 <div class="alert alert-danger">
@@ -58,7 +58,7 @@
                     </div>    
                     <div class="row">
                         <div class="col-6 my-3">
-                            <label for="n_rooms" class="form-label">Numero stanze da letto<span class="text-danger">*</span></label>
+                            <label for="n_rooms" class="form-label fw-normal">Numero stanze da letto<span class="text-danger">*</span></label>
                             <input type="number" value="{{ $apartment->n_rooms, old('n_rooms') }}" class="form-control" id="n_rooms" name="n_rooms" min="1" max="10" placeholder="inserisci il numero di stanze"  required>
                             @error('n_rooms')
                                 <div class="alert alert-danger">
@@ -67,7 +67,7 @@
                             @enderror
                         </div>
                         <div class="col-6 my-3">
-                            <label for="n_beds" class="form-label">Numero letti<span class="text-danger">*</span></label>
+                            <label for="n_beds" class="form-label fw-normal">Numero letti<span class="text-danger">*</span></label>
                             <input type="number" value="{{ $apartment->n_beds, old('n_beds') }}" class="form-control" id="n_beds" name="n_beds" min="1" max="10" placeholder="inserisci il numero di letti"  required>
                             @error('n_beds')
                                 <div class="alert alert-danger">
@@ -76,7 +76,7 @@
                             @enderror
                         </div>
                         <div class="col-6 mb-3">
-                            <label for="n_baths" class="form-label">Numeor bagni<span class="text-danger">*</span></label>
+                            <label for="n_baths" class="form-label fw-normal">Numeor bagni<span class="text-danger">*</span></label>
                             <input type="number" value="{{ $apartment->n_baths, old('n_baths') }}" class="form-control" id="n_baths" name="n_baths" min="1" max="10" placeholder="inserisci il numero di bagni"  required>
                             @error('n_baths')
                                 <div class="alert alert-danger">
@@ -85,7 +85,7 @@
                             @enderror
                         </div>
                         <div class="col-6 mb-3">
-                            <label for="mq" class="form-label">Numero mq<span class="text-danger">*</span></label>
+                            <label for="mq" class="form-label fw-normal">Numero mq<span class="text-danger">*</span></label>
                             <input type="number" value="{{ $apartment->mq, old('mq') }}" class="form-control" id="mq" name="mq" min="1" max="1000" placeholder="inserisci i metri quadri dell'immobile"  required>
                             @error('mq')
                                 <div class="alert alert-danger">
@@ -94,7 +94,7 @@
                             @enderror
                         </div>
                         <div class="col-6 mb-3">
-                            <label for="price" class="form-label">Prezzo a notte<span class="text-danger">*</span></label>
+                            <label for="price" class="form-label fw-normal">Prezzo a notte<span class="text-danger">*</span></label>
                             <input type="number" value="{{ $apartment->price, old('price') }}" class="form-control" id="price" name="price" placeholder="inserisci il prezzo" min="1" max="999.99" step="0.01" required>
                             @error('price')
                                 <div class="alert alert-danger">
@@ -113,14 +113,14 @@
                             <img id="actualImage" src="{{ $apartment->full_cover_img }}" alt="{{$apartment->title}}">
                             <div class="mt-2">
                                 <input type="checkbox" class="form-check-input" value="1" id="delete_cover_img" name="delete_cover_img">
-                                <label class="form-check-label" for="delete_cover_img">
+                                <label class="form-check-label fw-normal" for="delete_cover_img">
                                     Rimuovi immagine
                                 </label>
                             </div>
                         </div>
                         {{-- Creo una checkbox per chiedere se voglio eliminare la cover --}}
                         <div class="col-12 ps-0 form-check" id="newImageInput">
-                            <label for="cover_img" class="form-label">Inserisci una nuova immagine in evidenza</label>
+                            <label for="cover_img" class="form-label fw-normal">Inserisci una nuova immagine in evidenza</label>
                             <input type="file" value="{{ $apartment->cover_img, old('cover_img') }}" class="form-control" id="cover_img" name="cover_img" placeholder="file immagine" accept="*">
                             @error('cover_img')
                                 <div class="alert alert-danger">
@@ -135,7 +135,7 @@
             <div class="row">
                 <div class="col-12 mb-3">
                     <div>
-                        <label class="form-label">Seleziona i servizi per il tuo appartamento:</label>
+                        <label class="form-label fw-normal">Seleziona i servizi per il tuo appartamento:</label>
                     </div>
                     @foreach ($services as $service)
                         <div class="col-lg-3 col-md-4 col-6 form-check form-check-inline">
@@ -152,7 +152,7 @@
                             name="services[]"
                             value="{{$service->id}}"
                             >
-                            <label class="form-check-label" for="service-{{$service->id}}">
+                            <label class="form-check-label fw-normal" for="service-{{$service->id}}">
                                 {{ $service->title }}
                             </label>
                         </div>
@@ -162,7 +162,7 @@
             <div class="row">
                 <div class="col-auto mb-3">
                     <div>
-                        <label for="visible" class="form-label">L'appartmento è disponibile?<span class="text-danger">*</span></label>
+                        <label for="visible" class="form-label fw-normal">L'appartmento è disponibile?<span class="text-danger">*</span></label>
                     </div>
                     <select name="visible" id="visible" value="{{old('visible', $apartment->visible)}}">
                         <option value="1">Disponibile</option>
@@ -172,7 +172,7 @@
             </div>
                 
             <div>
-                <button type="submit" class="button-2">
+                <button type="submit" class="button-2 mb-4">
                     Aggiorna
                 </button>
             </div>

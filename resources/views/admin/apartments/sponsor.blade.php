@@ -32,7 +32,7 @@
                         <div class="col-12">
                             <form id="payment-form" method="POST" action="{{ route('admin.sponsor.pay', $apartment_id) }}" class="col-12 col-lg-8">
                                 @csrf
-                                <label class="mb-2" for="sponsor">Scegli il piano di sponsorizzazione:</label>
+                                <label class="mb-2 fw-normal" for="sponsor">Scegli il piano di sponsorizzazione:</label>
                                 <select name="sponsor" id="sponsor" class="form-select w-50" aria-label="Default select example">
                                     <option value="/" disabled selected>Scegli un piano</option>
                                     @foreach($sponsors as $sponsor)
@@ -70,15 +70,15 @@
                                                 2,99 € / 24h
                                             </h6>
                                             <ul class="fa-ul d-flex flex-column flex-grow-1 justify-content-around">
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Prima pagina per 24 ore  
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Massima visibilità              
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Promozione rapida efficace
                                                 </li>
@@ -103,15 +103,15 @@
                                                 5,99 € / 72h
                                             </h6>
                                             <ul class="fa-ul d-flex flex-column flex-grow g-0-1 justify-content-around">
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Homepage e ricerca per 3 giorni
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Più prenotazioni garantite   
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Ottimo rapporto qualità-prezzo
                                                 </li>
@@ -137,15 +137,15 @@
                                                 9,99 € / 144h
                                             </h6>
                                             <ul class="fa-ul d-flex flex-column flex-grow-1 justify-content-around">
-                                                <li> 
+                                                <li class="fw-bolder"> 
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Visibilità massima per 6 giorni         
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Vantaggio competitivo prolungato
                                                 </li>
-                                                <li>
+                                                <li class="fw-bolder">
                                                     <span class="fa-li"><i class="fa-solid fa-check"></i></span>
                                                     Massimizza le prenotazioni
                                                 </li>
@@ -200,6 +200,7 @@
             });
         });
 
+        // Funzione per mostrare il successo del pagamento
         function showConfirmationMessage(message) {
             Swal.fire({
                 icon: 'success',
