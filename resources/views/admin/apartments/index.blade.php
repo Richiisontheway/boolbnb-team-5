@@ -125,7 +125,7 @@
             // Ciclo attraverso le colonne degli appartamenti
             columns.forEach(function (column) {
                 // Trovo il titolo dell'appartamento all'interno della colonna
-                let title = column.querySelector('.title').textContent.toLowerCase();
+                let title = column.querySelector('.fw-semibold').textContent.toLowerCase();
 
                 // Controllo se il titolo include il testo inserito nell'input di filtro
                 if (title.includes(filter)) {
